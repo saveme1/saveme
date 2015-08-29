@@ -1,0 +1,45 @@
+:icons: font
+
+== Why believe in God?
+image:andromeda.png[Andromeda Galaxy,float="left"] 
+From the modern knowledge of astronomy we can see that God exitsts. Astronomers
+have scientifically shown that the universe is 13.7 billion years old.  That
+means the universe has a beginning. But everything that has a beginning did not
+create itself, it must be made by another. That 'other' that has no beginning,
+we call 'God'. It is very reasonable to believe in God.
+
+TIP: It is much easier to believe in God, than to wrestle with all kinds of arguments. Nonetheless, it is not hard to see that God exists by looking at our universe.
+
+[horizontal]
+CPU:: This is a term to define
+HOUSE:: This is another
+
+== Why be Christian?
+TIP: This is a TIP
+
+NOTE: This is a NOTE
+
+IMPORTANT: This is IMPORTANT
+
+WARNING: This is a  WARNING
+
+CAUTION: This is a CAUTION 
+
+== Why be Catholic?
+== Table
+.Table title
+|==============================
+| he1 | he2 | he3              
+| hello| hola | buon giorno    
+|==============================
+
+=== Level 3
+This should be lower level
+
+NOTE: This is some info
+
+icon:backward[role="red"] This is a comment
+
+icon:file[] This is a file
+
+// vim: set syntax=asciidoc:
