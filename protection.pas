@@ -6,8 +6,7 @@ interface
 
 
 uses
-  Classes, SysUtils, Process,
-  netdb;
+  Classes, SysUtils, Process, lib;
 
 const
   Safedns1 = '208.67.222.123';
@@ -27,7 +26,7 @@ begin
   {$IFDEF Windows}
   //https://stackoverflow.com/questions/1677154/programmatically-changing-nameserver-in-windows-tcp-ip
   //netsh interface ip set dns name="Local Area Connection" source=static addr=...
-  RunCommand('netsh interface ip set dns name="Local Area Connection" source=static addr=');
+  RunCommand('netsh interface ip set dns name="Local Area Connection" source=static addr=',Cmdout);
   {$ENDIF}
   {$IFDEF Linux}
   //https://stackoverflow.com/questions/1677154/programmatically-changing-nameserver-in-windows-tcp-ip
@@ -36,15 +35,18 @@ begin
   {$ENDIF}
 end;
 
+// Returns true if the host named 'Name' has an ip address whose first
+// byte is 'Num'. Returns false otherwise.
 function HostAddrBegins(const Name: string; const Num: byte): boolean;
-
 var
-  H: THostEntry;
+  Addr: TIPAddr = (0,0,0,0);
+  Err: string;
 
 begin
-  if ResolveHostByName(Name, H) then
+  Err := '';
+  if GetHostIP(Name, Addr, Err) then
   begin
-    if H.Addr.s_bytes[1] = Num then
+    if Addr[1] = Num then
       Result := True
     else
       Result := False;

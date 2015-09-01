@@ -10,11 +10,16 @@
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <Icon Value="0"/>
+      <Resources Count="1">
+        <Resource_0 FileName="html.zip" Type="RCDATA" ResourceName="HTML"/>
+      </Resources>
     </General>
     <i18n>
       <EnableI18N LFM="False"/>
     </i18n>
     <VersionInfo>
+      <UseVersionInfo Value="True"/>
+      <MinorVersionNr Value="3"/>
       <StringTable ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -39,7 +44,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="saveme.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -47,7 +52,7 @@
       <Unit1>
         <Filename Value="main.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
+        <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit1>
@@ -59,6 +64,10 @@
         <Filename Value="content.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="lib.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -71,6 +80,17 @@
       <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <Conditionals Value="// example for adding linker options on Mac OS X
+//if TargetOS='darwin' then
+//  LinkerOptions := ' -framework OpenGL';
+if TargetOS='linux' then
+  CustomOptions += '-FCi686-w64-mingw32-windres';
+
+// example for adding a unit and include path on Windows
+//if SrcOS='win' then begin
+//  UnitPath += ';win';
+//  IncPath += ';win';
+//end;"/>
     <Linking>
       <Options>
         <Win32>
@@ -78,6 +98,13 @@
         </Win32>
       </Options>
     </Linking>
+    <Other>
+      <ExecuteBefore>
+        <Command Value="sh -c 'cd html &amp;&amp; make'"/>
+        <ScanForMakeMsgs Value="True"/>
+        <CompileReasons Run="False"/>
+      </ExecuteBefore>
+    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="3">

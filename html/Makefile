@@ -1,9 +1,21 @@
 DIRS=en
 AOPTS=-a 'iconsdir=html/images' -a 'imagesdir=html/images'
+ADOCS:=$(shell find . -name '*.adoc')
+
+html.zip: $(ADOCS:.adoc=.html) images/*.png
+	cd .. && zip $@ $(addprefix html/,$^)
+
+%.html: %.adoc
+	asciidoc $(AOPTS) $<
+	sed -i -e '/Last updated/ d' $@
 
 html:
+	echo $(HTMLS)
+	echo $(ADOCS)
 	for i in $(DIRS); do \
 		cd $$i; \
-		asciidoc $(AOPTS) *.adoc; \
+		for f in *.adoc; do \
+		   asciidoc $(AOPTS) $$f; \
+		done; \
 		sed -i -e '/Last updated/ d' *.html; \
 	done

@@ -11,25 +11,30 @@ uses
 
 type
 
-  { TForm1 }
+  { TMainForm }
 
-  TForm1 = class(TForm)
-    Button1: TButton;
+  TMainForm = class(TForm)
+    ApplicationProperties1: TApplicationProperties;
+    ButtonSettings: TButton;
     Image1: TImage;
     IpFileDataProvider1: TIpFileDataProvider;
-    IpHtmlPanel1: TIpHtmlPanel;
-    IpHtmlPanel2: TIpHtmlPanel;
+    IpHtmlPanelWhyChristian: TIpHtmlPanel;
+    IpHtmlPanelWhyCatholic: TIpHtmlPanel;
+    IpHtmlPanelWhyBelieve: TIpHtmlPanel;
+    IpHtmlPanelHelpMe: TIpHtmlPanel;
+    Memo1: TMemo;
     PageControl1: TPageControl;
     Panel1: TPanel;
     StatusBar1: TStatusBar;
-    TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
+    TabSheet1: TTabSheet;
     TabSheet3: TTabSheet;
     TabSheet4: TTabSheet;
     TreeView1: TTreeView;
-    procedure Button1Click(Sender: TObject);
+    procedure ButtonSettingsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure TreeView1SelectionChanged(Sender: TObject);
 
   private
     { private declarations }
@@ -38,36 +43,66 @@ type
   end;
 
 var
-  Form1: TForm1;
+  MainForm: TMainForm;
+
+const
+  VERSION = '0.3';
 
 implementation
 
 {$R *.lfm}
 
-{ TForm1 }
+{ TMainForm }
 ///////////////////  Libs
 ///////////////// Gui
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TMainForm.FormCreate(Sender: TObject);
 begin
-  ShowContent(IpHtmlPanel1, 'whybelieve');
+  //Populate why believe tab with its content
+  ShowContent(IpHtmlPanelWhyBelieve, 'whybelieve');
+  ShowContent(IpHtmlPanelWhyChristian, 'whychristian');
+  ShowContent(IpHtmlPanelWhyCatholic, 'whycatholic');
+
+  //Select help me node on tree
+  TreeView1.Selected := TreeView1.Items.GetFirstNode;
+  TreeView1.Selected.MakeVisible;
+
+  //Show protection state and version in the status bar
   StatusBar1.Panels[0].Text := isProtectedStr();
+  StatusBar1.Panels[1].Text := VERSION;
 end;
 
-
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TMainForm.TreeView1SelectionChanged(Sender: TObject);
 begin
+  //Switch to the proper Tab if the treenode clicked
+  //corresponds to one of the window Tabs
+  if TreeView1.Selected.Text = TabSheet2.Caption then
+    PageControl1.ActivePageIndex := 1
+  else
+  if TreeView1.Selected.Text = TabSheet3.Caption then
+    PageControl1.ActivePageIndex := 2
+  else
+  if TreeView1.Selected.Text = TabSheet4.Caption then
+    PageControl1.ActivePageIndex := 3
+  else
+    //Show the html document for the clicked tree node
+    //if there is no window Tab for it
+    ShowTreeContent(IpHtmlPanelHelpMe, TreeView1.Selected.Text);
+end;
 
+procedure TMainForm.ButtonSettingsClick(Sender: TObject);
+begin
+  ShowContent(IpHtmlPanelWhyBelieve, 'whybelieve');
   setsafedns;
 end;
 
-procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  IpHtmlPanel1.Free;
-  IpHtmlPanel2.Free;
+  IpHtmlPanelWhyBelieve.Free;
+  IpHtmlPanelWhyChristian.Free;
+  IpHtmlPanelWhyCatholic.Free;
+  IpHtmlPanelHelpMe.Free;
   IpFileDataProvider1.Free;
 end;
-
-
 
 
 end.

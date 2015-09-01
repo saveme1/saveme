@@ -1,45 +1,37 @@
 :icons: font
 
-== Why believe in God?
-image:andromeda.png[Andromeda Galaxy,float="left"] 
+== image:andromeda.png[Andromeda Galaxy] Why believe in God?
+
 From the modern knowledge of astronomy we can see that God exitsts. Astronomers
 have scientifically shown that the universe is 13.7 billion years old.  That
 means the universe has a beginning. But everything that has a beginning did not
 create itself, it must be made by another. That 'other' that has no beginning,
 we call 'God'. It is very reasonable to believe in God.
 
-TIP: It is much easier to believe in God, than to wrestle with all kinds of arguments. Nonetheless, it is not hard to see that God exists by looking at our universe.
+TIP: It is much easier to believe in God, than to wrestle with all kinds of
+arguments. Nonetheless, it is not hard to see that God exists by looking at our
+universe.
 
-[horizontal]
-CPU:: This is a term to define
-HOUSE:: This is another
+image:log_cabin.png[Log cabin in desserted island] Supose you were stranded on
+a deserted island. You are hungry and thirsty. You are desperate. You start
+walking to find some food, maybe some water. As you walk you find a log cabin!
+What a joy! There are some humans in this island! Maybe they can help me. 
 
-== Why be Christian?
-TIP: This is a TIP
+WARNING: If someone tells you that the log cabin came from spontaneous
+generation after some trees fell during a primordial storm, make sure you
+reserve a place for them at the mental hospital. It would be an act of charity.
 
-NOTE: This is a NOTE
+This log cabin experience can also show us that God exists. Wherever there is
+technique, art, and high level organization there is an 'intelligence'. When
+you see the cabin you immediately think there are people around. The same with
+the universe, we have so many things with great technique, art, organization:
+for example, the laws of mathematics, the laws of physics, the beauty of a
+flower. 
 
-IMPORTANT: This is IMPORTANT
+IMPORTANT: All these laws existed before humans, so there must be an intelligence that
+made them.  These laws are made by an intelligent being, they can't make
+themselves just like the log cabin can't rise spontaneusly from a bunch of
+fallen trees. This intelligence we call 'God'.
 
-WARNING: This is a  WARNING
-
-CAUTION: This is a CAUTION 
-
-== Why be Catholic?
-== Table
-.Table title
-|==============================
-| he1 | he2 | he3              
-| hello| hola | buon giorno    
-|==============================
-
-=== Level 3
-This should be lower level
-
-NOTE: This is some info
-
-icon:backward[role="red"] This is a comment
-
-icon:file[] This is a file
-
++JMJ
 // vim: set syntax=asciidoc:
