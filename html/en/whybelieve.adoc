@@ -1,21 +1,24 @@
 :icons: font
 
-== image:andromeda.png[Andromeda Galaxy] Why believe in God?
+== Why believe in God?
 
-From the modern knowledge of astronomy we can see that God exitsts. Astronomers
-have scientifically shown that the universe is 13.7 billion years old.  That
-means the universe has a beginning. But everything that has a beginning did not
-create itself, it must be made by another. That 'other' that has no beginning,
-we call 'God'. It is very reasonable to believe in God.
++++<img src="html/images/andromeda.png" align="left" alt="Andromeda
+galaxy"></img>+++From the modern knowledge of astronomy we can see that God
+exitsts. Astronomers have scientifically shown that the universe is 13.7
+billion years old.  That means the universe has a beginning. But everything
+that has a beginning did not create itself, it must be made by another. That
+'other' that has no beginning, we call 'God'. It is very reasonable to believe
+in God.
 
 TIP: It is much easier to believe in God, than to wrestle with all kinds of
 arguments. Nonetheless, it is not hard to see that God exists by looking at our
 universe.
 
-image:log_cabin.png[Log cabin in desserted island] Supose you were stranded on
-a deserted island. You are hungry and thirsty. You are desperate. You start
-walking to find some food, maybe some water. As you walk you find a log cabin!
-What a joy! There are some humans in this island! Maybe they can help me. 
++++<img src="html/images/log_cabin.png" align="left" alt="Log cabin in a
+deserted island"></img>+++Supose you were stranded on a deserted island. You
+are hungry and thirsty. You are desperate. You start walking to find some food,
+maybe some water. As you walk you find a log cabin!  What a joy! There are some
+humans in this island! Maybe they can help me. 
 
 WARNING: If someone tells you that the log cabin came from spontaneous
 generation after some trees fell during a primordial storm, make sure you

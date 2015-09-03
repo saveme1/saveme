@@ -2,8 +2,11 @@ DIRS=en
 AOPTS=-a 'iconsdir=html/images' -a 'imagesdir=html/images'
 ADOCS:=$(shell find . -name '*.adoc')
 
-html.zip: $(ADOCS:.adoc=.html) images/*.png
-	cd .. && zip $@ $(addprefix html/,$^)
+HTMLVERSION: ../html.zip
+	../saveme_md5 ../html.zip ../HTMLVERSION
+
+../html.zip: $(ADOCS:.adoc=.html) images/*.png
+	cd .. && zip html.zip $(addprefix html/,$^)
 
 %.html: %.adoc
 	asciidoc $(AOPTS) $<

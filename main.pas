@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, SynEdit, Forms, Controls,
-  Graphics, Dialogs, ExtCtrls, ComCtrls, StdCtrls,
-  protection, content;
+  Graphics, Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf,
+  protection, content, settings, working;
 
 type
 
@@ -34,7 +34,9 @@ type
     procedure ButtonSettingsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure IpHtmlPanelHelpMeHotClick(Sender: TObject);
     procedure TreeView1SelectionChanged(Sender: TObject);
+    procedure SetFont(const MainFont:TFont);
 
   private
     { private declarations }
@@ -57,6 +59,10 @@ implementation
 ///////////////// Gui
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
+  //We first need to unpack the content to make it
+  //available
+  UnpackContentIfNeeded();
+
   //Populate why believe tab with its content
   ShowContent(IpHtmlPanelWhyBelieve, 'whybelieve');
   ShowContent(IpHtmlPanelWhyChristian, 'whychristian');
@@ -70,6 +76,23 @@ begin
   StatusBar1.Panels[0].Text := isProtectedStr();
   StatusBar1.Panels[1].Text := VERSION;
 end;
+
+procedure TMainForm.IpHtmlPanelHelpMeHotClick(Sender: TObject);
+var
+  NodeA : TIpHtmlNodeA;
+  NewURL : String;
+begin
+
+  if TIpHtmlPanel(Sender).HotNode is TIpHtmlNodeA then
+    begin
+      FormWorking.ShowOnTop;
+      Application.ProcessMessages;
+      NodeA := TIpHtmlNodeA(TIpHtmlPanel(Sender).HotNode);
+      NewURL := NodeA.HRef;
+      OpenURL(NewURL);
+    end;
+end;
+
 
 procedure TMainForm.TreeView1SelectionChanged(Sender: TObject);
 begin
@@ -91,6 +114,7 @@ end;
 
 procedure TMainForm.ButtonSettingsClick(Sender: TObject);
 begin
+  FormSettings.Show;
   ShowContent(IpHtmlPanelWhyBelieve, 'whybelieve');
   setsafedns;
 end;
@@ -102,8 +126,13 @@ begin
   IpHtmlPanelWhyCatholic.Free;
   IpHtmlPanelHelpMe.Free;
   IpFileDataProvider1.Free;
+  CloseAction:= caFree;
 end;
 
+procedure TMainForm.SetFont(const MainFont: TFont);
+begin
+  IpHtmlPanelHelpMe.Font := Font;
+end;
 
 end.
 
