@@ -8,7 +8,7 @@
       <Unit0>
         <Filename Value="saveme.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="2"/>
         <CursorPos X="42" Y="19"/>
         <UsageCount Value="226"/>
         <Loaded Value="True"/>
@@ -20,7 +20,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="79"/>
-        <CursorPos X="23" Y="92"/>
+        <CursorPos X="40" Y="96"/>
         <UsageCount Value="226"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -28,7 +28,7 @@
       <Unit2>
         <Filename Value="protection.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="3"/>
         <TopLine Value="54"/>
         <CursorPos X="34" Y="8"/>
         <UsageCount Value="224"/>
@@ -37,19 +37,20 @@
       <Unit3>
         <Filename Value="content.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="88"/>
-        <CursorPos X="89" Y="142"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="4"/>
+        <CursorPos X="55" Y="9"/>
         <UsageCount Value="219"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="lib.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="65"/>
         <CursorPos X="35" Y="76"/>
-        <UsageCount Value="168"/>
+        <UsageCount Value="169"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -58,10 +59,10 @@
         <ComponentName Value="FormSettings"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="40"/>
         <CursorPos X="40" Y="53"/>
-        <UsageCount Value="70"/>
+        <UsageCount Value="71"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -71,11 +72,10 @@
         <ComponentName Value="FormWorking"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="67"/>
-        <CursorPos X="47" Y="81"/>
-        <UsageCount Value="65"/>
+        <TopLine Value="85"/>
+        <CursorPos X="7" Y="95"/>
+        <UsageCount Value="66"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -127,26 +127,24 @@
       <Unit13>
         <Filename Value="..\..\..\..\usr\lib\lazarus\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="2185"/>
-        <CursorPos Y="2196"/>
+        <TopLine Value="2065"/>
+        <CursorPos Y="2076"/>
         <UsageCount Value="10"/>
       </Unit13>
       <Unit14>
         <Filename Value="..\..\..\..\usr\lib\lazarus\lcl\customtimer.pas"/>
         <UnitName Value="CustomTimer"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="140"/>
         <CursorPos Y="151"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="..\..\..\..\usr\lib\lazarus\lcl\interfaces\qt\qtobjects.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="4640"/>
         <CursorPos Y="4651"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit15>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
@@ -259,16 +257,16 @@
         <Caret Line="84" TopLine="67"/>
       </Position27>
       <Position28>
-        <Filename Value="..\..\..\..\usr\lib\lazarus\lcl\customtimer.pas"/>
-        <Caret Line="176" TopLine="165"/>
+        <Filename Value="content.pas"/>
+        <Caret Line="142" Column="25" TopLine="136"/>
       </Position28>
       <Position29>
-        <Filename Value="..\..\..\..\usr\lib\lazarus\lcl\customtimer.pas"/>
-        <Caret Line="151" TopLine="140"/>
+        <Filename Value="working.pas"/>
+        <Caret Line="28" Column="29" TopLine="21"/>
       </Position29>
       <Position30>
-        <Filename Value="..\..\..\..\usr\lib\lazarus\lcl\interfaces\qt\qtobjects.pas"/>
-        <Caret Line="4651" TopLine="4640"/>
+        <Filename Value="saveme.lpr"/>
+        <Caret Line="19" Column="42"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

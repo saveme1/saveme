@@ -29,6 +29,9 @@ type
     { public declarations }
   end;
 
+procedure ShowWorking();
+procedure HideWorking();
+
 const
   ShowInterval = 5000;
 
@@ -81,6 +84,21 @@ begin
     Msg := 'Working ' + StringOfChar(#46, 3 - ShowIntervalCnt mod 3);
     Label1.Caption := Msg;
   end;
+end;
+
+procedure ShowWorking();
+begin
+  if Assigned(FormWorking) then
+  begin
+    FormWorking.ShowOnTop;
+    Application.ProcessMessages;
+  end;
+end;
+
+procedure HideWorking();
+begin
+  if Assigned(FormWorking) then
+    FormWorking.Close;
 end;
 
 begin

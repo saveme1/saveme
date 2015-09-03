@@ -139,7 +139,6 @@ procedure ShowContent(HtmlPanel: TIpHtmlPanel; What: string);
 var
   Content: string;
 begin
-  HtmlPanel.SetHtmlFromStr('<html><body>Loading content, please wait...</body></html>');
   Content := GetContent(What);
   HtmlPanel.SetHtmlFromStr(Content);
 end;

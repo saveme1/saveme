@@ -85,7 +85,7 @@ begin
 
   if TIpHtmlPanel(Sender).HotNode is TIpHtmlNodeA then
     begin
-      FormWorking.ShowOnTop;
+      ShowWorking();
       Application.ProcessMessages;
       NodeA := TIpHtmlNodeA(TIpHtmlPanel(Sender).HotNode);
       NewURL := NodeA.HRef;
