@@ -19,10 +19,12 @@ type
     ButtonCancel: TButton;
     FontDialog1: TFontDialog;
     Label1: TLabel;
+    MemoInfo: TMemo;
     procedure Button1Click(Sender: TObject);
     procedure ButtonCancelClick(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
     procedure ButtonReloadClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     { private declarations }
@@ -61,6 +63,13 @@ end;
 procedure TFormSettings.ButtonReloadClick(Sender: TObject);
 begin
   UnpackContentIfNeeded;
+end;
+
+procedure TFormSettings.FormShow(Sender: TObject);
+Var Info: ansistring;
+begin
+  Info:='Working dir: ' + GetCurrentDirUTF8();
+  MemoInfo.Text:=Info;
 end;
 
 end.

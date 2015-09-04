@@ -3,7 +3,8 @@
 
 === The two commandments of love:
 
-1. You shall love the Lord your God with all your heart, with all your soul, and with all your mind.
+1. You shall love the Lord your God with all your heart, with all your soul,
+   and with all your mind.
 2. You shall love your neighbor as yourself.
 
 === The Golden Rule (Matthew 7:12):
@@ -12,16 +13,19 @@ Do to others as you would have them do to you.
 
 === The Beatitudes (Matthew 5:3-12):
 
-Blessed are the poor in spirit, for theirs is the kingdom of heaven.
-Blessed are they who mourn, for they will be comforted.
-Blessed are the meek, for they will inherit the earth.
-Blessed are they who hunger and thirst for righteousness, for they will be satisfied.
-Blessed are the merciful, for they will be shown mercy.
-Blessed are the pure of heart, for they will see God.
-Blessed are the peacemakers, for they will be called children of God.
-Blessed are those who are persecuted for righteousness’ sake, for theirs is the kingdom of heaven.
-Blessed are you when people revile you and persecute you and utter all kinds of evil against you falsely on my account. 
-Rejoice and be glad, for your reward will be great in heaven.
+- Blessed are the poor in spirit, for theirs is the kingdom of heaven.
+- Blessed are they who mourn, for they will be comforted.
+- Blessed are the meek, for they will inherit the earth.
+- Blessed are they who hunger and thirst for righteousness, for they will be
+  satisfied.
+- Blessed are the merciful, for they will be shown mercy.
+- Blessed are the pure of heart, for they will see God.
+- Blessed are the peacemakers, for they will be called children of God.
+- Blessed are those who are persecuted for righteousness’ sake, for theirs is
+  the kingdom of heaven.
+- Blessed are you when people revile you and persecute you and utter all kinds
+  of evil against you falsely on my account.  Rejoice and be glad, for your
+  reward will be great in heaven.
 
 === The three theological virtues:
 
@@ -63,10 +67,13 @@ Rejoice and be glad, for your reward will be great in heaven.
 
 === The five precepts of the Church:
 
-1. You shall attend Mass on Sundays and on holy days of obligation and remain free from work or activity that could impede the sanctification of such days.
+1. You shall attend Mass on Sundays and on holy days of obligation and remain
+   free from work or activity that could impede the sanctification of such days.
 2. You shall confess your sins at least once a year.
-3. You shall receive the sacrament of the Eucharist at least during the Easter season.
-4. You shall observe the days of fasting and abstinence established by the Church.
+3. You shall receive the sacrament of the Eucharist at least during the Easter
+   season.
+4. You shall observe the days of fasting and abstinence established by the
+   Church.
 5. You shall help to provide for the needs of the Church.
 
 === The seven corporal works of mercy:

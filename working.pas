@@ -24,7 +24,7 @@ type
     procedure Timer1Timer(Sender: TObject);
 
   private
-    FStartTicks: integer;
+
   public
     { public declarations }
   end;

@@ -59,6 +59,10 @@ implementation
 ///////////////// Gui
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
+  //Switch to the config directory as the working dir
+  //so that all html relative html links work properly
+  ChDir(GetAppConfigDir(False));
+
   //We first need to unpack the content to make it
   //available
   UnpackContentIfNeeded();

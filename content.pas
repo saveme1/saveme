@@ -128,7 +128,7 @@ var
   Src: ansistring;
 begin
   Buf := TTextStrings.Create;
-  Src := GetAppConfigDir(False) + 'html/en/' + what + '.html';
+  Src := ConcatPaths([GetAppConfigDir(False),'html','en', what + '.html']);
   Buf.LoadFromFile(Src);
   Result := Buf.Text;
   Buf.Free;
