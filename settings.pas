@@ -6,24 +6,26 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  content, IpHtml;
+  ExtCtrls, Buttons, content, IpHtml, lib;
 
 type
 
   { TFormSettings }
 
   TFormSettings = class(TForm)
+    BitBtnCancel: TBitBtn;
+    BitBtnOK: TBitBtn;
+    BitBtnReload: TBitBtn;
     Button1: TButton;
-    ButtonReload: TButton;
-    ButtonOK: TButton;
-    ButtonCancel: TButton;
     FontDialog1: TFontDialog;
+    GroupBox1: TGroupBox;
     Label1: TLabel;
     MemoInfo: TMemo;
+    Panel1: TPanel;
+    procedure BitBtnOKClick(Sender: TObject);
+    procedure BitBtnCancelClick(Sender: TObject);
+    procedure BitBtnReloadClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure ButtonCancelClick(Sender: TObject);
-    procedure ButtonOKClick(Sender: TObject);
-    procedure ButtonReloadClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
   private
@@ -43,10 +45,6 @@ implementation
 { TFormSettings }
 
 
-procedure TFormSettings.ButtonCancelClick(Sender: TObject);
-begin
-  FormSettings.Hide;
-end;
 
 procedure TFormSettings.Button1Click(Sender: TObject);
 begin
@@ -55,21 +53,44 @@ begin
   Application.MainForm.Font := MainFont;
 end;
 
-procedure TFormSettings.ButtonOKClick(Sender: TObject);
+procedure TFormSettings.BitBtnOKClick(Sender: TObject);
 begin
   FormSettings.Hide;
 end;
 
-procedure TFormSettings.ButtonReloadClick(Sender: TObject);
+procedure TFormSettings.BitBtnCancelClick(Sender: TObject);
+begin
+  FormSettings.Hide;
+end;
+
+procedure TFormSettings.BitBtnReloadClick(Sender: TObject);
 begin
   UnpackContentIfNeeded;
 end;
 
 procedure TFormSettings.FormShow(Sender: TObject);
-Var Info: ansistring;
+var
+  Info: ansistring;
+  {$IFDEF Windows}
+  NetIfList: tNetworkInterfaceList;
+  IfInfo: tNetworkInterface;
+  {$ENDIF}
 begin
-  Info:='Working dir: ' + GetCurrentDirUTF8();
-  MemoInfo.Text:=Info;
+  Info := '';
+  {$IFDEF Windows}
+  GetNetworkInterfaces(NetIfList);
+  for IfInfo in NetIfList do
+  begin
+    Info := Info + 'AddrNet: ' + IfInfo.AddrNet + LineEnding +
+          //'CompName: ' + IfInfo.ComputerName + LineEnding +
+          'AddrIP: ' + IfInfo.AddrIP + LineEnding +
+          'Up?: ' + BoolToStr(IfInfo.IsInterfaceUp) + LineEnding +
+          'Loopback?: ' + BoolToStr(IfInfo.IsLoopback) + LineEnding +
+          LineEnding;
+  end;
+  {$ENDIF}
+  Info := Info + 'Working dir: ' + GetCurrentDirUTF8() +LineEnding;
+  MemoInfo.Text := Info;
 end;
 
 end.

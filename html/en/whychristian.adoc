@@ -1,42 +1,63 @@
 :icons: font
 
 == Why be a Christian?
-+++<img src="html/images/Jesus_sinner.png" align="left" alt="I want to heal you
-.. .. confession?"></img>+++Many religions believe in God, but not all are
-Christians; why then be a Christian if we believe in God?  If Jesus proves that
-He is God, then it stands to reason that we should be a Christian.
++++<img src="html/images/goodshepherd.png" align="left" alt="Jesus Good
+Shepherd - St. Johns Ashfield" ></img>+++Many religions believe in God, but not
+all are Christians; why then be a Christian if we believe in God?  If Jesus
+proves that He is God, then it stands to reason that we should be a Christian.
 
-If Jesus is God, then we should follow the religion He founded!! It simply
-stands to reason to follow the religion made by God himself on earth.
+If Jesus is God, then we should follow Him!! If we already believe in God (see
+Why Believe?) and we know that Jesus is God, then we should follow Jesus! But
+how do we know that Jesus is God?
 
 WARNING: There is only one religion whose founder claims to be God:
 'Christianity'. Buddha does not claim to be God, Confucius does not claim to be
-God, Mohammed does not claim to be God. Jesus, however, tells us He is God.
+God, Mohammed does not claim to be God. Only Jesus claims to be God.
 
 So how do we know that 'Jesus is God'? First because He said it, second because
-He proved it. First, He said it. In the bible we have many passages that show
-us that Jesus said He is God: _"before Abraham was I AM" (John 8:58)_; Thomas
-the Apostle explicitly calls Jesus God, and Jesus praises Thomas because he
+He proved it. 
+
++++<img src="html/images/thomas.png" align="left" alt="I AM your God"
+></img>+++First, He said it. In the bible we have many passages that show us
+that Jesus said He is God: _"before Abraham was I AM" (John 8:58)_. Thomas the
+Apostle explicitly calls Jesus God, and Jesus praises Thomas because he
 believed: 
 [quote, RSV Bible, John 20:28-29]
-_"Thomas answered him, My Lord and my God! Jesus said to him, Have
-you believed because you have seen me? Blessed are those who have not seen and
-yet believe."_
+ _"Thomas answered him, My Lord and my God! Jesus said to him, Have you
+believed because you have seen me? Blessed are those who have not seen and yet
+believe."_
 
-But it was not enough to simply say that Jesus is God, He also proved it. Jesus
-proved He was God by the many, many miracles He did. Those miracles are
-recorded by many eyewitnesses in the bible. The greatest miracle of all is Jesus'
-own resurrection from the dead. 
+Jesus explicitly praises the Apostle Thomas because he now believed. What did
+Thomas believe? That 'Jesus is God'. Faith believes in what is not seen, but
+Thomas believed because he had seen the Resurrection. Thomas did not need proof
+of the Resurrection, he could see it with his own eyes, but the Resurrection is
+the proof that Jesus is God. For this reason Thomas said '"My Lord and my
+God!"' 
 
-For example, when He raised Lazarus
-from the dead: _"Lazarus, come out. The dead man came out, his hands and feet
-bound with bandages"_ (John 11:43-44). Now many eyewitnesses saw this, and they
-recorded it in the bible. There is not even one document in early history that
-denies that this happened. If this had been a fabrication we would have at
-least one early record denying its authenticity, but there is not one document
-from early history denying that Lazarus rose from the dead. Like this there are
+Jesus performed many miracles, they are all proof that Jesus is God. Others did
+miracles in the name of God, but Jesus made miracles in His own name:
+[quote, RSV Bible, Mark 4:39]
+'[Jesus] said to the sea, "Peace! Be still!" And the wind ceased, and there was a
+great calm.[...] And they were filled with awe, and said to one another, "Who
+then is this, that even wind and sea obey him?"'
+
++++<img src="html/images/lazarusraised.png" align="left" alt="I
+AM"></img>+++Jesus proved that He is God by His miracles. One of the greatest
+was the raising of Lazarus from the dead, a miracle which Jesus did in His own
+name.  Lazarus had been dead for four days, such time had passed that his body
+smelled. It was already decomposing. Yet, Jesus said: _"Lazarus, come
+out. The dead man came out, his hands and feet bound with bandages"_ (John
+11:43-44). 
+
+Many eyewitnesses saw this miracles with their own eyes, and it is recorded it
+in the bible. There is not even one document in early history that denies that
+this happened. Even Jesus' enemies believed it, because they wanted to kill
+Lazarus so that people would not follow Jesus any more.  Like this there are
 many other miracles in the bible, I would encourage you to read it yourself. A
-good place to start is the Gospel of St. Luke.
+good place to start is the Gospel of St. Mark.
+
+Jesus, by His miracles, proved that He is God. This is confirms that we should
+be Christians.
 
 +JMJ
 // vim: set syntax=asciidoc:

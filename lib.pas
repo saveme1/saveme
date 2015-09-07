@@ -5,7 +5,7 @@ unit lib;
 interface
 
 uses
-  Classes, SysUtils, Dialogs
+  Classes, SysUtils, Dialogs, Process, Regexpr
   {$IFDEF Windows}
   , Windows, WinSock
   {$ENDIF}
@@ -68,7 +68,7 @@ function GetNetworkInterfaces(
 
  {$ENDIF}
 
-
+function GetDNSServers(var DNSServers: TStrings): boolean;
 function GetHostIP(const HostName: ansistring; var s_byte: TIPAddr;
   var Err: string): boolean;
 
@@ -236,9 +236,42 @@ begin
   Result := True;
 end;
 
+
 {$ENDIF}
 
 {$IFDEF Linux}
+function ExtractDNSServers(const Text: string; var DNSServers: TStrings): boolean;
+begin
+  with TRegExpr.Create do
+    try
+      Expression := 'nameserver\s+(\d+\.\d+\.\d+\.\d+)';
+      //We have a match
+      if Exec(Text) then
+      begin
+        //Add all dns servers
+        repeat
+          begin
+            DNSServers.Add(Match[1]);
+            Writeln(Format('Dnsserver %0:s', [Match[1]]));
+          end
+        until not ExecNext;
+        Result := True;
+      end
+      else
+        Result := False;
+    finally
+      Free;
+    end;
+end;
+
+function GetDNSServers(var DNSServers: TStrings): boolean;
+var
+  S: ansistring;
+begin
+  RunCommand('cat /etc/resolv.conf', S);
+  Result := ExtractDNSServers(S, DNSServers);
+end;
+
 function GetHostIP(const HostName: ansistring; var s_byte: TIPAddr;
   var Err: string): boolean;
   //We use netdb for unix

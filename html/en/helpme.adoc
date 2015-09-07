@@ -1,12 +1,13 @@
 :icons: font
 
 == Prayer 
-Jesus, I am enslaved to sin; please deliver me. I trust in You. I give You my
-eyes, my computers, my hands, my thoughts, my ears, my phones, but most of all
-my heart. Please free me from this slavery, You are my sure hope. I will go to
-confession quickly so that I can be freed from my sins and receive Your
-forgiveness. You died for me, I know You can save me, because You are my God.
-Please help me.
++++<img src="html/images/Jesus_sinner.png" align="left" alt="I want to heal
+you" ></img>+++Jesus, I am enslaved to sin; please deliver me. I trust in You.
+I give You my eyes, my computers, my hands, my thoughts, my ears, my phones,
+but most of all my heart. Please free me from this slavery, You are my sure
+hope. I will go to confession quickly so that I can be freed from my sins and
+receive Your forgiveness. You died for me, I know You can save me, because You
+are my God.  Please help me.
 
 +JMJ
 // vim: set syntax=asciidoc:

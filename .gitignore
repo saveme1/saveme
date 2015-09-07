@@ -3,5 +3,8 @@ backup
 lib
 saveme
 saveme.exe
+saveme.dbg
 html.zip
 html/*/*.html
+HTMLVERSION
+

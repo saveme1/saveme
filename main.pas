@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, SynEdit, Forms, Controls,
-  Graphics, Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf,
+  Graphics, Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf, Buttons,
   protection, content, settings, working;
 
 type
@@ -15,7 +15,7 @@ type
 
   TMainForm = class(TForm)
     ApplicationProperties1: TApplicationProperties;
-    ButtonSettings: TButton;
+    BitBtnSettings: TBitBtn;
     Image1: TImage;
     IpFileDataProvider1: TIpFileDataProvider;
     IpHtmlPanelWhyChristian: TIpHtmlPanel;
@@ -31,6 +31,7 @@ type
     TabSheet3: TTabSheet;
     TabSheet4: TTabSheet;
     TreeView1: TTreeView;
+    procedure BitBtnSettingsClick(Sender: TObject);
     procedure ButtonSettingsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -117,6 +118,10 @@ begin
 end;
 
 procedure TMainForm.ButtonSettingsClick(Sender: TObject);
+begin
+end;
+
+procedure TMainForm.BitBtnSettingsClick(Sender: TObject);
 begin
   FormSettings.Show;
   ShowContent(IpHtmlPanelWhyBelieve, 'whybelieve');

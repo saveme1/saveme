@@ -21,17 +21,21 @@ implementation
 procedure Setsafedns();
 var
   Cmdout: ansistring;
+  DNSServers: TStrings;
 begin
   Cmdout := '';
+  DNSServers := TStringList.Create();
   {$IFDEF Windows}
   //https://stackoverflow.com/questions/1677154/programmatically-changing-nameserver-in-windows-tcp-ip
   //netsh interface ip set dns name="Local Area Connection" source=static addr=...
-  RunCommand('netsh interface ip set dns name="Local Area Connection" source=static addr=',Cmdout);
+  //RunCommand('netsh interface ip set dns name="Local Area Connection" source=static addr=',Cmdout);
   {$ENDIF}
   {$IFDEF Linux}
   //https://stackoverflow.com/questions/1677154/programmatically-changing-nameserver-in-windows-tcp-ip
   //netsh interface ip set dns name="Local Area Connection" source=static addr=...
   RunCommand('espeak hello', Cmdout);
+  GetDNSServers(DNSServers);
+  DNSServers.Free;
   {$ENDIF}
 end;
 
@@ -39,7 +43,7 @@ end;
 // byte is 'Num'. Returns false otherwise.
 function HostAddrBegins(const Name: string; const Num: byte): boolean;
 var
-  Addr: TIPAddr = (0,0,0,0);
+  Addr: TIPAddr = (0, 0, 0, 0);
   Err: string;
 
 begin
