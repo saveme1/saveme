@@ -5,7 +5,7 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, SynEdit, Forms, Controls,
+  Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls,
   Graphics, Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf, Buttons,
   protection, content, settings, working;
 

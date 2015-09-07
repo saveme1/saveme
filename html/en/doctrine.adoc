@@ -1,47 +1,78 @@
+:compact-option:
+= Formulas of Catholic Doctrine
 
-== FORMULAS OF CATHOLIC DOCTRINE
+== The two commandments of love:
 
-=== The two commandments of love:
-
-1. You shall love the Lord your God with all your heart, with all your soul,
-   and with all your mind.
+1. You shall love the Lord your God with +
+   all your heart, with all your soul, +
+   and with all your mind. +
 2. You shall love your neighbor as yourself.
 
-=== The Golden Rule (Matthew 7:12):
+== The Golden Rule (Matthew 7:12):
 
 Do to others as you would have them do to you.
 
-=== The Beatitudes (Matthew 5:3-12):
+== The Ten Commandments
+1. I am the LORD your God: +
+   you shall not have +
+   strange Gods before me.
+2. You shall not take the +
+   name of the LORD your + 
+   God in vain.
+3. Remember to keep holy +
+   the LORD’S day.
+4. Honor your father + 
+   and your mother.
+5. You shall not kill.
+6. You shall not commit adultery.
+7. You shall not steal. 
+8. You shall not bear  +
+   false witness against +
+   your neighbor. 
+9. You shall not covet +
+   your neighbor’s wife.
+10. You shall not covet +
+    your neighbor’s goods.
 
-- Blessed are the poor in spirit, for theirs is the kingdom of heaven.
-- Blessed are they who mourn, for they will be comforted.
-- Blessed are the meek, for they will inherit the earth.
-- Blessed are they who hunger and thirst for righteousness, for they will be
-  satisfied.
-- Blessed are the merciful, for they will be shown mercy.
-- Blessed are the pure of heart, for they will see God.
-- Blessed are the peacemakers, for they will be called children of God.
-- Blessed are those who are persecuted for righteousness’ sake, for theirs is
-  the kingdom of heaven.
-- Blessed are you when people revile you and persecute you and utter all kinds
-  of evil against you falsely on my account.  Rejoice and be glad, for your
-  reward will be great in heaven.
 
-=== The three theological virtues:
+== The Beatitudes (Matthew 5:3-12):
 
+- Blessed are the poor in spirit, +
+  for theirs is the kingdom of heaven.
+- Blessed are they who mourn, +
+  for they will be comforted.
+- Blessed are the meek, +
+  for they will inherit the earth.
+- Blessed are they who hunger +
+  and thirst for righteousness, +
+  for they will be satisfied.
+- Blessed are the merciful, +
+  for they will be shown mercy.
+- Blessed are the pure of heart, +
+  for they will see God.
+- Blessed are the peacemakers, +
+  for they will be called children of God.
+- Blessed are those who are persecuted +
+  for righteousness’ sake, +
+  for theirs is the kingdom of heaven.
+- Blessed are you when people revile you +
+  and persecute you and utter all kinds +
+  of evil against you falsely on my account. +
+  Rejoice and be glad, for your reward  +
+  will be great in heaven.
+
+== The three theological virtues:
 1. Faith
 2. Hope
 3. Charity
 
-=== The four cardinal virtues:
-
+== The four cardinal virtues:
 1. Prudence
 2. Justice
 3. Fortitude
 4. Temperance
 
-=== The seven gifts of the Holy Spirit:
-
+== The seven gifts of the Holy Spirit:
 1. Wisdom
 2. Understanding
 3. Counsel
@@ -50,8 +81,7 @@ Do to others as you would have them do to you.
 6. Piety
 7. Fear of the Lord
 
-=== The twelve fruits of the Holy Spirit:
-
+== The twelve fruits of the Holy Spirit:
 1. Charity
 2. Joy
 3. Peace
@@ -65,19 +95,24 @@ Do to others as you would have them do to you.
 11. Self-control
 12. Chastity
 
-=== The five precepts of the Church:
-
-1. You shall attend Mass on Sundays and on holy days of obligation and remain
-   free from work or activity that could impede the sanctification of such days.
-2. You shall confess your sins at least once a year.
-3. You shall receive the sacrament of the Eucharist at least during the Easter
-   season.
-4. You shall observe the days of fasting and abstinence established by the
+== The five precepts of the Church:
+1. You shall attend Mass on Sundays +
+   and on holy days of obligation +
+   and remain free from work or +
+   activity that could impede the +
+   sanctification of such days.
+2. You shall confess your sins +
+   at least once a year.
+3. You shall receive the sacrament +
+   of the Eucharist at least during +
+   the Easter season.
+4. You shall observe the days of fasting +
+   and abstinence established by the +
    Church.
-5. You shall help to provide for the needs of the Church.
+5. You shall help to provide for the +
+   needs of the Church.
 
-=== The seven corporal works of mercy:
-
+== The seven corporal works of mercy:
 1. Feed the hungry.
 2. Give drink to the thirsty.
 3. Clothe the naked.
@@ -86,8 +121,7 @@ Do to others as you would have them do to you.
 6. Visit the imprisoned.
 7. Bury the dead.
 
-=== The seven spiritual works of mercy:
-
+== The seven spiritual works of mercy:
 1. Counsel the doubtful.
 2. Instruct the ignorant.
 3. Admonish sinners.
@@ -96,8 +130,7 @@ Do to others as you would have them do to you.
 6. Bear wrongs patiently.
 7. Pray for the living and the dead.
 
-=== The seven capital sins:
-
+== The seven capital sins:
 1. Pride
 2. Covetousness
 3. Lust
@@ -106,14 +139,23 @@ Do to others as you would have them do to you.
 6. Envy
 7. Sloth
 
-=== The four last things:
-
+== The four last things:
 1. Death
 2. Judgment
 3. Hell
 4. Heaven
 
-Taken from the Compendium of the Catholic Church
-http://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html
+Taken from the Compendium of the Catechism of the Catholic Church.
+
+== Resources
+Click any of the following links to get more information.
+
+- http://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html[Compendium]:
+  Compendium of the Catechism of the Catholic Church.
+  The information from the Catechism in question and
+  answer format.
+- http://www.vatican.va/archive/ENG0015/_INDEX.HTM[Catechism]: Pope St. John Paul II said that the 
+  *Catechism* is the sure norm for the teaching of the 
+  Catholic faith. 
 
 +JMJ
