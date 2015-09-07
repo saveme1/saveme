@@ -6,37 +6,23 @@ interface
 
 
 uses
-  Classes, SysUtils, Process, lib;
+  Classes, SysUtils, lib;
 
 const
+  //Open DNS safe servers
   Safedns1 = '208.67.222.123';
   Safedns2 = '208.67.220.123';
 
-procedure Setsafedns();
+procedure SetSafeDNS();
 function isProtectedStr(): string;
 function isProtected(): boolean;
 
 implementation
 
-procedure Setsafedns();
-var
-  Cmdout: ansistring;
-  DNSServers: TStrings;
+
+procedure SetSafeDNS();
 begin
-  Cmdout := '';
-  DNSServers := TStringList.Create();
-  {$IFDEF Windows}
-  //https://stackoverflow.com/questions/1677154/programmatically-changing-nameserver-in-windows-tcp-ip
-  //netsh interface ip set dns name="Local Area Connection" source=static addr=...
-  //RunCommand('netsh interface ip set dns name="Local Area Connection" source=static addr=',Cmdout);
-  {$ENDIF}
-  {$IFDEF Linux}
-  //https://stackoverflow.com/questions/1677154/programmatically-changing-nameserver-in-windows-tcp-ip
-  //netsh interface ip set dns name="Local Area Connection" source=static addr=...
-  RunCommand('espeak hello', Cmdout);
-  GetDNSServers(DNSServers);
-  DNSServers.Free;
-  {$ENDIF}
+  SetDNSServers([Safedns1, Safedns2]);
 end;
 
 // Returns true if the host named 'Name' has an ip address whose first
@@ -69,10 +55,13 @@ end;
 
 function isProtectedStr(): string;
 begin
-  if isProtected() then
+  if isNetworkUp() and isProtected() then
     Result := 'Your computer is protected.'
   else
-    Result := 'Your computer is NOT protected';
+  if isNetworkUp() then
+    Result := 'Your computer is NOT protected.'
+  else
+    Result := 'Network is down.';
 end;
 
 begin

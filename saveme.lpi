@@ -9,6 +9,9 @@
       <Title Value="saveme"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
+      <XPManifest>
+        <ExecutionLevel Value="2"/>
+      </XPManifest>
       <Icon Value="0"/>
       <Resources Count="2">
         <Resource_0 FileName="html.zip" Type="RCDATA" ResourceName="HTML"/>

@@ -1,11 +1,11 @@
 object FormSettings: TFormSettings
   Left = 280
-  Height = 240
+  Height = 242
   Top = 214
-  Width = 320
+  Width = 436
   Caption = 'Settings'
-  ClientHeight = 240
-  ClientWidth = 320
+  ClientHeight = 242
+  ClientWidth = 436
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Tahoma'
@@ -15,10 +15,10 @@ object FormSettings: TFormSettings
   LCLVersion = '1.4.2.0'
   object MemoInfo: TMemo
     Left = 10
-    Height = 130
+    Height = 120
     Hint = 'Information'
-    Top = 60
-    Width = 300
+    Top = 72
+    Width = 416
     Align = alClient
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 10
@@ -39,19 +39,19 @@ object FormSettings: TFormSettings
   object Panel1: TPanel
     Left = 0
     Height = 50
-    Top = 190
-    Width = 320
+    Top = 192
+    Width = 436
     Align = alBottom
     BevelOuter = bvNone
     ClientHeight = 50
-    ClientWidth = 320
+    ClientWidth = 436
     TabOrder = 1
     object BitBtnReload: TBitBtn
       AnchorSideLeft.Control = Panel1
       Left = 10
       Height = 30
       Top = 10
-      Width = 77
+      Width = 85
       Align = alLeft
       AutoSize = True
       BorderSpacing.Left = 10
@@ -98,10 +98,10 @@ object FormSettings: TFormSettings
       TabOrder = 0
     end
     object BitBtnOK: TBitBtn
-      Left = 170
+      Left = 270
       Height = 30
       Top = 10
-      Width = 54
+      Width = 62
       Align = alRight
       AutoSize = True
       BorderSpacing.Top = 10
@@ -150,10 +150,10 @@ object FormSettings: TFormSettings
     object BitBtnCancel: TBitBtn
       AnchorSideLeft.Side = asrBottom
       AnchorSideRight.Control = Panel1
-      Left = 234
+      Left = 342
       Height = 30
       Top = 10
-      Width = 76
+      Width = 84
       Align = alRight
       AutoSize = True
       BorderSpacing.Left = 10
@@ -203,9 +203,9 @@ object FormSettings: TFormSettings
   end
   object GroupBox1: TGroupBox
     Left = 10
-    Height = 60
+    Height = 72
     Top = 0
-    Width = 300
+    Width = 416
     Align = alTop
     AutoSize = True
     BorderSpacing.Left = 10
@@ -214,24 +214,25 @@ object FormSettings: TFormSettings
     ChildSizing.LeftRightSpacing = 10
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 2
-    ClientHeight = 40
-    ClientWidth = 296
+    ClientHeight = 51
+    ClientWidth = 412
     TabOrder = 2
     object Label1: TLabel
       Left = 10
-      Height = 26
+      Height = 25
       Top = 0
-      Width = 30
+      Width = 66
       Caption = 'Font:'
       ParentColor = False
+      OnClick = Label1Click
     end
     object Button1: TButton
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Side = asrCenter
-      Left = 50
-      Height = 26
+      Left = 86
+      Height = 25
       Top = 0
-      Width = 88
+      Width = 93
       AutoSize = True
       BorderSpacing.Left = 10
       Caption = 'Choose font'
@@ -240,6 +241,17 @@ object FormSettings: TFormSettings
       OnClick = Button1Click
       ParentFont = False
       TabOrder = 0
+    end
+    object BitBtnProtect: TBitBtn
+      Left = 10
+      Height = 26
+      Hint = 'Click to try to protect computer'
+      Top = 25
+      Width = 66
+      AutoSize = True
+      Caption = 'Protect'
+      OnClick = BitBtnProtectClick
+      TabOrder = 1
     end
   end
   object FontDialog1: TFontDialog

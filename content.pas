@@ -30,9 +30,10 @@ var
   begin
     tmpStream := TResourceStream.Create(HInstance, 'HTMLVERSION', RT_RCDATA);
     try
-      Result:= tmpStream.ReadAnsiString();
+      Result := tmpStream.ReadAnsiString();
     finally
-      tmpStream.Free;
+      if Assigned(tmpStream) then
+        FreeAndNil(tmpStream);
     end;
   end;
 
@@ -48,7 +49,8 @@ var
     try
       OldHash := FsIn.ReadAnsiString();
     finally
-      FsIn.Free;
+      if Assigned(FsIn) then
+        FreeAndNil(FsIn);
     end;
 
     if OldHash <> NewHash then
@@ -68,7 +70,8 @@ var
     try
       FsOut.WriteAnsiString(Hash);
     finally
-      FsOut.Free;
+      if Assigned(FsOut) then
+        FreeAndNil(FsOut);
     end;
   end;
 
@@ -87,7 +90,8 @@ var
       try
         F.CopyFrom(S, S.Size); // copy data from the resource stream to file stream
       finally
-        F.Free; // destroy the file stream
+        if Assigned(F) then
+          FreeAndNil(F); // destroy the file stream
       end;
     finally
       S.Free; // destroy the resource stream
@@ -105,7 +109,8 @@ var
       UnZipper.Examine;
       UnZipper.UnZipAllFiles;
     finally
-      UnZipper.Free;
+      if Assigned(UnZipper) then
+        FreeAndNil(UnZipper);
       DeleteFile(PChar(ZipFile));
     end;
   end;
@@ -128,10 +133,14 @@ var
   Src: ansistring;
 begin
   Buf := TTextStrings.Create;
-  Src := ConcatPaths([GetAppConfigDir(False),'html','en', what + '.html']);
-  Buf.LoadFromFile(Src);
-  Result := Buf.Text;
-  Buf.Free;
+  try
+    Src := ConcatPaths([GetAppConfigDir(False), 'html', 'en', what + '.html']);
+    Buf.LoadFromFile(Src);
+    Result := Buf.Text;
+  finally
+    if Assigned(Buf) then
+      FreeAndNil(Buf);
+  end;
 end;
 
 

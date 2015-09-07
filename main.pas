@@ -32,7 +32,6 @@ type
     TabSheet4: TTabSheet;
     TreeView1: TTreeView;
     procedure BitBtnSettingsClick(Sender: TObject);
-    procedure ButtonSettingsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure IpHtmlPanelHelpMeHotClick(Sender: TObject);
@@ -42,6 +41,7 @@ type
   private
     { private declarations }
   public
+    procedure UpdateStatusBar();
     { public declarations }
   end;
 
@@ -78,8 +78,7 @@ begin
   TreeView1.Selected.MakeVisible;
 
   //Show protection state and version in the status bar
-  StatusBar1.Panels[0].Text := isProtectedStr();
-  StatusBar1.Panels[1].Text := VERSION;
+  UpdateStatusBar();
 end;
 
 procedure TMainForm.IpHtmlPanelHelpMeHotClick(Sender: TObject);
@@ -117,15 +116,11 @@ begin
     ShowTreeContent(IpHtmlPanelHelpMe, TreeView1.Selected.Text);
 end;
 
-procedure TMainForm.ButtonSettingsClick(Sender: TObject);
-begin
-end;
 
 procedure TMainForm.BitBtnSettingsClick(Sender: TObject);
 begin
-  FormSettings.Show;
-  ShowContent(IpHtmlPanelWhyBelieve, 'whybelieve');
-  setsafedns;
+  FormSettings.Show();
+  UpdateStatusBar();
 end;
 
 procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -141,6 +136,12 @@ end;
 procedure TMainForm.SetFont(const MainFont: TFont);
 begin
   IpHtmlPanelHelpMe.Font := Font;
+end;
+
+procedure TMainForm.UpdateStatusBar();
+begin
+  StatusBar1.Panels[0].Text := isProtectedStr();
+  StatusBar1.Panels[1].Text := VERSION;
 end;
 
 end.

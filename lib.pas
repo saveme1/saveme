@@ -65,15 +65,75 @@ function WSAIoctl(aSocket: TSocket; aCommand: DWord; lpInBuffer: Pointer;
 
 function GetNetworkInterfaces(
   var aNetworkInterfaceList: tNetworkInterfaceList): boolean;
-
+function NetInterfaceForDNSServer(DNSServer: string): string;
  {$ENDIF}
 
+
+procedure RunCmd(const Cmd: string; var Output: string);
+function GetDNSServer(): string;
+procedure SetDNSServers(const IPAddr: array of string);
 function GetDNSServers(var DNSServers: TStrings): boolean;
 function GetHostIP(const HostName: ansistring; var s_byte: TIPAddr;
   var Err: string): boolean;
+function isNetworkUp(): boolean;
 
 
 implementation
+
+procedure RunCmd(const Cmd: string; var Output: string);
+var
+  Out: TStrings;
+  AProcess: TProcess;
+begin
+  AProcess := TProcess.Create(nil);
+  Out := TStringList.Create;
+  try
+    AProcess.CommandLine := Cmd;
+    AProcess.Options := AProcess.Options + [poWaitOnExit, poUsePipes, poNoConsole];
+    AProcess.Execute;
+    Out.BeginUpdate;
+    Out.Clear;
+    Out.LoadFromStream(AProcess.Output);
+    Out.EndUpdate;
+    Output := Out.Text;
+  finally
+    if Assigned(AProcess) then
+      FreeAndNil(AProcess);
+    if Assigned(Out) then
+      FreeAndNil(Out);
+  end;
+end;
+
+function MatchRegex(const RegExpr: string; const Text: string;
+  var Matches: TStrings): boolean;
+var
+  Regex: TRegExpr;
+begin
+  Regex := TRegExpr.Create;
+  try
+    with Regex do
+    begin
+      Expression := RegExpr;
+      //We have a match
+      if Exec(Text) then
+      begin
+        //Add all dns servers
+        repeat
+          begin
+            Matches.Add(Match[1]);
+            //Writeln(Format('Dnsserver %0:s', [Match[1]]));
+          end
+        until not ExecNext;
+        Result := True;
+      end
+      else
+        Result := False;
+    end;
+  finally
+    if Assigned(Regex) then
+      FreeAndNil(Regex);
+  end;
+end;
 
 {$IFDEF Windows}
 function GetHostIP(const HostName: ansistring; var s_byte: TIPAddr;
@@ -107,6 +167,8 @@ begin
       WSANOTINITIALISED: Err := 'WSANotInitialised';
       WSAENETDOWN: Err := 'WSAENetDown';
       WSAEINPROGRESS: Err := 'WSAEInProgress';
+      else
+        Err := 'Winsock error';
     end;
     s_byte[1] := 0;
     s_byte[2] := 0;
@@ -227,7 +289,7 @@ begin
       end;
     end;
   except
-    //Result := False;
+    Result := False;
   end;
 
   // Cleanup the mess
@@ -236,42 +298,142 @@ begin
   Result := True;
 end;
 
+function NetInterfaceForDNSServer(DNSServer: string): string;
+var
+  IFaces: TStrings;
+  Expression, Netshout: ansistring;
+
+begin
+  Netshout := '';
+  IFaces := TStringList.Create;
+  try
+    RunCmd('netsh interface ip show dns', Netshout);
+    Expression := '.*for interface "(.*?)".*?DNS.*?:\s+' + DNSServer;
+    if MatchRegex(Expression, Netshout, IFaces) then
+      Result := IFaces[0]
+    else
+      Result := '';
+  finally
+    if Assigned(IFaces) then
+      FreeAndNil(IFaces);
+  end;
+end;
 
 {$ENDIF}
 
-{$IFDEF Linux}
 function ExtractDNSServers(const Text: string; var DNSServers: TStrings): boolean;
+var
+  Expression: ansistring;
 begin
-  with TRegExpr.Create do
-    try
-      Expression := 'nameserver\s+(\d+\.\d+\.\d+\.\d+)';
-      //We have a match
-      if Exec(Text) then
-      begin
-        //Add all dns servers
-        repeat
-          begin
-            DNSServers.Add(Match[1]);
-            Writeln(Format('Dnsserver %0:s', [Match[1]]));
-          end
-        until not ExecNext;
-        Result := True;
-      end
-      else
-        Result := False;
-    finally
-      Free;
-    end;
+  {$IFDEF Linux}
+  //Regex for "cat /etc/resolv.conf"
+  Expression := 'nameserver\s+(\d+\.\d+\.\d+\.\d+)';
+  {$ENDIF}
+  {$IFDEF Windows}
+  //Regex for "nslookup www.ibm.com"
+  Expression := '(?s)Server:\s+.*?Address:\s+(\d+\.\d+\.\d+\.\d+)';
+  {$ENDIF}
+  if MatchRegex(Expression, Text, DNSServers) then
+    Result := True
+  else
+    Result := False;
 end;
+
+
 
 function GetDNSServers(var DNSServers: TStrings): boolean;
 var
   S: ansistring;
 begin
-  RunCommand('cat /etc/resolv.conf', S);
+  S := '';
+  {$IFDEF Linux}
+  RunCmd('cat /etc/resolv.conf', S);
+  {$ENDIF}
+  {$IFDEF Windows}
+  RunCmd('nslookup www.ibm.com', S);
+  {$ENDIF}
   Result := ExtractDNSServers(S, DNSServers);
 end;
 
+function GetDNSServer(): string;
+var
+  Servers: TStrings;
+begin
+  Servers := TStringList.Create;
+  try
+    if GetDNSServers(Servers) then
+      Result := Servers[0]
+    else
+      Result := '';
+  finally
+    if Assigned(Servers) then
+      FreeAndNil(Servers);
+  end;
+end;
+
+procedure SetDNSServers(const IPAddr: array of string);
+var
+  Cmd, DNSServer, IFace, Out: ansistring;
+  i: integer;
+begin
+  DNSServer := '';
+  IFace := '';
+  Out := '';
+  {$IFDEF Windows}
+  DNSServer := GetDNSServer();
+  IFace := NetInterfaceForDNSServer(DNSServer);
+  if IPAddr[0] = 'dhcp' then
+  begin
+    //Enable dhcp servers
+    Cmd := Format('netsh interface ip set dnsservers name="%s" source=dhcp', [IFace]);
+    RunCmd(Cmd, Out);
+  end
+  else
+    //Add static servers in list
+  begin
+    //First server
+    Cmd := Format('netsh interface ip set dns name="%s" static %s',
+      [IFace, IPAddr[0]]);
+    RunCmd(Cmd, Out);
+
+    //Additional servers
+    for i := 1 to Length(IPAddr) - 1 do
+    begin
+      Cmd := Format('netsh interface ip add dns name="%s" %s index=%d',
+        [IFace, IPAddr[i], i + 1]);
+      RunCmd(Cmd, Out);
+    end;
+  end;
+  {$ENDIF}
+  {$IFDEF Linux}
+  Cmd := 'sed -i ''1s/^/nameserver ' + IPAddr[0] + '/'' /etc/resolv.conf';
+  RunCmd(Cmd, Out);
+  {$ENDIF}
+
+end;
+
+function isNetworkUp(): boolean;
+{$IFDEF Windows}
+var
+  NetIfList: tNetworkInterfaceList;
+  IfInfo: tNetworkInterface;
+{$ENDIF}
+begin
+  Result := False;
+
+  {$IFDEF Windows}
+  GetNetworkInterfaces(NetIfList);
+  for IfInfo in NetIfList do
+    Result := Result or (not IfInfo.IsLoopback and IfInfo.IsInterfaceUp);
+  {$ENDIF}
+
+  {$IFDEF Linux}
+  Result := True;
+  {$ENDIF}
+
+end;
+
+{$IFDEF Linux}
 function GetHostIP(const HostName: ansistring; var s_byte: TIPAddr;
   var Err: string): boolean;
   //We use netdb for unix
