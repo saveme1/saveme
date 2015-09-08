@@ -69,7 +69,7 @@ function NetInterfaceForDNSServer(DNSServer: string): string;
  {$ENDIF}
 
 
-procedure RunCmd(const Cmd: string; var Output: string);
+function RunCmd(const Cmd: string; var Output: string): integer;
 function GetDNSServer(): string;
 procedure SetDNSServers(const IPAddr: array of string);
 function GetDNSServers(var DNSServers: TStrings): boolean;
@@ -80,7 +80,7 @@ function isNetworkUp(): boolean;
 
 implementation
 
-procedure RunCmd(const Cmd: string; var Output: string);
+function RunCmd(const Cmd: string; var Output: string): integer;
 var
   Out: TStrings;
   AProcess: TProcess;
@@ -89,13 +89,15 @@ begin
   Out := TStringList.Create;
   try
     AProcess.CommandLine := Cmd;
-    AProcess.Options := AProcess.Options + [poWaitOnExit, poUsePipes, poNoConsole];
+    AProcess.Options := AProcess.Options + [poWaitOnExit, poUsePipes,
+      poNoConsole, poStderrToOutPut];
     AProcess.Execute;
     Out.BeginUpdate;
     Out.Clear;
     Out.LoadFromStream(AProcess.Output);
     Out.EndUpdate;
     Output := Out.Text;
+    Result := AProcess.ExitStatus;
   finally
     if Assigned(AProcess) then
       FreeAndNil(AProcess);
@@ -117,11 +119,10 @@ begin
       //We have a match
       if Exec(Text) then
       begin
-        //Add all dns servers
+        //Add all matches
         repeat
           begin
             Matches.Add(Match[1]);
-            //Writeln(Format('Dnsserver %0:s', [Match[1]]));
           end
         until not ExecNext;
         Result := True;
@@ -373,12 +374,13 @@ end;
 
 procedure SetDNSServers(const IPAddr: array of string);
 var
-  Cmd, DNSServer, IFace, Out: ansistring;
+  Cmd, DNSServer, IFace, NSStr, OutStr: ansistring;
   i: integer;
 begin
   DNSServer := '';
   IFace := '';
-  Out := '';
+  OutStr := '';
+
   {$IFDEF Windows}
   DNSServer := GetDNSServer();
   IFace := NetInterfaceForDNSServer(DNSServer);
@@ -386,7 +388,7 @@ begin
   begin
     //Enable dhcp servers
     Cmd := Format('netsh interface ip set dnsservers name="%s" source=dhcp', [IFace]);
-    RunCmd(Cmd, Out);
+    RunCmd(Cmd, OutStr);
   end
   else
     //Add static servers in list
@@ -394,20 +396,36 @@ begin
     //First server
     Cmd := Format('netsh interface ip set dns name="%s" static %s',
       [IFace, IPAddr[0]]);
-    RunCmd(Cmd, Out);
+    if RunCmd(Cmd, OutStr) <> 0 then
+      begin
+        OutStr := 'Error protecting computer:' + LineEnding + OutStr + LineEnding +
+          'You need administrative permissions to perform this action.' + LineEnding;
+        ShowMessage(OutStr);
+      end;
 
     //Additional servers
     for i := 1 to Length(IPAddr) - 1 do
     begin
       Cmd := Format('netsh interface ip add dns name="%s" %s index=%d',
         [IFace, IPAddr[i], i + 1]);
-      RunCmd(Cmd, Out);
+      if RunCmd(Cmd, OutStr) <> 0 then
+      begin
+        OutStr := 'Error protecting computer:' + LineEnding + OutStr + LineEnding +
+          'You need administrative permissions to perform this action.' + LineEnding;
+        ShowMessage(OutStr);
+      end;
     end;
   end;
   {$ENDIF}
+
   {$IFDEF Linux}
-  Cmd := 'sed -i ''1s/^/nameserver ' + IPAddr[0] + '/'' /etc/resolv.conf';
-  RunCmd(Cmd, Out);
+  Cmd := 'sudo sed -i ''1s/^/nameserver ' + IPAddr[0] + '\n/'' /etc/resolv.conf';
+  if RunCmd(Cmd, OutStr) <> 0 then
+  begin
+    OutStr := 'Error protecting computer:' + LineEnding + OutStr + LineEnding +
+      'You need sudo permissions to perform this action.' + LineEnding;
+    ShowMessage(OutStr);
+  end;
   {$ENDIF}
 
 end;
@@ -428,6 +446,7 @@ begin
   {$ENDIF}
 
   {$IFDEF Linux}
+  //FIXME
   Result := True;
   {$ENDIF}
 
