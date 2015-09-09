@@ -12,6 +12,7 @@ object FormSettings: TFormSettings
   Font.Pitch = fpVariable
   OnCreate = FormCreate
   OnShow = FormShow
+  SessionProperties = 'TrayIcon.Visible'
   LCLVersion = '1.4.2.0'
   object MemoInfo: TMemo
     AnchorSideLeft.Control = Owner
@@ -3776,6 +3777,12 @@ object FormSettings: TFormSettings
     }
     Visible = True
     left = 120
+    top = 200
+  end
+  object IniPropStorage1: TIniPropStorage
+    StoredValues = <>
+    IniFileName = '/tmp/se.ini'
+    left = 224
     top = 200
   end
 end

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls, Graphics,
   Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf, Buttons, Menus, ActnList,
-  StdActns, protection, content, settings, working, lib;
+  StdActns, IniPropStorage, protection, content, settings, working, lib;
 
 type
 
@@ -21,6 +21,7 @@ type
     BitBtnSettings: TBitBtn;
     Image1: TImage;
     ImageList1: TImageList;
+    IniPropStorage1: TIniPropStorage;
     IpFileDataProvider1: TIpFileDataProvider;
     IpHtmlPanelWhyChristian: TIpHtmlPanel;
     IpHtmlPanelWhyCatholic: TIpHtmlPanel;
@@ -166,7 +167,10 @@ end;
 
 procedure TMainForm.SetFont(const MainFont: TFont);
 begin
-  IpHtmlPanelHelpMe.Font := Font;
+  IpHtmlPanelHelpMe.Font:=MainFont;
+  IpHtmlPanelHelpMe.DefaultTypeFace:=MainFont.Name;
+  IpHtmlPanelHelpMe.DefaultFontSize:=MainFont.Size;
+  IpHtmlPanelHelpMe.Repaint;
 end;
 
 procedure TMainForm.UpdateStatusBar();

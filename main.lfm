@@ -7,8 +7,8 @@ object MainForm: TMainForm
   Caption = 'Save me!'
   ClientHeight = 504
   ClientWidth = 633
-  Font.Height = -12
-  Font.Name = 'Sans Serif'
+  Font.Height = -13
+  Font.Name = 'Sans'
   Icon.Data = {
     41B7010000000100010000000000010020002BB701001600000089504E470D0A
     1A0A0000000D49484452000001000000010008060000005C72A8660001B6F249
@@ -3549,7 +3549,7 @@ object MainForm: TMainForm
       AnchorSideTop.Control = Panel1
       AnchorSideBottom.Control = BitBtnSettings
       Left = 255
-      Height = 92
+      Height = 91
       Top = 0
       Width = 376
       Anchors = [akTop, akLeft, akBottom]
@@ -6360,10 +6360,10 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Panel1
       AnchorSideBottom.Side = asrBottom
-      Left = 559
-      Height = 26
-      Top = 92
-      Width = 64
+      Left = 558
+      Height = 27
+      Top = 91
+      Width = 65
       Anchors = [akRight, akBottom]
       AutoSize = True
       BorderSpacing.Right = 10
@@ -6381,19 +6381,20 @@ object MainForm: TMainForm
     Width = 633
     ActivePage = TabSheet1
     Align = alClient
+    PopupMenu = PopupMenuHtmlPanel
     TabIndex = 0
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Help me!'
-      ClientHeight = 327
+      ClientHeight = 326
       ClientWidth = 627
       object TreeView1: TTreeView
         Left = 0
-        Height = 327
+        Height = 326
         Top = 0
         Width = 129
         Align = alLeft
-        DefaultItemHeight = 16
+        DefaultItemHeight = 18
         ReadOnly = True
         ScrollBars = ssAutoBoth
         TabOrder = 0
@@ -6415,7 +6416,7 @@ object MainForm: TMainForm
         AnchorSideLeft.Control = TreeView1
         AnchorSideLeft.Side = asrBottom
         Left = 129
-        Height = 327
+        Height = 326
         Top = 0
         Width = 498
         Align = alRight
@@ -6436,19 +6437,20 @@ object MainForm: TMainForm
     end
     object TabSheet2: TTabSheet
       Caption = '1. Why believe?'
-      ClientHeight = 327
+      ClientHeight = 326
       ClientWidth = 627
       object IpHtmlPanelWhyBelieve: TIpHtmlPanel
         Left = 0
-        Height = 325
+        Height = 326
         Top = 0
-        Width = 625
+        Width = 627
         Align = alClient
         DataProvider = IpFileDataProvider1
         FixedTypeface = 'Courier New'
         DefaultTypeFace = 'Tahoma'
         DefaultFontSize = 12
         FlagErrors = False
+        PopupMenu = PopupMenuHtmlPanel
         PrintSettings.MarginLeft = 0.5
         PrintSettings.MarginTop = 0.5
         PrintSettings.MarginRight = 0.5
@@ -6458,19 +6460,20 @@ object MainForm: TMainForm
     end
     object TabSheet3: TTabSheet
       Caption = '2. Why Christian?'
-      ClientHeight = 327
+      ClientHeight = 326
       ClientWidth = 627
       object IpHtmlPanelWhyChristian: TIpHtmlPanel
         Left = 0
-        Height = 325
+        Height = 326
         Top = 0
-        Width = 625
+        Width = 627
         Align = alClient
         DataProvider = IpFileDataProvider1
         FixedTypeface = 'Courier New'
         DefaultTypeFace = 'Tahoma'
         DefaultFontSize = 12
         FlagErrors = False
+        PopupMenu = PopupMenuHtmlPanel
         PrintSettings.MarginLeft = 0.5
         PrintSettings.MarginTop = 0.5
         PrintSettings.MarginRight = 0.5
@@ -6480,19 +6483,20 @@ object MainForm: TMainForm
     end
     object TabSheet4: TTabSheet
       Caption = '3. Why Catholic?'
-      ClientHeight = 327
+      ClientHeight = 326
       ClientWidth = 627
       object IpHtmlPanelWhyCatholic: TIpHtmlPanel
         Left = 0
-        Height = 325
+        Height = 326
         Top = 0
-        Width = 625
+        Width = 627
         Align = alClient
         DataProvider = IpFileDataProvider1
         FixedTypeface = 'Courier New'
         DefaultTypeFace = 'Tahoma'
         DefaultFontSize = 12
         FlagErrors = False
+        PopupMenu = PopupMenuHtmlPanel
         PrintSettings.MarginLeft = 0.5
         PrintSettings.MarginTop = 0.5
         PrintSettings.MarginRight = 0.5
@@ -6530,7 +6534,6 @@ object MainForm: TMainForm
     top = 344
     object MenuItemCopy: TMenuItem
       Action = ActionCopy
-      Default = True
     end
   end
   object ImageList1: TImageList
@@ -6574,8 +6577,8 @@ object MainForm: TMainForm
   end
   object ActionList1: TActionList
     Images = ImageList1
-    left = 398
-    top = 195
+    left = 536
+    top = 296
     object ActionCopy: TAction
       Caption = 'Copy'
       ImageIndex = 0
@@ -6587,5 +6590,11 @@ object MainForm: TMainForm
       OnExecute = ActionRestoreDNSExecute
       ShortCut = 49218
     end
+  end
+  object IniPropStorage1: TIniPropStorage
+    StoredValues = <>
+    IniFileName = '/tmp/sme.ini'
+    left = 432
+    top = 189
   end
 end

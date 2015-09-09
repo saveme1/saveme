@@ -125,15 +125,18 @@ if TargetOS='linux' then
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="2">
+    <RequiredPackages Count="3">
       <Item1>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="FCL"/>
       </Item1>
       <Item2>
-        <PackageName Value="LCL"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item2>
+      <Item3>
+        <PackageName Value="LCL"/>
+      </Item3>
     </RequiredPackages>
-    <Units Count="7">
+    <Units Count="8">
       <Unit0>
         <Filename Value="saveme.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -171,6 +174,10 @@ if TargetOS='linux' then
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="commdata.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

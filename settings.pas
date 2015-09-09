@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Buttons, content, IpHtml, lib, protection;
+  ExtCtrls, Buttons, IniPropStorage, DbCtrls, content, IpHtml, lib, protection,
+  db;
 
 type
 
@@ -21,6 +22,7 @@ type
     CheckBoxShowTrayIcon: TCheckBox;
     FontDialog1: TFontDialog;
     GroupBox1: TGroupBox;
+    IniPropStorage1: TIniPropStorage;
     MemoInfo: TMemo;
     Panel1: TPanel;
     TrayIcon: TTrayIcon;
@@ -56,7 +58,7 @@ procedure TFormSettings.Button1Click(Sender: TObject);
 begin
   FontDialog1.Execute;
   MainFont := FontDialog1.Font;
-  Application.MainForm.Font := MainFont;
+  MainForm.SetFont(MainFont);
 end;
 
 procedure TFormSettings.CheckBoxShowTrayIconChange(Sender: TObject);
@@ -69,6 +71,8 @@ end;
 
 procedure TFormSettings.FormCreate(Sender: TObject);
 begin
+  IniPropStorage1.IniFileName:=GetAppConfigFile(False,True);
+  IniPropStorage1.IniSection:='settings';
   TrayIcon.Hint:=isProtectedStr();
 end;
 
@@ -143,6 +147,8 @@ end;
 
 procedure TFormSettings.FormShow(Sender: TObject);
 begin
+  CheckBoxShowTrayIcon.Checked:=TrayIcon.Visible;
+  FontDialog1.Font:=Application.MainForm.Font;
   UpdateMemo();
 end;
 
