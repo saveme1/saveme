@@ -125,66 +125,75 @@ Requiéscant in pace. Amen.
 [width="85%",style="verse",cols='.<, .<',options="header"]
 |=======
 |*The Angelus*|*Angelus Domini*
-| V. The Angel of the Lord declared unto Mary. +
- R. And she conceived of the Holy Spirit. +
-
+| `V.` The Angel of the Lord declared unto Mary. +
+ `R.` And she conceived of the Holy Spirit. +
+ +
 Hail, Mary, full of grace, the Lord is with thee.
 Blessed art thou among women,
 and blessed is the fruit of thy womb, Jesus.
 Holy Mary, Mother of God,
 pray for us sinners,
 now and at the hour of our death. Amen. +
-
- V. Behold the handmaid of the Lord. +
- R. Be it done unto me according to thy word. +
+ +
+ `V.` Behold the handmaid of the Lord. +
+ `R.` Be it done unto me according to thy word. +
+ +
 Hail Mary. +
-
- V. And the Word was made flesh. +
- R. And dwelt among us. +
+ +
+ `V.` And the Word was made flesh. +
+ `R.` And dwelt among us. +
+ +
 Hail Mary. +
-
- V. Pray for us, O holy Mother of God. +
- R. That we may be made worthy of the promises of Christ. +
-
+ +
+ `V.` Pray for us, O holy Mother of God. +
+ `R.` That we may be made worthy of the promises of Christ. +
+ +
 Let us pray; +
-
+ +
 Pour forth, we beseech thee, O Lord, thy grace into our hearts; that we, to
 whom the Incarnation of Christ, thy Son, was made known by the message of an
 angel, may by his Passion and Cross be brought to the glory of his
 Resurrection. Through the same Christ, our Lord.  Amen. +
+ +
+Glory be to the Father...
 
-Glory be to the Father... +
 
-
-|Ángelus Dómini nuntiávit Maríæ. +
-Et concépit de Spíritu Sancto. +
-
+| `V.` Ángelus Dómini nuntiávit Maríæ. +
+  `R.` Et concépit de Spíritu Sancto. +
+ +
+Ave, María, grátia plena,
+Dóminus tecum.
+Benedícta tu in muliéribus,
+et benedíctus fructus ventris tui, Iesus.
+Sancta María, Mater Dei,
+ora pro nobis peccatóribus,
+nunc et in hora mortis nostræ.
+Amen. +
+ +
+ `V.` Ecce ancílla Dómini. +
+ `R.` Fiat mihi secúndum verbum tuum. +
+ +
 Ave, María... +
-
-Ecce ancílla Dómini. +
-Fiat mihi secúndum verbum tuum. +
-
+ +
+ `V.` Et Verbum caro factum est. +
+ `R.` Et habitávit in nobis. +
+ +
 Ave, María... +
-
-Et Verbum caro factum est. +
-Et habitávit in nobis. +
-
-Ave, María... +
-
-Ora pro nobis, sancta Dei génetrix. +
-Ut digni efficiámur promissiónibus Christi. +
-
+ +
+ `V.` Ora pro nobis, sancta Dei génetrix. +
+ `R.` Ut digni efficiámur promissiónibus Christi. +
+ +
 Orémus. +
-
+ +
 Grátiam tuam, quæsumus,
 Dómine, méntibus nostris infúnde;
 ut qui, Ángelo nuntiánte,
 Christi Fílii tui incarnatiónem cognóvimus,
 per passiónem eius et crucem,
-ad resurrectiónis glóriam perducámur.
-
+ad resurrectiónis glóriam perducámur. +
+ +
 Per eúndem Christum Dóminum nostrum. Amen. +
-
+ +
 Glória Patri... +
 |=======
 
@@ -200,7 +209,10 @@ For the Lord has truly risen, alleluia. +
  +
 Let us pray; +
  +
-O God, who through the resurrection of your Son, our Lord Jesus Christ, did vouchsafe to give joy to the world; grant, we beseech you, that through his Mother, the Virgin Mary, we may obtain the joys of everlasting life. Through the same Christ our Lord. Amen.
+O God, who through the resurrection of your Son, our Lord Jesus Christ, did
+vouchsafe to give joy to the world; grant, we beseech you, that through his
+Mother, the Virgin Mary, we may obtain the joys of everlasting life. Through
+the same Christ our Lord. Amen.
 
 |Regína cæli lætáre, allelúia.
 Quia quem meruísti portáre, allelúia. +
@@ -213,8 +225,9 @@ Quia surréxit Dóminus vere, allelúia. +
  +
 Orémus. +
  +
-Deus, qui per resurrectiónem Fílii tui Dómini nostri Iesu Christi mundum lætificáre dignátus es, præsta, quæsumus, ut per eius Genetrícem Vírginem Maríam perpétuæ capiámus gáudia vitæ.
-Per Christum Dóminum nostrum. Amen.
+Deus, qui per resurrectiónem Fílii tui Dómini nostri Iesu Christi mundum
+lætificáre dignátus es, præsta, quæsumus, ut per eius Genetrícem Vírginem
+Maríam perpétuæ capiámus gáudia vitæ.  Per Christum Dóminum nostrum. Amen.
 |=======
 
 
