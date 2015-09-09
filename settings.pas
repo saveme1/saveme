@@ -21,11 +21,9 @@ type
     CheckBoxShowTrayIcon: TCheckBox;
     FontDialog1: TFontDialog;
     GroupBox1: TGroupBox;
-    Label1: TLabel;
-    Label2: TLabel;
     MemoInfo: TMemo;
     Panel1: TPanel;
-    TrayIcon1: TTrayIcon;
+    TrayIcon: TTrayIcon;
     procedure BitBtnOKClick(Sender: TObject);
     procedure BitBtnCancelClick(Sender: TObject);
     procedure BitBtnProtectClick(Sender: TObject);
@@ -34,7 +32,6 @@ type
     procedure CheckBoxShowTrayIconChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Label1Click(Sender: TObject);
 
   private
     procedure UpdateMemo();
@@ -65,14 +62,14 @@ end;
 procedure TFormSettings.CheckBoxShowTrayIconChange(Sender: TObject);
 begin
   if CheckBoxShowTrayIcon.Checked then
-    TrayIcon1.Show
+    TrayIcon.Show
   else
-    TrayIcon1.Hide;
+    TrayIcon.Hide;
 end;
 
 procedure TFormSettings.FormCreate(Sender: TObject);
 begin
-  TrayIcon1.Hint:=isProtectedStr();
+  TrayIcon.Hint:=isProtectedStr();
 end;
 
 procedure TFormSettings.BitBtnOKClick(Sender: TObject);
@@ -147,15 +144,6 @@ end;
 procedure TFormSettings.FormShow(Sender: TObject);
 begin
   UpdateMemo();
-end;
-
-procedure TFormSettings.Label1Click(Sender: TObject);
-var
-  Res: integer;
-begin
-  Res := MessageDlg('Are you sure?', mtWarning, mbYesNoCancel, 0);
-  if Res = mrYes then
-    SetDNSServers(['dhcp']);
 end;
 
 end.

@@ -7,13 +7,14 @@ interface
 uses
   Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls, Graphics,
   Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf, Buttons, Menus, ActnList,
-  protection, content, settings, working;
+  StdActns, protection, content, settings, working, lib;
 
 type
 
   { TMainForm }
 
   TMainForm = class(TForm)
+    ActionRestoreDNS: TAction;
     ActionCopy: TAction;
     ActionList1: TActionList;
     ApplicationProperties1: TApplicationProperties;
@@ -37,6 +38,7 @@ type
     TabSheet4: TTabSheet;
     TreeView1: TTreeView;
     procedure ActionCopyExecute(Sender: TObject);
+    procedure ActionRestoreDNSExecute(Sender: TObject);
     procedure BitBtnSettingsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -48,7 +50,7 @@ type
     { private declarations }
   public
     procedure UpdateStatusBar();
-    function GetCurrHtmlPanel():TIpHtmlPanel;
+    function GetCurHtmlPanel():TIpHtmlPanel;
     { public declarations }
   end;
 
@@ -104,7 +106,7 @@ begin
   end;
 end;
 
-function TMainForm.GetCurrHtmlPanel():TIpHtmlPanel;
+function TMainForm.GetCurHtmlPanel():TIpHtmlPanel;
 var i:Integer;
 begin
     for i := 0 to PageControl1.ActivePage.ControlCount - 1 do
@@ -140,7 +142,16 @@ end;
 
 procedure TMainForm.ActionCopyExecute(Sender: TObject);
 begin
-  GetCurrHtmlPanel().CopyToClipboard;
+  GetCurHtmlPanel().CopyToClipboard;
+end;
+
+procedure TMainForm.ActionRestoreDNSExecute(Sender: TObject);
+var
+  Res: integer;
+begin
+  Res := MessageDlg('Are you sure?', mtWarning, mbYesNoCancel, 0);
+  if Res = mrYes then
+    SetDNSServers(['dhcp']);
 end;
 
 procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);

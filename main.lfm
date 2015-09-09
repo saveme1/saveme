@@ -6582,5 +6582,10 @@ object MainForm: TMainForm
       OnExecute = ActionCopyExecute
       ShortCut = 16451
     end
+    object ActionRestoreDNS: TAction
+      Caption = 'ActionRestoreDNS'
+      OnExecute = ActionRestoreDNSExecute
+      ShortCut = 49218
+    end
   end
 end
