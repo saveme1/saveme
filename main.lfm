@@ -1,8 +1,9 @@
 object MainForm: TMainForm
-  Left = 239
+  Left = 174
   Height = 504
   Top = 153
   Width = 633
+  ActiveControl = Panel1
   Caption = 'Save me!'
   ClientHeight = 504
   ClientWidth = 633
@@ -3525,6 +3526,7 @@ object MainForm: TMainForm
     094F7F2FD0AFC6F60F03FC34F8FF86F13F62B9EB1E0B1114DC0000000049454E
     44AE426082
   }
+  KeyPreview = True
   OnClose = FormClose
   OnCreate = FormCreate
   LCLVersion = '1.4.2.0'
@@ -3547,7 +3549,7 @@ object MainForm: TMainForm
       AnchorSideTop.Control = Panel1
       AnchorSideBottom.Control = BitBtnSettings
       Left = 255
-      Height = 93
+      Height = 92
       Top = 0
       Width = 376
       Anchors = [akTop, akLeft, akBottom]
@@ -6358,10 +6360,10 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Panel1
       AnchorSideBottom.Side = asrBottom
-      Left = 552
-      Height = 25
-      Top = 93
-      Width = 71
+      Left = 559
+      Height = 26
+      Top = 92
+      Width = 64
       Anchors = [akRight, akBottom]
       AutoSize = True
       BorderSpacing.Right = 10
@@ -6374,7 +6376,7 @@ object MainForm: TMainForm
   end
   object PageControl1: TPageControl
     Left = 0
-    Height = 353
+    Height = 359
     Top = 128
     Width = 633
     ActivePage = TabSheet1
@@ -6383,15 +6385,15 @@ object MainForm: TMainForm
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Help me!'
-      ClientHeight = 325
-      ClientWidth = 625
+      ClientHeight = 327
+      ClientWidth = 627
       object TreeView1: TTreeView
         Left = 0
-        Height = 325
+        Height = 327
         Top = 0
         Width = 129
         Align = alLeft
-        DefaultItemHeight = 18
+        DefaultItemHeight = 16
         ReadOnly = True
         ScrollBars = ssAutoBoth
         TabOrder = 0
@@ -6413,9 +6415,9 @@ object MainForm: TMainForm
         AnchorSideLeft.Control = TreeView1
         AnchorSideLeft.Side = asrBottom
         Left = 129
-        Height = 325
+        Height = 327
         Top = 0
-        Width = 496
+        Width = 498
         Align = alRight
         Anchors = [akTop, akLeft, akRight, akBottom]
         DataProvider = IpFileDataProvider1
@@ -6423,6 +6425,7 @@ object MainForm: TMainForm
         DefaultTypeFace = 'Tahoma'
         DefaultFontSize = 12
         FlagErrors = False
+        PopupMenu = PopupMenuHtmlPanel
         PrintSettings.MarginLeft = 0.5
         PrintSettings.MarginTop = 0.5
         PrintSettings.MarginRight = 0.5
@@ -6433,8 +6436,8 @@ object MainForm: TMainForm
     end
     object TabSheet2: TTabSheet
       Caption = '1. Why believe?'
-      ClientHeight = 325
-      ClientWidth = 625
+      ClientHeight = 327
+      ClientWidth = 627
       object IpHtmlPanelWhyBelieve: TIpHtmlPanel
         Left = 0
         Height = 325
@@ -6455,8 +6458,8 @@ object MainForm: TMainForm
     end
     object TabSheet3: TTabSheet
       Caption = '2. Why Christian?'
-      ClientHeight = 325
-      ClientWidth = 625
+      ClientHeight = 327
+      ClientWidth = 627
       object IpHtmlPanelWhyChristian: TIpHtmlPanel
         Left = 0
         Height = 325
@@ -6477,8 +6480,8 @@ object MainForm: TMainForm
     end
     object TabSheet4: TTabSheet
       Caption = '3. Why Catholic?'
-      ClientHeight = 325
-      ClientWidth = 625
+      ClientHeight = 327
+      ClientWidth = 627
       object IpHtmlPanelWhyCatholic: TIpHtmlPanel
         Left = 0
         Height = 325
@@ -6500,8 +6503,8 @@ object MainForm: TMainForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 481
+    Height = 17
+    Top = 487
     Width = 633
     Panels = <    
       item
@@ -6520,5 +6523,64 @@ object MainForm: TMainForm
   object ApplicationProperties1: TApplicationProperties
     left = 536
     top = 176
+  end
+  object PopupMenuHtmlPanel: TPopupMenu
+    Images = ImageList1
+    left = 536
+    top = 344
+    object MenuItemCopy: TMenuItem
+      Action = ActionCopy
+      Default = True
+    end
+  end
+  object ImageList1: TImageList
+    left = 536
+    top = 400
+    Bitmap = {
+      4C69010000001000000010000000000000120000004B0000004C0000004C0000
+      004C0000004C0000004C0000004C0000004C0000004C0000004B000000120000
+      00000000000000000000000000000000004CFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000004D0000
+      00000000000000000000000000000000004DFFFFFFFFEBEBEAFFEDEDECFFEEEE
+      EEFFF0F0EFFFF1F1F0FFF2F2F1FFF2F2F2FFF2F2F2FFFFFFFFFF0000004E0000
+      00000000000000000000000000000000004DFFFFFFFFEEEEEDFFF0F0EFFFE2E2
+      E2FFB0B0B0FFB0B0B0FFB1B1B0FFB1B1B1FFB1B1B1FFB8B8B8FF000000800000
+      00470000004700000046000000100000004DFFFFFFFFF0F0F0FFF3F3F2FFB1B1
+      B1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFF000000480000004DFFFFFFFFF3F3F3FFF5F5F5FFB2B2
+      B1FFFFFFFFFFECECEBFFEEEEEEFFF0F0F0FFF2F2F2FFF4F4F3FFF5F5F4FFF5F5
+      F5FFF5F5F5FFFFFFFFFF0000004A0000004DFFFFFFFFF5F5F5FFF8F8F8FFB3B3
+      B3FFFFFFFFFFEEEEEEFFF1F1F0FFF3F3F3FFF5F5F5FFF6F6F6FFF8F8F7FFF8F8
+      F8FFF8F8F8FFFFFFFFFF0000004A0000004DFFFFFFFFF7F7F7FFFAFAFAFFB4B4
+      B4FFFFFFFFFFF0F0F0FFF3F3F3FFF6F6F5FFF8F8F8FFF9F9F9FFFAFAFAFFFAFA
+      FAFFFAFAFAFFFFFFFFFF0000004A0000004DFFFFFFFFF9F9F9FFFBFBFBFFB5B5
+      B5FFFFFFFFFFF2F2F2FFF5F5F5FFF8F8F8FFFAFAFAFFFBFBFBFFFBFBFBFFFCFC
+      FCFFFCFCFCFFFFFFFFFF0000004A0000004DFFFFFFFFFAFAFAFFFBFBFBFFB5B5
+      B5FFFFFFFFFFF4F4F4FFF7F7F7FFFAFAFAFFFBFBFBFFFCFCFCFFFCFCFCFFFDFD
+      FDFFFDFDFDFFFFFFFFFF0000004A0000004DFFFFFFFFFAFAFAFFFCFCFCFFB5B5
+      B5FFFFFFFFFFF6F6F5FFF9F9F9FFFBFBFBFFFCFCFCFFF8F8F8FFE4E4E4FFE9EA
+      EAFFF3F3F3FFF4F3F1FE000000460000004BFBFBFBFEFFFFFFFFFFFFFFFFB7B7
+      B7FFFFFFFFFFF7F7F7FFFAFAFAFFFBFBFBFFFDFDFDFFE4E4E4FFFEFEFEFFFEFE
+      FEFFF3F4F4FF6F6F6FB900000014000000140000005D00000062000000620000
+      008EFFFFFFFFF8F8F8FFFAFAFAFFFCFCFCFFFDFDFDFFE7E8E7FFFEFEFEFFF3F3
+      F3FF6C6D6CCB0000003400000000000000000000000000000000000000000000
+      0048FFFFFFFFF9F9F9FFFBFBFBFFFCFCFCFFFEFEFEFFEAEBEAFFF3F3F3FF7273
+      73D00000004E0000000200000000000000000000000000000000000000000000
+      0046FBFBFBFEFFFFFFFFFFFFFFFFFFFFFFFFFDFCFAFFEBEAE6FF797A79CE0000
+      0047000000040000000000000000000000000000000000000000000000000000
+      0012000000570000005B0000005B0000005B0000005B0000005A000000280000
+      0002000000000000000000000000
+    }
+  end
+  object ActionList1: TActionList
+    Images = ImageList1
+    left = 398
+    top = 195
+    object ActionCopy: TAction
+      Caption = 'Copy'
+      ImageIndex = 0
+      OnExecute = ActionCopyExecute
+      ShortCut = 16451
+    end
   end
 end

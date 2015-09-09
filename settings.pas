@@ -18,16 +18,21 @@ type
     BitBtnOK: TBitBtn;
     BitBtnReload: TBitBtn;
     Button1: TButton;
+    CheckBoxShowTrayIcon: TCheckBox;
     FontDialog1: TFontDialog;
     GroupBox1: TGroupBox;
     Label1: TLabel;
+    Label2: TLabel;
     MemoInfo: TMemo;
     Panel1: TPanel;
+    TrayIcon1: TTrayIcon;
     procedure BitBtnOKClick(Sender: TObject);
     procedure BitBtnCancelClick(Sender: TObject);
     procedure BitBtnProtectClick(Sender: TObject);
     procedure BitBtnReloadClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure CheckBoxShowTrayIconChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Label1Click(Sender: TObject);
 
@@ -47,12 +52,27 @@ implementation
 {$R *.lfm}
 
 { TFormSettings }
+uses
+  main;
 
 procedure TFormSettings.Button1Click(Sender: TObject);
 begin
   FontDialog1.Execute;
   MainFont := FontDialog1.Font;
   Application.MainForm.Font := MainFont;
+end;
+
+procedure TFormSettings.CheckBoxShowTrayIconChange(Sender: TObject);
+begin
+  if CheckBoxShowTrayIcon.Checked then
+    TrayIcon1.Show
+  else
+    TrayIcon1.Hide;
+end;
+
+procedure TFormSettings.FormCreate(Sender: TObject);
+begin
+  TrayIcon1.Hint:=isProtectedStr();
 end;
 
 procedure TFormSettings.BitBtnOKClick(Sender: TObject);

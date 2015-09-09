@@ -5,8 +5,8 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls,
-  Graphics, Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf, Buttons,
+  Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls, Graphics,
+  Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf, Buttons, Menus, ActnList,
   protection, content, settings, working;
 
 type
@@ -14,34 +14,41 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
+    ActionCopy: TAction;
+    ActionList1: TActionList;
     ApplicationProperties1: TApplicationProperties;
     BitBtnSettings: TBitBtn;
     Image1: TImage;
+    ImageList1: TImageList;
     IpFileDataProvider1: TIpFileDataProvider;
     IpHtmlPanelWhyChristian: TIpHtmlPanel;
     IpHtmlPanelWhyCatholic: TIpHtmlPanel;
     IpHtmlPanelWhyBelieve: TIpHtmlPanel;
     IpHtmlPanelHelpMe: TIpHtmlPanel;
     Memo1: TMemo;
+    MenuItemCopy: TMenuItem;
     PageControl1: TPageControl;
     Panel1: TPanel;
+    PopupMenuHtmlPanel: TPopupMenu;
     StatusBar1: TStatusBar;
     TabSheet2: TTabSheet;
     TabSheet1: TTabSheet;
     TabSheet3: TTabSheet;
     TabSheet4: TTabSheet;
     TreeView1: TTreeView;
+    procedure ActionCopyExecute(Sender: TObject);
     procedure BitBtnSettingsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure IpHtmlPanelHelpMeHotClick(Sender: TObject);
     procedure TreeView1SelectionChanged(Sender: TObject);
-    procedure SetFont(const MainFont:TFont);
+    procedure SetFont(const MainFont: TFont);
 
   private
     { private declarations }
   public
     procedure UpdateStatusBar();
+    function GetCurrHtmlPanel():TIpHtmlPanel;
     { public declarations }
   end;
 
@@ -83,18 +90,26 @@ end;
 
 procedure TMainForm.IpHtmlPanelHelpMeHotClick(Sender: TObject);
 var
-  NodeA : TIpHtmlNodeA;
-  NewURL : String;
+  NodeA: TIpHtmlNodeA;
+  NewURL: string;
 begin
 
   if TIpHtmlPanel(Sender).HotNode is TIpHtmlNodeA then
-    begin
-      ShowWorking();
-      Application.ProcessMessages;
-      NodeA := TIpHtmlNodeA(TIpHtmlPanel(Sender).HotNode);
-      NewURL := NodeA.HRef;
-      OpenURL(NewURL);
-    end;
+  begin
+    ShowWorking();
+    Application.ProcessMessages;
+    NodeA := TIpHtmlNodeA(TIpHtmlPanel(Sender).HotNode);
+    NewURL := NodeA.HRef;
+    OpenURL(NewURL);
+  end;
+end;
+
+function TMainForm.GetCurrHtmlPanel():TIpHtmlPanel;
+var i:Integer;
+begin
+    for i := 0 to PageControl1.ActivePage.ControlCount - 1 do
+    if PageControl1.ActivePage.Controls[i] is TIpHtmlPanel then
+      Result := TIpHtmlPanel(PageControl1.ActivePage.Controls[i]);
 end;
 
 
@@ -123,6 +138,11 @@ begin
   UpdateStatusBar();
 end;
 
+procedure TMainForm.ActionCopyExecute(Sender: TObject);
+begin
+  GetCurrHtmlPanel().CopyToClipboard;
+end;
+
 procedure TMainForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   IpHtmlPanelWhyBelieve.Free;
@@ -130,7 +150,7 @@ begin
   IpHtmlPanelWhyCatholic.Free;
   IpHtmlPanelHelpMe.Free;
   IpFileDataProvider1.Free;
-  CloseAction:= caFree;
+  CloseAction := caFree;
 end;
 
 procedure TMainForm.SetFont(const MainFont: TFont);
