@@ -73,7 +73,8 @@ et in sæcula sæculórum. Amen.
 |Hail, Mary, full of grace,
 the Lord is with thee.
 Blessed art thou among women
-and blessed is the fruit of thy womb, Jesus.
+and blessed is the fruit 
+of thy womb, Jesus.
 Holy Mary, Mother of God,
 pray for us sinners,
 now and at the hour of our death. 
@@ -82,7 +83,8 @@ Amen.
 |Ave, María, grátia plena,
 Dóminus tecum.
 Benedícta tu in muliéribus,
-et benedíctus fructus ventris tui, Iesus.
+et benedíctus fructus 
+ventris tui, Iesus.
 Sancta María, Mater Dei,
 ora pro nobis peccatóribus,
 nunc et in hora mortis nostræ.

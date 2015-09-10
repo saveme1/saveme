@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Dialogs, Process, Regexpr
   {$IFDEF Windows}
-  , Windows, WinSock
+  , Windows, WinSock, ShellApi, Forms
   {$ENDIF}
   {$IFDEF Linux}
   , netdb
@@ -372,10 +372,35 @@ begin
   end;
 end;
 
+
 procedure SetDNSServers(const IPAddr: array of string);
 var
   Cmd, DNSServer, IFace, NSStr, OutStr: ansistring;
   i: integer;
+
+  {$IFDEF Windows}
+  function RunAsAdmin(Filename: string; Parameters: string; Output: string = ''): boolean;
+  {
+    See Step 3: Redesign for UAC Compatibility (UAC)
+    http://msdn.microsoft.com/en-us/library/bb756922.aspx
+  }
+  var
+    Sei: TShellExecuteInfo;
+  begin
+    ZeroMemory(@Sei, SizeOf(Sei));
+    Sei.cbSize := SizeOf(TShellExecuteInfo);
+    Sei.Wnd := Application.MainFormHandle;
+    Sei.fMask := SEE_MASK_FLAG_DDEWAIT or SEE_MASK_FLAG_NO_UI;
+    Sei.lpVerb := PChar('runas');
+    Sei.lpFile := PChar(Filename); // PAnsiChar;
+    if Parameters <> '' then
+      Sei.lpParameters := PChar(Parameters); // PAnsiChar;
+    Sei.nShow := SW_SHOWNORMAL; //Integer;
+
+    Result := ShellExecuteEx(@Sei);
+  end;
+  {$ENDIF}
+
 begin
   DNSServer := '';
   IFace := '';
@@ -387,31 +412,32 @@ begin
   if IPAddr[0] = 'dhcp' then
   begin
     //Enable dhcp servers
-    Cmd := Format('netsh interface ip set dnsservers name="%s" source=dhcp', [IFace]);
-    RunCmd(Cmd, OutStr);
+    Cmd := Format('interface ip set dnsservers name="%s" source=dhcp', [IFace]);
+    RunAsAdmin('netsh', Cmd, OutStr);
   end
   else
     //Add static servers in list
   begin
     //First server
-    Cmd := Format('netsh interface ip set dns name="%s" static %s',
-      [IFace, IPAddr[0]]);
-    if RunCmd(Cmd, OutStr) <> 0 then
-      begin
-        OutStr := 'Error protecting computer:' + LineEnding + OutStr + LineEnding +
-          'You need administrative permissions to perform this action.' + LineEnding;
-        ShowMessage(OutStr);
-      end;
+    Cmd := Format('interface ip set dns name="%s" static %s', [IFace, IPAddr[0]]);
+    if RunAsAdmin('netsh', Cmd, OutStr) <> 0 then
+    begin
+      OutStr := 'Error protecting computer:' + LineEnding + OutStr +
+        LineEnding + 'You need administrative permissions to perform this action.' +
+        LineEnding;
+      ShowMessage(OutStr);
+    end;
 
     //Additional servers
     for i := 1 to Length(IPAddr) - 1 do
     begin
       Cmd := Format('netsh interface ip add dns name="%s" %s index=%d',
         [IFace, IPAddr[i], i + 1]);
-      if RunCmd(Cmd, OutStr) <> 0 then
+      if RunAsAdmin(Cmd, OutStr) <> 0 then
       begin
-        OutStr := 'Error protecting computer:' + LineEnding + OutStr + LineEnding +
-          'You need administrative permissions to perform this action.' + LineEnding;
+        OutStr := 'Error protecting computer:' + LineEnding + OutStr +
+          LineEnding + 'You need administrative permissions to perform this action.' +
+          LineEnding;
         ShowMessage(OutStr);
       end;
     end;
@@ -422,8 +448,8 @@ begin
   Cmd := 'sudo sed -i ''1s/^/nameserver ' + IPAddr[0] + '\n/'' /etc/resolv.conf';
   if RunCmd(Cmd, OutStr) <> 0 then
   begin
-    OutStr := 'Error protecting computer:' + LineEnding + OutStr + LineEnding +
-      'You need sudo permissions to perform this action.' + LineEnding;
+    OutStr := 'Error protecting computer:' + LineEnding + OutStr +
+      LineEnding + 'You need sudo permissions to perform this action.' + LineEnding;
     ShowMessage(OutStr);
   end;
   {$ENDIF}

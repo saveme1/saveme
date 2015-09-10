@@ -54,6 +54,7 @@ end;
 procedure TFormWorking.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   Timer1.Enabled := False;
+  CloseAction:=caHide;
 end;
 
 procedure TFormWorking.FormShow(Sender: TObject);

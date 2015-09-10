@@ -24,10 +24,10 @@ object FormWorking: TFormWorking
     AnchorSideRight.Side = asrCenter
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 25
-    Height = 14
+    Left = 28
+    Height = 13
     Top = 117
-    Width = 61
+    Width = 55
     Alignment = taCenter
     Anchors = [akTop, akRight]
     BorderSpacing.Top = 5

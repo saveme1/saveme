@@ -5,9 +5,11 @@ unit settings;
 interface
 
 uses
+  {$IFDEF Windows}
+  Registry,
+  {$ENDIF}
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, Buttons, IniPropStorage, DbCtrls, content, IpHtml, lib, protection,
-  db;
+  ExtCtrls, Buttons, IniPropStorage, DBCtrls, content, IpHtml, lib, protection;
 
 type
 
@@ -19,6 +21,7 @@ type
     BitBtnOK: TBitBtn;
     BitBtnReload: TBitBtn;
     Button1: TButton;
+    CheckBoxRunOnStartup: TCheckBox;
     CheckBoxShowTrayIcon: TCheckBox;
     FontDialog1: TFontDialog;
     GroupBox1: TGroupBox;
@@ -31,6 +34,7 @@ type
     procedure BitBtnProtectClick(Sender: TObject);
     procedure BitBtnReloadClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure CheckBoxRunOnStartupOnChange(Sender: TObject);
     procedure CheckBoxShowTrayIconChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -61,6 +65,49 @@ begin
   MainForm.SetFont(MainFont);
 end;
 
+procedure TFormSettings.CheckBoxRunOnStartupOnChange(Sender: TObject);
+{$IFDEF Windows}
+var
+  Reg: TRegistry;
+{$ENDIF}
+begin
+  {$IFDEF Windows}
+  Reg := TRegistry.Create;
+  try
+    Reg.RootKey := HKEY_CURRENT_USER;  // For current user
+    //Reg.RootKey := HKEY_LOCAL_MACHINE; // For all users
+    Reg.Access := KEY_ALL_ACCESS;
+
+    if Reg.OpenKey('Software\Microsoft\Windows\CurrentVersion\Run', False) then
+    begin
+      if CheckBoxRunOnStartup.Checked then
+      begin
+        // add startup entry
+        Reg.WriteString('saveme', Application.ExeName);
+       // CheckBoxRunOnStartup.Checked := True;
+      end
+      else
+      begin
+        // delete startup entry
+        Reg.DeleteValue('saveme');
+        //CheckBoxRunOnStartup.Checked := False;
+      end;
+
+      Reg.CloseKey;
+    end
+    else
+      MessageDlg('Unable to add registry value', mtError, [mbOK], 0);
+
+  finally
+    if Assigned(Reg) then
+      FreeAndNil(Reg);
+  end;
+  {$ENDIF}
+
+  {$IFDEF Linux}
+  {$ENDIF}
+end;
+
 procedure TFormSettings.CheckBoxShowTrayIconChange(Sender: TObject);
 begin
   if CheckBoxShowTrayIcon.Checked then
@@ -71,9 +118,9 @@ end;
 
 procedure TFormSettings.FormCreate(Sender: TObject);
 begin
-  IniPropStorage1.IniFileName:=GetAppConfigFile(False,True);
-  IniPropStorage1.IniSection:='settings';
-  TrayIcon.Hint:=isProtectedStr();
+  IniPropStorage1.IniFileName := GetAppConfigFile(False, True);
+  IniPropStorage1.IniSection := 'settings';
+  TrayIcon.Hint := isProtectedStr();
 end;
 
 procedure TFormSettings.BitBtnOKClick(Sender: TObject);
@@ -147,8 +194,13 @@ end;
 
 procedure TFormSettings.FormShow(Sender: TObject);
 begin
-  CheckBoxShowTrayIcon.Checked:=TrayIcon.Visible;
-  FontDialog1.Font:=Application.MainForm.Font;
+  {$IFDEF Linux}
+  CheckBoxRunOnStartup.Hint := 'Not available in Unix';
+  CheckBoxRunOnStartup.ShowHint := True;
+  CheckBoxRunOnStartup.Enabled := False;
+  {$ENDIF}
+  CheckBoxShowTrayIcon.Checked := TrayIcon.Visible;
+  FontDialog1.Font := Application.MainForm.Font;
   UpdateMemo();
 end;
 
