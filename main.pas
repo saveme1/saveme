@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls, Graphics,
   Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf, Buttons, Menus, ActnList,
-  IniPropStorage, protection, content, settings, working, lib;
+  IniPropStorage, protection, content, settings, working, lib, update;
 
 type
 
@@ -43,6 +43,7 @@ type
     procedure BitBtnSettingsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure IpHtmlPanelHelpMeHotClick(Sender: TObject);
     procedure TreeView1SelectionChanged(Sender: TObject);
     procedure SetFont(const MainFont: TFont);
@@ -59,7 +60,7 @@ var
   MainForm: TMainForm;
 
 const
-  VERSION = '0.3';
+  VERSION = '0.4';
 
 implementation
 
@@ -89,6 +90,11 @@ begin
 
   //Show protection state and version in the status bar
   UpdateStatusBar();
+end;
+
+procedure TMainForm.FormShow(Sender: TObject);
+begin
+  UpdateIfNeeded();
 end;
 
 procedure TMainForm.IpHtmlPanelHelpMeHotClick(Sender: TObject);

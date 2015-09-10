@@ -93,6 +93,10 @@ begin
   begin
     FormWorking.ShowOnTop;
     Application.ProcessMessages;
+    Application.ProcessMessages;
+    Application.ProcessMessages;
+    Application.ProcessMessages;
+    Application.ProcessMessages;
   end;
 end;
 
