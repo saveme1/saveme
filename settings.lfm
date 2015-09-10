@@ -12,7 +12,7 @@ object FormSettings: TFormSettings
   Font.Pitch = fpVariable
   OnCreate = FormCreate
   OnShow = FormShow
-  SessionProperties = 'TrayIcon.Visible'
+  SessionProperties = 'CheckBoxRunOnStartup.Checked;TrayIcon.Visible;CheckBoxRunShowLog.Checked'
   LCLVersion = '1.4.2.0'
   object MemoInfo: TMemo
     AnchorSideLeft.Control = Owner
@@ -261,6 +261,18 @@ object FormSettings: TFormSettings
       Caption = 'Run on start  '
       OnChange = CheckBoxRunOnStartupOnChange
       TabOrder = 3
+    end
+    object CheckBoxShowLog: TCheckBox
+      AnchorSideLeft.Control = CheckBoxShowTrayIcon
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = GroupBox1
+      Left = 230
+      Height = 20
+      Top = 0
+      Width = 81
+      Caption = 'Show log  '
+      OnChange = CheckBoxShowLogChange
+      TabOrder = 4
     end
   end
   object FontDialog1: TFontDialog

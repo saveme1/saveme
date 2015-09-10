@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls, Graphics,
   Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf, Buttons, Menus, ActnList,
-  StdActns, IniPropStorage, protection, content, settings, working, lib;
+  IniPropStorage, protection, content, settings, working, lib;
 
 type
 

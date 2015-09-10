@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 174
+  Left = 167
   Height = 504
-  Top = 153
+  Top = 99
   Width = 633
   ActiveControl = Panel1
   Caption = 'Save me!'
@@ -3549,7 +3549,7 @@ object MainForm: TMainForm
       AnchorSideTop.Control = Panel1
       AnchorSideBottom.Control = BitBtnSettings
       Left = 255
-      Height = 92
+      Height = 93
       Top = 0
       Width = 376
       Anchors = [akTop, akLeft, akBottom]
@@ -6361,8 +6361,8 @@ object MainForm: TMainForm
       AnchorSideBottom.Control = Panel1
       AnchorSideBottom.Side = asrBottom
       Left = 549
-      Height = 26
-      Top = 92
+      Height = 25
+      Top = 93
       Width = 74
       Anchors = [akRight, akBottom]
       AutoSize = True
@@ -6376,7 +6376,7 @@ object MainForm: TMainForm
   end
   object PageControl1: TPageControl
     Left = 0
-    Height = 353
+    Height = 356
     Top = 128
     Width = 633
     ActivePage = TabSheet1
@@ -6386,11 +6386,11 @@ object MainForm: TMainForm
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Help me!'
-      ClientHeight = 324
+      ClientHeight = 328
       ClientWidth = 625
       object TreeView1: TTreeView
         Left = 0
-        Height = 324
+        Height = 328
         Top = 0
         Width = 129
         Align = alLeft
@@ -6416,7 +6416,7 @@ object MainForm: TMainForm
         AnchorSideLeft.Control = TreeView1
         AnchorSideLeft.Side = asrBottom
         Left = 129
-        Height = 324
+        Height = 328
         Top = 0
         Width = 496
         Align = alRight
@@ -6507,15 +6507,15 @@ object MainForm: TMainForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 481
+    Height = 20
+    Top = 484
     Width = 633
     Panels = <    
       item
         Width = 560
       end    
       item
-        Alignment = taCenter
+        Alignment = taRightJustify
         Width = 40
       end>
     SimplePanel = False

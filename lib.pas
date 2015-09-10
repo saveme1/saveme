@@ -377,9 +377,13 @@ procedure SetDNSServers(const IPAddr: array of string);
 var
   Cmd, DNSServer, IFace, NSStr, OutStr: ansistring;
   i: integer;
+  Res: boolean;
+  NetshScript: TStringList;
+  NetshFile: ansistring;
 
   {$IFDEF Windows}
-  function RunAsAdmin(Filename: string; Parameters: string; Output: string = ''): boolean;
+  function RunAsAdmin(Filename: string; Parameters: string;
+    Output: string = ''): boolean;
   {
     See Step 3: Redesign for UAC Compatibility (UAC)
     http://msdn.microsoft.com/en-us/library/bb756922.aspx
@@ -390,15 +394,17 @@ var
     ZeroMemory(@Sei, SizeOf(Sei));
     Sei.cbSize := SizeOf(TShellExecuteInfo);
     Sei.Wnd := Application.MainFormHandle;
-    Sei.fMask := SEE_MASK_FLAG_DDEWAIT or SEE_MASK_FLAG_NO_UI;
+    //See https://msdn.microsoft.com/en-us/library/windows/desktop/bb759784(v=vs.85).aspx
+    Sei.fMask := SEE_MASK_FLAG_DDEWAIT;// or SEE_MASK_NOASYNC or SEE_MASK_FLAG_NO_UI;
     Sei.lpVerb := PChar('runas');
     Sei.lpFile := PChar(Filename); // PAnsiChar;
     if Parameters <> '' then
       Sei.lpParameters := PChar(Parameters); // PAnsiChar;
-    Sei.nShow := SW_SHOWNORMAL; //Integer;
+    Sei.nShow := SW_HIDE; //Integer;
 
-    Result := ShellExecuteEx(@Sei);
+    Result := ShellExecuteExA(@Sei);
   end;
+
   {$ENDIF}
 
 begin
@@ -410,37 +416,50 @@ begin
   DNSServer := GetDNSServer();
   IFace := NetInterfaceForDNSServer(DNSServer);
   if IPAddr[0] = 'dhcp' then
+    //Use servers from DHCP and return
   begin
-    //Enable dhcp servers
     Cmd := Format('interface ip set dnsservers name="%s" source=dhcp', [IFace]);
     RunAsAdmin('netsh', Cmd, OutStr);
   end
   else
-    //Add static servers in list
+    //Build netsh script file
+    //to add static dns servers in list
   begin
-    //First server
-    Cmd := Format('interface ip set dns name="%s" static %s', [IFace, IPAddr[0]]);
-    if RunAsAdmin('netsh', Cmd, OutStr) <> 0 then
-    begin
-      OutStr := 'Error protecting computer:' + LineEnding + OutStr +
-        LineEnding + 'You need administrative permissions to perform this action.' +
-        LineEnding;
-      ShowMessage(OutStr);
+    NetshScript := TStringList.Create;
+    try
+      NetshFile := GetTempDir() + 'netsh.scr';
+      //Add first server
+      NetshScript.Add(Format('interface ip set dns name="%s" static %s',
+        [IFace, IPAddr[0]]));
+
+      //Add other dns servers
+      for i := 1 to Length(IPAddr) - 1 do
+      begin
+        NetshScript.Add(Format('interface ip add dns name="%s" %s index=%d',
+          [IFace, IPAddr[i], i + 1]));
+      end;
+      Cmd := Format('-f "%s"',[NetshFile]);
+      NetshScript.SaveToFile(NetshFile);
+    finally
+      if Assigned(NetshScript) then
+        FreeAndNil(NetshScript);
     end;
 
-    //Additional servers
-    for i := 1 to Length(IPAddr) - 1 do
-    begin
-      Cmd := Format('netsh interface ip add dns name="%s" %s index=%d',
-        [IFace, IPAddr[i], i + 1]);
-      if RunAsAdmin(Cmd, OutStr) <> 0 then
+    //Run netsh with administrative privileges
+    //using the scriptfile
+    try
+      Res := RunAsAdmin('netsh', Cmd, OutStr);
+      if not Res then
       begin
         OutStr := 'Error protecting computer:' + LineEnding + OutStr +
           LineEnding + 'You need administrative permissions to perform this action.' +
           LineEnding;
         ShowMessage(OutStr);
       end;
+    finally
+      DeleteFile(PChar(NetshFile));
     end;
+
   end;
   {$ENDIF}
 
@@ -472,7 +491,7 @@ begin
   {$ENDIF}
 
   {$IFDEF Linux}
-  //FIXME
+  { TODO : Linux version of isNetworkUp() }
   Result := True;
   {$ENDIF}
 

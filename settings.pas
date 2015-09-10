@@ -22,6 +22,7 @@ type
     BitBtnReload: TBitBtn;
     Button1: TButton;
     CheckBoxRunOnStartup: TCheckBox;
+    CheckBoxShowLog: TCheckBox;
     CheckBoxShowTrayIcon: TCheckBox;
     FontDialog1: TFontDialog;
     GroupBox1: TGroupBox;
@@ -35,6 +36,7 @@ type
     procedure BitBtnReloadClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure CheckBoxRunOnStartupOnChange(Sender: TObject);
+    procedure CheckBoxShowLogChange(Sender: TObject);
     procedure CheckBoxShowTrayIconChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -84,7 +86,7 @@ begin
       begin
         // add startup entry
         Reg.WriteString('saveme', Application.ExeName);
-       // CheckBoxRunOnStartup.Checked := True;
+        // CheckBoxRunOnStartup.Checked := True;
       end
       else
       begin
@@ -106,6 +108,11 @@ begin
 
   {$IFDEF Linux}
   {$ENDIF}
+end;
+
+procedure TFormSettings.CheckBoxShowLogChange(Sender: TObject);
+begin
+  UpdateMemo();
 end;
 
 procedure TFormSettings.CheckBoxShowTrayIconChange(Sender: TObject);
@@ -144,7 +151,13 @@ begin
       'Your computer is already protected, do you want to do it again?',
       mtWarning, mbYesNoCancel, 0);
     if Res = mrYes then
-      SetSafeDNS(); //Force setting of safe DNS server
+    begin
+      //We need to hide the settings form so that the
+      //UAC dialog shows immediately and not blinking in
+      //the taskbar (RunAsAdmin uses the main form Window handle)
+      FormSettings.Hide;
+      SetSafeDNS(); //Force setting of safe DNS servers
+    end;
   end
   else
     //If not protected we simply pick the default safe DNS server
@@ -166,6 +179,11 @@ var
   {$ENDIF}
 
 begin
+  //Exit if we are not to show the log
+  MemoInfo.Visible:=CheckBoxShowLog.Checked;
+  if not MemoInfo.Showing then
+    Exit;
+
   //Working directory and DNS Server
   DNSServer := GetDNSServer();
   Info := 'Working dir: ' + GetCurrentDirUTF8() + LineEnding;
@@ -176,7 +194,7 @@ begin
   Info := Info + 'Interface for DNS Srvr: ' + NetInterfaceForDNSServer(DNSServer) +
     LineEnding;
 
-  // FIXME
+  // { TODO : Settings memo to show all that info? }
   Info := Info + '--- Windows Interfaces ---' + LineEnding;
   GetNetworkInterfaces(NetIfList);
   for IfInfo in NetIfList do

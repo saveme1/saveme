@@ -4,12 +4,12 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Debug"/>
-    <Units Count="16">
+    <Units Count="15">
       <Unit0>
         <Filename Value="saveme.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="69" Y="10"/>
+        <CursorPos X="59" Y="10"/>
         <UsageCount Value="226"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -19,8 +19,7 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="158"/>
-        <CursorPos X="6" Y="169"/>
+        <CursorPos X="3" Y="10"/>
         <UsageCount Value="226"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -29,8 +28,8 @@
         <Filename Value="protection.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="46"/>
-        <CursorPos X="47" Y="62"/>
+        <TopLine Value="17"/>
+        <CursorPos Y="26"/>
         <UsageCount Value="224"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -46,10 +45,9 @@
       <Unit4>
         <Filename Value="lib.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="391"/>
-        <CursorPos X="7" Y="401"/>
+        <TopLine Value="486"/>
+        <CursorPos X="44" Y="494"/>
         <UsageCount Value="209"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -59,9 +57,9 @@
         <ComponentName Value="FormSettings"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="85"/>
-        <CursorPos X="11" Y="80"/>
+        <CursorPos Y="46"/>
         <UsageCount Value="213"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -80,30 +78,29 @@
         <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
-        <Filename Value="Z:\usr\lib\lazarus\components\turbopower_ipro\iphtml.pas"/>
-        <UnitName Value="IpHtml"/>
+        <Filename Value="commdata.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="13616"/>
-        <CursorPos Y="13632"/>
-        <UsageCount Value="18"/>
+        <TopLine Value="68"/>
+        <CursorPos X="47" Y="73"/>
+        <UsageCount Value="71"/>
       </Unit7>
       <Unit8>
-        <Filename Value="Z:\usr\lib\fpc\src\packages\fcl-process\src\process.pp"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="116"/>
-        <CursorPos X="10" Y="183"/>
-        <UsageCount Value="29"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\components\turbopower_ipro\iphtml.pas"/>
+        <Filename Value="Z:\usr\lib\lazarus\components\turbopower_ipro\iphtml.pas"/>
         <UnitName Value="IpHtml"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="14819"/>
         <CursorPos X="26" Y="14839"/>
         <UsageCount Value="4"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="Z:\usr\lib\fpc\src\packages\fcl-process\src\process.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="116"/>
+        <CursorPos X="10" Y="183"/>
+        <UsageCount Value="29"/>
       </Unit9>
       <Unit10>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\extctrls.pp"/>
+        <Filename Value="Z:\usr\lib\lazarus\lcl\extctrls.pp"/>
         <UnitName Value="ExtCtrls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1180"/>
@@ -111,7 +108,7 @@
         <UsageCount Value="6"/>
       </Unit10>
       <Unit11>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\controls.pp"/>
+        <Filename Value="Z:\usr\lib\lazarus\lcl\controls.pp"/>
         <UnitName Value="Controls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2322"/>
@@ -119,158 +116,148 @@
         <UsageCount Value="4"/>
       </Unit11>
       <Unit12>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\include\control.inc"/>
+        <Filename Value="Z:\usr\lib\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3646"/>
         <CursorPos Y="3657"/>
         <UsageCount Value="5"/>
       </Unit12>
       <Unit13>
-        <Filename Value="commdata.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="8"/>
-        <TopLine Value="64"/>
-        <CursorPos X="15" Y="76"/>
-        <UsageCount Value="66"/>
-        <Loaded Value="True"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\forms.pp"/>
+        <Filename Value="Z:\usr\lib\lazarus\lcl\forms.pp"/>
         <UnitName Value="Forms"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="795"/>
         <CursorPos X="31" Y="804"/>
         <UsageCount Value="6"/>
-      </Unit14>
-      <Unit15>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\include\customform.inc"/>
-        <EditorIndex Value="7"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="Z:\usr\lib\lazarus\lcl\include\customform.inc"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="1013"/>
         <CursorPos Y="1024"/>
         <UsageCount Value="31"/>
-        <Loaded Value="True"/>
-      </Unit15>
+      </Unit14>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="main.pas"/>
-        <Caret Line="145" Column="11" TopLine="127"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="389" TopLine="381"/>
       </Position1>
       <Position2>
-        <Filename Value="settings.pas"/>
-        <Caret Line="147" Column="27" TopLine="128"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="390" TopLine="381"/>
       </Position2>
       <Position3>
-        <Filename Value="settings.pas"/>
-        <Caret Line="146" Column="15" TopLine="128"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="391" TopLine="381"/>
       </Position3>
       <Position4>
-        <Filename Value="settings.pas"/>
-        <Caret Line="74" Column="33" TopLine="62"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="392" TopLine="381"/>
       </Position4>
       <Position5>
-        <Filename Value="settings.pas"/>
-        <Caret Line="75" Column="33" TopLine="63"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="394" TopLine="381"/>
       </Position5>
       <Position6>
-        <Filename Value="settings.pas"/>
-        <Caret Line="77" Column="33" TopLine="65"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="395" TopLine="381"/>
       </Position6>
       <Position7>
-        <Filename Value="settings.pas"/>
-        <Caret Line="76" Column="33" TopLine="64"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="396" TopLine="382"/>
       </Position7>
       <Position8>
-        <Filename Value="settings.pas"/>
-        <Caret Line="75" Column="33" TopLine="63"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="397" TopLine="384"/>
       </Position8>
       <Position9>
-        <Filename Value="settings.pas"/>
-        <Caret Line="74" Column="60" TopLine="67"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="398" TopLine="385"/>
       </Position9>
       <Position10>
-        <Filename Value="settings.pas"/>
-        <Caret Line="73" TopLine="67"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="399" TopLine="386"/>
       </Position10>
       <Position11>
-        <Filename Value="settings.pas"/>
-        <Caret Line="74" TopLine="67"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="401" TopLine="388"/>
       </Position11>
       <Position12>
-        <Filename Value="settings.pas"/>
-        <Caret Line="75" TopLine="67"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="402" TopLine="389"/>
       </Position12>
       <Position13>
-        <Filename Value="settings.pas"/>
-        <Caret Line="151" TopLine="133"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="433" TopLine="424"/>
       </Position13>
       <Position14>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\include\customform.inc"/>
-        <Caret Line="1024" TopLine="1013"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="381" Column="3" TopLine="370"/>
       </Position14>
       <Position15>
-        <Filename Value="settings.pas"/>
-        <Caret Line="154" TopLine="134"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="458" Column="13" TopLine="443"/>
       </Position15>
       <Position16>
-        <Filename Value="settings.pas"/>
-        <Caret Line="161" TopLine="141"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="436" Column="40" TopLine="411"/>
       </Position16>
       <Position17>
-        <Filename Value="settings.pas"/>
-        <Caret Line="163" Column="39" TopLine="148"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="460" Column="27" TopLine="452"/>
       </Position17>
       <Position18>
-        <Filename Value="settings.pas"/>
-        <Caret Line="87" Column="11" TopLine="77"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="442" Column="27" TopLine="437"/>
       </Position18>
       <Position19>
-        <Filename Value="settings.pas"/>
-        <Caret Line="85" Column="37" TopLine="76"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="452" TopLine="438"/>
       </Position19>
       <Position20>
-        <Filename Value="settings.pas"/>
-        <Caret Line="107" TopLine="86"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="451" TopLine="437"/>
       </Position20>
       <Position21>
-        <Filename Value="settings.pas"/>
-        <Caret Line="97" Column="4" TopLine="86"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="452" TopLine="438"/>
       </Position21>
       <Position22>
-        <Filename Value="settings.pas"/>
-        <Caret Line="82" Column="3" TopLine="72"/>
+        <Filename Value="lib.pas"/>
+        <Caret Line="460" Column="7" TopLine="450"/>
       </Position22>
       <Position23>
         <Filename Value="settings.pas"/>
-        <Caret Line="94" Column="10" TopLine="84"/>
+        <Caret Line="152" Column="56" TopLine="196"/>
       </Position23>
       <Position24>
-        <Filename Value="working.pas"/>
-        <Caret Line="27" Column="4" TopLine="37"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="185" Column="53" TopLine="177"/>
       </Position24>
       <Position25>
-        <Filename Value="working.pas"/>
-        <Caret Line="20" Column="46" TopLine="9"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="186" Column="53" TopLine="178"/>
       </Position25>
       <Position26>
-        <Filename Value="lib.pas"/>
-        <Caret Line="449" Column="10" TopLine="433"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="185" Column="53" TopLine="177"/>
       </Position26>
       <Position27>
-        <Filename Value="lib.pas"/>
-        <Caret Line="388" Column="7" TopLine="367"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="177" Column="16" TopLine="164"/>
       </Position27>
       <Position28>
-        <Filename Value="lib.pas"/>
-        <Caret Line="385" Column="28" TopLine="374"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="76" Column="3" TopLine="70"/>
       </Position28>
       <Position29>
-        <Filename Value="lib.pas"/>
-        <Caret Line="417" Column="7" TopLine="397"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="183" Column="44" TopLine="168"/>
       </Position29>
       <Position30>
-        <Filename Value="lib.pas"/>
-        <Caret Line="8" Column="49"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="184" Column="3" TopLine="176"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

@@ -9,9 +9,6 @@
       <Title Value="saveme"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
-      <XPManifest>
-        <ExecutionLevel Value="2"/>
-      </XPManifest>
       <Icon Value="0"/>
       <Resources Count="2">
         <Resource_0 FileName="html.zip" Type="RCDATA" ResourceName="HTML"/>
@@ -24,7 +21,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="3"/>
-      <StringTable ProductVersion=""/>
+      <StringTable ProductName="Save me!" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Debug" Default="True"/>
@@ -136,7 +133,7 @@ if TargetOS='linux' then
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="7">
       <Unit0>
         <Filename Value="saveme.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -174,10 +171,6 @@ if TargetOS='linux' then
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit6>
-      <Unit7>
-        <Filename Value="commdata.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
