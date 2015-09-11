@@ -186,7 +186,7 @@ end;
 procedure TMainForm.UpdateStatusBar();
 begin
   StatusBar1.Panels[0].Text := isProtectedStr();
-  StatusBar1.Panels[1].Text := VERSION;
+  StatusBar1.Panels[1].Text := VERSION + '   ';
 end;
 
 end.

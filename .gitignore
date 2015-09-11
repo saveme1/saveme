@@ -4,6 +4,7 @@ lib
 saveme
 saveme.exe
 saveme.dbg
+saveme.ver
 html.zip
 html/*/*.html
 HTMLVERSION

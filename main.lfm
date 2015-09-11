@@ -6513,11 +6513,13 @@ object MainForm: TMainForm
     Width = 633
     Panels = <    
       item
-        Width = 450
+        Text = 'Protection level'
+        Width = 550
       end    
       item
         Alignment = taRightJustify
-        Width = 60
+        Text = '0.1.0.0'
+        Width = 40
       end>
     SimplePanel = False
   end
