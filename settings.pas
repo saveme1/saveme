@@ -23,6 +23,7 @@ type
     Button1: TButton;
     CheckBoxRunOnStartup: TCheckBox;
     CheckBoxShowLog: TCheckBox;
+    CheckBoxAutoUpdate: TCheckBox;
     CheckBoxShowTrayIcon: TCheckBox;
     FontDialog1: TFontDialog;
     GroupBox1: TGroupBox;

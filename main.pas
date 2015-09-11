@@ -52,7 +52,7 @@ type
     { private declarations }
   public
     procedure UpdateStatusBar();
-    function GetCurHtmlPanel():TIpHtmlPanel;
+    function GetCurHtmlPanel(): TIpHtmlPanel;
     { public declarations }
   end;
 
@@ -60,7 +60,7 @@ var
   MainForm: TMainForm;
 
 const
-  VERSION = '0.4';
+  VERSION = '0.5';
 
 implementation
 
@@ -94,7 +94,8 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
-  UpdateIfNeeded();
+  if FormSettings.CheckBoxAutoUpdate.Checked then
+    UpdateIfNeeded();
 end;
 
 procedure TMainForm.IpHtmlPanelHelpMeHotClick(Sender: TObject);
@@ -113,10 +114,11 @@ begin
   end;
 end;
 
-function TMainForm.GetCurHtmlPanel():TIpHtmlPanel;
-var i:Integer;
+function TMainForm.GetCurHtmlPanel(): TIpHtmlPanel;
+var
+  i: integer;
 begin
-    for i := 0 to PageControl1.ActivePage.ControlCount - 1 do
+  for i := 0 to PageControl1.ActivePage.ControlCount - 1 do
     if PageControl1.ActivePage.Controls[i] is TIpHtmlPanel then
       Result := TIpHtmlPanel(PageControl1.ActivePage.Controls[i]);
 end;
@@ -173,9 +175,9 @@ end;
 
 procedure TMainForm.SetFont(const MainFont: TFont);
 begin
-  IpHtmlPanelHelpMe.Font:=MainFont;
-  IpHtmlPanelHelpMe.DefaultTypeFace:=MainFont.Name;
-  IpHtmlPanelHelpMe.DefaultFontSize:=MainFont.Size;
+  IpHtmlPanelHelpMe.Font := MainFont;
+  IpHtmlPanelHelpMe.DefaultTypeFace := MainFont.Name;
+  IpHtmlPanelHelpMe.DefaultFontSize := MainFont.Size;
   IpHtmlPanelHelpMe.Repaint;
 end;
 
@@ -186,4 +188,3 @@ begin
 end;
 
 end.
-
