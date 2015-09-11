@@ -257,7 +257,7 @@ object FormSettings: TFormSettings
       Left = 116
       Height = 22
       Top = 22
-      Width = 109
+      Width = 102
       Caption = 'Run on start  '
       OnChange = CheckBoxRunOnStartupOnChange
       TabOrder = 3
@@ -269,7 +269,7 @@ object FormSettings: TFormSettings
       Left = 232
       Height = 22
       Top = 0
-      Width = 89
+      Width = 84
       Caption = 'Show log  '
       OnChange = CheckBoxShowLogChange
       TabOrder = 4
@@ -281,7 +281,7 @@ object FormSettings: TFormSettings
       Left = 232
       Height = 22
       Top = 22
-      Width = 115
+      Width = 104
       Caption = 'Auto update   '
       Checked = True
       OnChange = CheckBoxShowLogChange

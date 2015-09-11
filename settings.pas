@@ -128,6 +128,7 @@ procedure TFormSettings.FormCreate(Sender: TObject);
 begin
   IniPropStorage1.IniFileName := GetAppConfigFile(False, True);
   IniPropStorage1.IniSection := 'settings';
+  MemoInfo.Text:='--Log--';
   TrayIcon.Hint := isProtectedStr();
 end;
 

@@ -20,7 +20,8 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MinorVersionNr Value="3"/>
+      <MinorVersionNr Value="5"/>
+      <RevisionNr Value="2"/>
       <StringTable LegalCopyright="BSD License" ProductName="Save me!" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="3">
@@ -133,7 +134,7 @@ if TargetOS='linux' then
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="saveme.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -175,6 +176,11 @@ if TargetOS='linux' then
         <Filename Value="update.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="versionsupport.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="VersionSupport"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

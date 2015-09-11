@@ -7,4 +7,6 @@ saveme.dbg
 html.zip
 html/*/*.html
 HTMLVERSION
-
+relserver.cfg
+upload.sh
+rel

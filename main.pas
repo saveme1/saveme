@@ -7,7 +7,8 @@ interface
 uses
   Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls, Graphics,
   Dialogs, ExtCtrls, ComCtrls, StdCtrls, LCLIntf, Buttons, Menus, ActnList,
-  IniPropStorage, protection, content, settings, working, lib, update;
+  IniPropStorage, protection, content, settings, working, lib, update,
+  VersionSupport;
 
 type
 
@@ -58,9 +59,7 @@ type
 
 var
   MainForm: TMainForm;
-
-const
-  VERSION = '0.5';
+  VERSION: ansistring;
 
 implementation
 
@@ -71,6 +70,9 @@ implementation
 ///////////////// Gui
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
+  //Get version from executable
+  VERSION:=GetFileVersion();
+
   //Switch to the config directory as the working dir
   //so that all html relative html links work properly
   ChDir(GetAppConfigDir(False));
@@ -79,7 +81,7 @@ begin
   //available
   UnpackContentIfNeeded();
 
-  //Populate why believe tab with its content
+  //Populate tabs with content
   ShowContent(IpHtmlPanelWhyBelieve, 'whybelieve');
   ShowContent(IpHtmlPanelWhyChristian, 'whychristian');
   ShowContent(IpHtmlPanelWhyCatholic, 'whycatholic');

@@ -1,11 +1,13 @@
 = Prayers
 
 ******
-These are prayers taked from the _Compendiudm of the Catechism of the Catholic Church_.
-There are basic prayers, prayers to your guardian angel, for the dead, etc.
+These are prayers taken from the _Compendiudm of the Catechism of the Catholic Church_.
+There are basic prayers, prayers to your guardian angel, for the dead, the Rosary; included
+are also an Act of Faith, Act of Hope, Act of Love, and many other prayers. At the end
+there are prayers used by Catholics of the Eastern Churches.
 ******
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
+[width="85%",style="verse",cols='.<, .<',options=""]
 |=======
 |*Our Father*|*Pater Noster*
 
@@ -33,11 +35,10 @@ sicut et nos
 dimíttimus debitóribus nostris.
 et ne nos indúcas in tentatiónem; 
 sed líbera nos a Malo.
-|=======
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
-|*The Sign of the Cross* | *Signum Crucis*
+
+
+|*The Sign of the Cross*|*Signum Crucis*
 |In the name of the Father
 and of the Son
 and of the Holy Spirit. Amen.
@@ -45,11 +46,7 @@ and of the Holy Spirit. Amen.
 |  In nómine Patris
 et Fílii
 et Spíritus Sancti. Amen.
-|=======
 
-
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
 |*Glory be to the Father* |*Gloria Patri*
 |Glory be to the Father
 and to the Son
@@ -64,12 +61,8 @@ et Spirítui Sancto.
 Sicut erat in princípio,
 et nunc et semper
 et in sæcula sæculórum. Amen.
-|=======
- 
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
-|*The Hail Mary* |*Ave, Maria*
+|*The Hail Mary*|*Ave, Maria*
 |Hail, Mary, full of grace,
 the Lord is with thee.
 Blessed art thou among women
@@ -89,11 +82,9 @@ Sancta María, Mater Dei,
 ora pro nobis peccatóribus,
 nunc et in hora mortis nostræ.
 Amen.
-|=======
 
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
 |*Angel of God*|*Angele Dei*
 |Angel of God, 
 my guardian dear,
@@ -108,11 +99,85 @@ me, tibi commíssum pietáte supérna,
 illúmina, custódi,
 rege et gubérna.
 Amen.
-|=======
+
+|*Act of Faith*|*Actus fidei*
+|O my God, I firmly believe 
+that you are one God in three divine Persons,
+Father, Son, and Holy Spirit. 
+I believe that your divine Son became man 
+and died for our sins and that he will come 
+to judge the living and the dead. 
+I believe these and all the truths 
+which the Holy Catholic Church teaches
+because you have revealed them 
+who are eternal truth and wisdom, 
+who can neither deceive nor be deceived. 
+In this faith I intend to live and die. 
+Amen.
+
+|Dómine Deus,
+firma fide credo et confíteor 
+ómnia et síngula quæ 
+sancta Ecclésia Cathólica propónit, 
+quia tu, Deus, ea ómnia revelásti, 
+qui es ætérna véritas et sapiéntia 
+quæ nec fállere nec falli potest.
+In hac fide vívere et mori státuo. 
+Amen.
 
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+|*Act of Hope*|*Actus spei*
+|O Lord God, 
+I hope by your grace for the pardon 
+of all my sins
+and after life here to gain eternal happiness
+because you have promised it 
+who are infinitely powerful, faithful, kind, 
+and merciful. 
+In this hope I intend to live and die. 
+Amen.
+
+|Dómine Deus, spero per grátiam tuam
+remissiónem ómnium peccatórum, 
+et post hanc vitam ætérnam felicitátem 
+me esse consecutúrum: 
+quia tu promisísti, qui es infiníte 
+potens, fidélis, benígnus, et miséricors.
+In hac spe vívere et mori státuo.
+Amen.
+
+
+|*Act of Love*|*Actus caritatis*
+|O Lord God, I love you above all things 
+and I love my neighbor for your sake 
+because you are the highest, infinite and perfect
+good, worthy of all my love. 
+In this love I intend to live and die. 
+Amen.
+
+|Dómine Deus, 
+amo te super ómnia 
+et próximum meum propter te, 
+quia tu es summum, infinítum, 
+et perfectíssimum bonum, 
+omni dilectióne dignum.
+In hac caritáte 
+vívere et mori státuo.
+Amen.
+
+|*Act of Contrition*|*Actus contritionis*
+|O my God, I am heartily sorry for having offended Thee, and I detest all my
+sins because of thy just punishments, but most of all because they offend Thee,
+my God, who art all good and deserving of all my love. I firmly resolve with
+the help of Thy grace to sin no more and to avoid the near occasion of sin.
+Amen.
+
+|Deus meus, ex toto corde pænitet me ómnium meórum peccatórum, éaque detéstor,
+quia peccándo, non solum pœnas a te iuste statútas proméritus sum, sed
+præsértim quia offéndi te, summum bonum, ac dignum qui super ómnia diligáris.
+Ídeo fírmiter propóno, adiuvánte grátia tua, de cétero me non peccatúrum
+peccandíque occasiónes próximas fugitúrum. Amen.
+
 |*Eternal Rest*|*Requiem Æternam*
 |Eternal rest grant unto them, O Lord,
 and let perpetual light shine upon them.
@@ -121,11 +186,9 @@ May they rest in peace. Amen.
 |Réquiem ætérnam dona eis, Dómine,
 et lux perpétua lúceat eis.
 Requiéscant in pace. Amen.
-|=======
- 
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
+
 |*The Angelus*|*Angelus Domini*
 | `V.` The Angel of the Lord declared unto Mary. +
  `R.` And she conceived of the Holy Spirit. +
@@ -197,11 +260,9 @@ ad resurrectiónis glóriam perducámur. +
 Per eúndem Christum Dóminum nostrum. Amen. +
  +
 Glória Patri... +
-|=======
 
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
 |*The Regina Caeli*|*Regina Cæli*
 |Queen of heaven, rejoice, alleluia.
 The Son whom you merited to bear, alleluia,
@@ -230,11 +291,9 @@ Orémus. +
 Deus, qui per resurrectiónem Fílii tui Dómini nostri Iesu Christi mundum
 lætificáre dignátus es, præsta, quæsumus, ut per eius Genetrícem Vírginem
 Maríam perpétuæ capiámus gáudia vitæ.  Per Christum Dóminum nostrum. Amen.
-|=======
 
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
 |*Hail Holy Queen*|*Salve, Regina*
 |Hail, Holy Queen, Mother of Mercy, 
 Hail our life, our sweetness and our hope! 
@@ -260,10 +319,9 @@ ad nos convérte.
 Et Iesum benedíctum fructum ventris tui,
 nobis, post hoc exsílium, osténde.
 O clemens, o pia, o dulcis Virgo María!
-|=======
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
+
 |*The Magnificat*|*Magnificat*
 |My soul proclaims the greatness of the Lord,
 my spirit rejoices in God my Savior,
@@ -316,10 +374,9 @@ Sicut erat in princípio,
 et nunc et semper,
 et in sæcula sæculórum.
 Amen.
-|=======
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
+
 |*Under Your Protection*|*Sub tuum præsidium*
 |We fly to thy protection, 
 O holy Mother of God.
@@ -336,12 +393,9 @@ in necessitátibus;
 sed a perículis cunctis
 líbera nos semper,
 Virgo gloriósa et benedícta.
-|=======
 
-   
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
 |*The Benedictus*|*Benedictus*
 |Blessed be the Lord, the God of Israel;
 he has come to his people and set them free.
@@ -408,10 +462,9 @@ Sicut erat in princípio,
 et nunc
 et semper,
 et in sæcula sæculórum. Amen.
-|=======
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
+
 |*The Te Deum*|*Te Deum*
 |You are God: we praise you;
 You are God: we acclaim you;
@@ -506,10 +559,9 @@ Dómine, super nos,
 quemádmodum sperávimus in te.
 In te, Dómine, sperávi:
 non confúndar in ætérnum.
-|=======
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
+
 |*Come, Creator Spirit*|*Veni, Creator Spiritus*
 |Come, Holy Spirit, Creator come, 
 From your bright heavenly throne!
@@ -568,10 +620,9 @@ Deo Patri sit glória,
 et Fílio, qui a mórtuis
 surréxit, ac Paráclito,
 in sæculórum sæcula. Amen.
-|=======
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
+
 |*Come, Holy Spirit*|*Veni, Sancte Spiritus*
 |Come, Holy Spirit, come!
 And from your celestial home
@@ -634,10 +685,9 @@ sacrum septenárium.
 Da virtútis méritum,
 da salútis éxitum,
 da perénne gáudium. Amen.
-|=======
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
+
 |*The Anima Christi*|*Anima Christi*
 |Soul of Christ, be my sanctification.
 Body of Christ, be my salvation.
@@ -666,12 +716,9 @@ In hora mortis meæ voca me.
 Et iube me veníre ad te,
 ut cum Sanctis tuis laudem te
 in sæcula sæculórum. Amen
-|=======
 
- 
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
 |*The Memorare*|*Memorare*
 |Remember, O most gracious Virgin Mary,
 that never was it known 
@@ -701,66 +748,62 @@ curro, ad te vénio,
 coram te gemens peccátor assísto. 
 Noli, Mater Verbi, verba mea despícere; 
 sed áudi propítia et exáudi. Amen.
-|=======
 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
+
 |*The Rosary*|*Rosarium*
-|The Joyful Mysteries
-(recited Monday and Saturday)
-
-The Annunciation
-The Visitation
-The Nativity
-The Presentation
-The Finding in the Temple
-
+|_The Joyful Mysteries_ +
+(recited Monday and Saturday) +
+ +
+The Annunciation +
+The Visitation +
+The Nativity +
+The Presentation +
+The Finding in the Temple +
+ +
  
 
-The Mysteries of Light
-(recited Thursday)
-
-The Baptism of Jesus
-The Wedding Feast of Cana
-The Proclamation of the Kingdom, with the call to Conversion
-The Transfiguration
-The Institution of the Eucharist
-
+_The Mysteries of Light_ +
+(recited Thursday) +
+ +
+The Baptism of Jesus +
+The Wedding Feast of Cana +
+The Proclamation of the Kingdom, with the call to Conversion +
+The Transfiguration +
+The Institution of the Eucharist +
+ +
  
 
-The Sorrowful Mysteries
-(recited Tuesday and Friday)
+_The Sorrowful Mysteries_ +
+(recited Tuesday and Friday) +
+ +
+The Agony in the Garden +
+The Scourging at the Pillar +
+The Crowning with Thorns +
+The Carrying of the Cross +
+The Crucifixion +
+ +
 
-The Agony in the Garden
-The Scourging at the Pillar
-The Crowning with Thorns
-The Carrying of the Cross
-The Crucifixion
 
- 
+_The Glorious Mysteries_  +
+(recited Wednesday and Sunday) +
+ +
+The Resurrection  +
+The Ascension +
+The Descent of the Holy Spirit +
+The Assumption +
+The Coronation of Mary Queen of Heaven and Earth +
+ +
+ +
 
-The Glorious Mysteries 
-(recited Wednesday and Sunday)
-
-The Resurrection 
-The Ascension
-The Descent of the Holy Spirit
-The Assumption
-The Coronation of Mary Queen of Heaven and Earth
-
- 
-
-Prayer concluding the Rosary
-
-Hail, Holy Queen, etc. as above
-
- V. Pray for us, O holy Mother of God.
- R. That we may be made worthy of the promises of Christ.
-
- 
-
-Let us pray.
-
+Prayer concluding the Rosary +
+ +
+Hail, Holy Queen, etc. as above +
+ +
+ `V.` Pray for us, O holy Mother of God. +
+ `R.` That we may be made worthy of the promises of Christ. +
+ +
+Let us pray. +
+ +
 O God, whose only-begotten Son, 
 by his life, death and resurrection, 
 has purchased for us 
@@ -774,60 +817,56 @@ and obtain what they promise,
 through the same Christ our Lord. 
 Amen.
 
-|Mystéria gaudiósa
-(in feria secunda et sabbato)
-
-Annuntiátio.
-Visitátio.
-Natívitas.
-Præsentátio.
-Invéntio in Templo.
-
+|_Mystéria gaudiósa_ +
+(in feria secunda et sabbato) +
+ +
+Annuntiátio. +
+Visitátio. +
+Natívitas. +
+Præsentátio. +
+Invéntio in Templo. +
+ +
  
 
-Mystéria luminósa
-(in feria quinta)
-
-Baptísma apud Iordánem.
-Autorevelátio apud Cananénse matrimónium.
-Regni Dei proclamátio coniúncta cum invitaménto
+_Mystéria luminósa_ +
+(in feria quinta) +
+ +
+Baptísma apud Iordánem. +
+Autorevelátio apud Cananénse matrimónium. +
+Regni Dei proclamátio coniúncta cum invitaménto +
 ad conversiónem.
-Transfigurátio.
-Eucharístiæ Institútio.
+Transfigurátio. +
+Eucharístiæ Institútio. +
+ +
+_Mystéria dolorósa_ +
+(in feria tertia et feria sexta) +
+ +
+Agonía in Hortu. +
+Flagellátio. +
+Coronátio Spinis. +
+Baiulátio Crucis. +
+Crucifíxio et Mors. +
+ +
 
- 
+_Mystéria gloriósa_ +
+(in feria quarta et Dominica) +
+ +
+Resurréctio. +
+Ascénsio. +
+Descénsus Spíritus Sancti. +
+Assúmptio. +
+Coronátio in Cælo. +
+ +
+ +
 
-Mystéria dolorósa
-(in feria tertia et feria sexta)
+Oratio ad finem Rosarii dicenda +
+ +
+ `V.` Ora pro nobis, sancta Dei génetrix. +
+ `R.` Ut digni efficiámur promissiónibus Christi. +
+ +
 
-Agonía in Hortu.
-Flagellátio.
-Coronátio Spinis.
-Baiulátio Crucis.
-Crucifíxio et Mors.
-
- 
-
-Mystéria gloriósa
-(in feria quarta et Dominica)
-
-Resurréctio.
-Ascénsio.
-Descénsus Spíritus Sancti.
-Assúmptio.
-Coronátio in Cælo.
-
- 
-
-Oratio ad finem Rosarii dicenda
-
-Ora pro nobis, sancta Dei génetrix.
-Ut digni efficiámur promissiónibus Christi.
-
- 
-
-Orémus.
-
+Orémus. +
+ +
 Deus, cuius Unigénitus per vitam, 
 mortem et resurrectiónem suam 
 nobis salútis ætérnæ 
@@ -840,9 +879,11 @@ et imitémur quod cóntinent,
 et quod promíttunt assequámur. 
 Per Christum Dóminum nostrum. 
 Amen.
+
+
 |=======
 
-[width="85%",style="verse",cols=1,options="header"]
+[width="85%",style="verse",cols=1,options=""]
 |=======
 |*Coptic Incense Prayer*
 |O King of peace, give us your peace and pardon our sins. Dismiss the enemies
@@ -851,20 +892,11 @@ our midst in the glory of the Father and of the Holy Spirit. May he bless us
 and purify our hearts and cure the sicknesses of our soul and body. We adore
 you, O Christ, with your good Father and the Holy Spirit because you have come
 and you have saved us.
-|=======
 
-
-[width="85%",style="verse",cols='.<',options="header"]
-|=======
 |*Syro-Maronite Farewell to the Altar*
 
 |Remain in peace, O Altar of God. May the offering that I have taken from you be for the remission of my debts and the pardon of my sins and may it obtain for me that I may stand before the tribunal of Christ without condemnation and without confusion. I do not know if I will have the opportunity to return and offer another sacrifice upon you. Protect me, O Lord, and preserve your holy Church as the way to truth and salvation. Amen.
-|=======
- 
 
- 
-[width="85%",style="verse",cols='.<',options="header"]
-|=======
 |*Byzantine Prayer for the Deceased*
 
 |God of the spirits and of all flesh, who have trampled death and annihilated
@@ -880,94 +912,3 @@ un-begotten Father and your most holy, good and life-creating Spirit, now and
 always and forever and ever.
 |=======
  
-
- 
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
-|*Act of Faith*|*Actus fidei*
-|O my God, I firmly believe 
-that you are one God in three divine Persons,
-Father, Son, and Holy Spirit. 
-I believe that your divine Son became man 
-and died for our sins and that he will come 
-to judge the living and the dead. 
-I believe these and all the truths 
-which the Holy Catholic Church teaches
-because you have revealed them 
-who are eternal truth and wisdom, 
-who can neither deceive nor be deceived. 
-In this faith I intend to live and die. 
-Amen.
-
-|Dómine Deus,
-firma fide credo et confíteor 
-ómnia et síngula quæ 
-sancta Ecclésia Cathólica propónit, 
-quia tu, Deus, ea ómnia revelásti, 
-qui es ætérna véritas et sapiéntia 
-quæ nec fállere nec falli potest.
-In hac fide vívere et mori státuo. 
-Amen.
-|=======
-
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
-|*Act of Hope*|*Actus spei*
-|O Lord God, 
-I hope by your grace for the pardon 
-of all my sins
-and after life here to gain eternal happiness
-because you have promised it 
-who are infinitely powerful, faithful, kind, 
-and merciful. 
-In this hope I intend to live and die. 
-Amen.
-
-|Dómine Deus, spero per grátiam tuam
-remissiónem ómnium peccatórum, 
-et post hanc vitam ætérnam felicitátem 
-me esse consecutúrum: 
-quia tu promisísti, qui es infiníte 
-potens, fidélis, benígnus, et miséricors.
-In hac spe vívere et mori státuo.
-Amen.
-|=======
-
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
-|*Act of Love*|*Actus caritatis*
-|O Lord God, I love you above all things 
-and I love my neighbor for your sake 
-because you are the highest, infinite and perfect
-good, worthy of all my love. 
-In this love I intend to live and die. 
-Amen.
-
-|Dómine Deus, 
-amo te super ómnia 
-et próximum meum propter te, 
-quia tu es summum, infinítum, 
-et perfectíssimum bonum, 
-omni dilectióne dignum.
-In hac caritáte 
-vívere et mori státuo.
-Amen.
-|=======
-
- 
-
-[width="85%",style="verse",cols='.<, .<',options="header"]
-|=======
-|*Act of Contrition*|*Actus contritionis*
-|O my God, I am heartily sorry for having offended Thee, and I detest all my
-sins because of thy just punishments, but most of all because they offend Thee,
-my God, who art all good and deserving of all my love. I firmly resolve with
-the help of Thy grace to sin no more and to avoid the near occasion of sin.
-Amen.
-
-|Deus meus, ex toto corde pænitet me ómnium meórum peccatórum, éaque detéstor,
-quia peccándo, non solum pœnas a te iuste statútas proméritus sum, sed
-præsértim quia offéndi te, summum bonum, ac dignum qui super ómnia diligáris.
-Ídeo fírmiter propóno, adiuvánte grátia tua, de cétero me non peccatúrum
-peccandíque occasiónes próximas fugitúrum. Amen.
-|=======

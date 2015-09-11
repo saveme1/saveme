@@ -6513,11 +6513,11 @@ object MainForm: TMainForm
     Width = 633
     Panels = <    
       item
-        Width = 560
+        Width = 450
       end    
       item
-        Alignment = taCenter
-        Width = 40
+        Alignment = taRightJustify
+        Width = 60
       end>
     SimplePanel = False
   end
