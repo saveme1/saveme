@@ -1,0 +1,22 @@
+
+Android
+=======
+If I ever do an android port:
+https://stackoverflow.com/questions/4106502/set-android-ip-dns-gateway-setting-programatically :
+You can change system settings programatically.
+
+First you need to request the 'WRITE_SETTINGS' permission in your 'AndroidManifest.xml':
+
+<uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+Then you need to actually change the setting using the following code:
+
+    android.provider.Settings.System.putString(getContentResolver(), android.provider.Settings.System.WIFI_USE_STATIC_IP, "0");
+    android.provider.Settings.System.putString(getContentResolver(), android.provider.Settings.System.WIFI_STATIC_DNS1, "192.168.0.2");
+    android.provider.Settings.System.putString(getContentResolver(), android.provider.Settings.System.WIFI_STATIC_DNS2, "192.168.0.3");
+    android.provider.Settings.System.putString(getContentResolver(), android.provider.Settings.System.WIFI_STATIC_GATEWAY, "192.168.0.1");
+    android.provider.Settings.System.putString(getContentResolver(), android.provider.Settings.System.WIFI_STATIC_NETMASK, "255.255.255.0");
+    android.provider.Settings.System.putString(getContentResolver(), android.provider.Settings.System.WIFI_STATIC_IP, "1");
+The current settings can be accessed via the same method but use 'getString' instead of 'putString'.
+
+For information about the settings option visit the reference here: Settings.System | Android Developers
+
