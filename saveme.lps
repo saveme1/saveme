@@ -4,12 +4,13 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Debug"/>
-    <Units Count="19">
+    <Units Count="20">
       <Unit0>
         <Filename Value="saveme.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="69" Y="10"/>
+        <TopLine Value="5"/>
+        <CursorPos Y="21"/>
         <UsageCount Value="226"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -19,8 +20,8 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <TopLine Value="58"/>
         <CursorPos X="31" Y="93"/>
-        <ComponentState Value="1"/>
         <UsageCount Value="226"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -79,233 +80,229 @@
         <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
+        <Filename Value="update.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="64"/>
+        <CursorPos X="7" Y="80"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
+      </Unit7>
+      <Unit8>
         <Filename Value="commdata.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="63"/>
         <CursorPos X="15" Y="76"/>
         <UsageCount Value="82"/>
-      </Unit7>
-      <Unit8>
+      </Unit8>
+      <Unit9>
         <Filename Value="Z:\usr\lib\lazarus\components\turbopower_ipro\iphtml.pas"/>
         <UnitName Value="IpHtml"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="13616"/>
         <CursorPos Y="13632"/>
         <UsageCount Value="16"/>
-      </Unit8>
-      <Unit9>
+      </Unit9>
+      <Unit10>
         <Filename Value="Z:\usr\lib\fpc\src\packages\fcl-process\src\process.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="116"/>
         <CursorPos X="10" Y="183"/>
         <UsageCount Value="27"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\components\turbopower_ipro\iphtml.pas"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="\\usr\lib\lazarus\components\turbopower_ipro\iphtml.pas"/>
         <UnitName Value="IpHtml"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="14819"/>
         <CursorPos X="26" Y="14839"/>
         <UsageCount Value="2"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\extctrls.pp"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="\\usr\lib\lazarus\lcl\extctrls.pp"/>
         <UnitName Value="ExtCtrls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1180"/>
         <CursorPos X="18" Y="1137"/>
         <UsageCount Value="3"/>
-      </Unit11>
-      <Unit12>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\controls.pp"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="\\usr\lib\lazarus\lcl\controls.pp"/>
         <UnitName Value="Controls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2322"/>
         <CursorPos X="20" Y="2339"/>
         <UsageCount Value="1"/>
-      </Unit12>
-      <Unit13>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\include\control.inc"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="\\usr\lib\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3646"/>
         <CursorPos Y="3657"/>
         <UsageCount Value="2"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\forms.pp"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="\\usr\lib\lazarus\lcl\forms.pp"/>
         <UnitName Value="Forms"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="795"/>
         <CursorPos X="31" Y="804"/>
         <UsageCount Value="3"/>
-      </Unit14>
-      <Unit15>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\lcl\include\customform.inc"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="\\usr\lib\lazarus\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1013"/>
         <CursorPos Y="1024"/>
         <UsageCount Value="38"/>
-      </Unit15>
-      <Unit16>
-        <Filename Value="update.pas"/>
-        <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="73"/>
-        <CursorPos X="58" Y="83"/>
-        <UsageCount Value="28"/>
-        <Loaded Value="True"/>
       </Unit16>
       <Unit17>
-        <Filename Value="..\..\..\..\..\usr\lib\fpc\src\rtl\objpas\sysutils\filutilh.inc"/>
+        <Filename Value="\\usr\lib\fpc\src\rtl\objpas\sysutils\filutilh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="93"/>
         <CursorPos X="10" Y="105"/>
         <UsageCount Value="9"/>
       </Unit17>
       <Unit18>
-        <Filename Value="..\..\..\..\..\usr\lib\lazarus\components\lazutils\fileutil.pas"/>
+        <Filename Value="\\usr\lib\lazarus\components\lazutils\fileutil.pas"/>
         <UnitName Value="FileUtil"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="248"/>
         <CursorPos X="16" Y="263"/>
         <UsageCount Value="14"/>
-        <Loaded Value="True"/>
       </Unit18>
+      <Unit19>
+        <Filename Value="C:\apps\lazarus\fpc\2.6.4\source\packages\gtk2\examples\plugins\main.pas"/>
+        <UnitName Value="plugin_test"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit19>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="update.pas"/>
-        <Caret Line="62" TopLine="48"/>
+        <Caret Line="71" Column="17" TopLine="56"/>
       </Position1>
       <Position2>
         <Filename Value="update.pas"/>
-        <Caret Line="61" TopLine="48"/>
+        <Caret Line="59" TopLine="55"/>
       </Position2>
       <Position3>
         <Filename Value="update.pas"/>
-        <Caret Line="64" TopLine="48"/>
+        <Caret Line="61" TopLine="55"/>
       </Position3>
       <Position4>
         <Filename Value="update.pas"/>
-        <Caret Line="66" TopLine="48"/>
+        <Caret Line="62" TopLine="55"/>
       </Position4>
       <Position5>
         <Filename Value="update.pas"/>
-        <Caret Line="68" TopLine="50"/>
+        <Caret Line="61" TopLine="55"/>
       </Position5>
       <Position6>
         <Filename Value="update.pas"/>
-        <Caret Line="69" TopLine="51"/>
+        <Caret Line="64" TopLine="55"/>
       </Position6>
       <Position7>
         <Filename Value="update.pas"/>
-        <Caret Line="70" TopLine="52"/>
+        <Caret Line="66" TopLine="55"/>
       </Position7>
       <Position8>
         <Filename Value="update.pas"/>
-        <Caret Line="71" Column="17" TopLine="56"/>
+        <Caret Line="69" TopLine="55"/>
       </Position8>
       <Position9>
         <Filename Value="update.pas"/>
-        <Caret Line="59" TopLine="55"/>
+        <Caret Line="70" TopLine="55"/>
       </Position9>
       <Position10>
         <Filename Value="update.pas"/>
-        <Caret Line="61" TopLine="55"/>
+        <Caret Line="71" TopLine="55"/>
       </Position10>
       <Position11>
         <Filename Value="update.pas"/>
-        <Caret Line="62" TopLine="55"/>
+        <Caret Line="74" TopLine="57"/>
       </Position11>
       <Position12>
         <Filename Value="update.pas"/>
-        <Caret Line="61" TopLine="55"/>
+        <Caret Line="75" TopLine="58"/>
       </Position12>
       <Position13>
         <Filename Value="update.pas"/>
-        <Caret Line="64" TopLine="55"/>
+        <Caret Line="76" TopLine="59"/>
       </Position13>
       <Position14>
         <Filename Value="update.pas"/>
-        <Caret Line="66" TopLine="55"/>
+        <Caret Line="77" TopLine="60"/>
       </Position14>
       <Position15>
         <Filename Value="update.pas"/>
-        <Caret Line="69" TopLine="55"/>
+        <Caret Line="78" TopLine="61"/>
       </Position15>
       <Position16>
         <Filename Value="update.pas"/>
-        <Caret Line="70" TopLine="55"/>
+        <Caret Line="81" TopLine="63"/>
       </Position16>
       <Position17>
         <Filename Value="update.pas"/>
-        <Caret Line="71" TopLine="55"/>
+        <Caret Line="88" Column="54" TopLine="72"/>
       </Position17>
       <Position18>
         <Filename Value="update.pas"/>
-        <Caret Line="74" TopLine="57"/>
+        <Caret Line="90" TopLine="74"/>
       </Position18>
       <Position19>
         <Filename Value="update.pas"/>
-        <Caret Line="75" TopLine="58"/>
+        <Caret Line="64" TopLine="53"/>
       </Position19>
       <Position20>
         <Filename Value="update.pas"/>
-        <Caret Line="76" TopLine="59"/>
+        <Caret Line="90" Column="34" TopLine="75"/>
       </Position20>
       <Position21>
         <Filename Value="update.pas"/>
-        <Caret Line="77" TopLine="60"/>
+        <Caret Line="64" TopLine="53"/>
       </Position21>
       <Position22>
         <Filename Value="update.pas"/>
-        <Caret Line="78" TopLine="61"/>
+        <Caret Line="89" Column="27" TopLine="71"/>
       </Position22>
       <Position23>
         <Filename Value="update.pas"/>
-        <Caret Line="81" TopLine="63"/>
+        <Caret Line="85" Column="29" TopLine="72"/>
       </Position23>
       <Position24>
         <Filename Value="update.pas"/>
-        <Caret Line="88" Column="54" TopLine="72"/>
+        <Caret Line="69" Column="12" TopLine="60"/>
       </Position24>
       <Position25>
         <Filename Value="update.pas"/>
-        <Caret Line="90" TopLine="74"/>
+        <Caret Line="71" Column="81" TopLine="63"/>
       </Position25>
       <Position26>
         <Filename Value="update.pas"/>
-        <Caret Line="64" TopLine="53"/>
+        <Caret Line="69" Column="75" TopLine="63"/>
       </Position26>
       <Position27>
         <Filename Value="update.pas"/>
-        <Caret Line="90" Column="34" TopLine="75"/>
+        <Caret Line="71" Column="85" TopLine="63"/>
       </Position27>
       <Position28>
         <Filename Value="update.pas"/>
-        <Caret Line="64" TopLine="53"/>
+        <Caret Line="70" Column="4" TopLine="63"/>
       </Position28>
       <Position29>
-        <Filename Value="update.pas"/>
-        <Caret Line="89" Column="27" TopLine="71"/>
+        <Filename Value="saveme.lpr"/>
+        <Caret Line="10" Column="69"/>
       </Position29>
       <Position30>
-        <Filename Value="update.pas"/>
-        <Caret Line="85" Column="29" TopLine="72"/>
+        <Filename Value="saveme.lpr"/>
+        <Caret Line="21" TopLine="5"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="1">
-      <Item1>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="update.pas"/>
-        <Line Value="65"/>
-      </Item1>
-    </BreakPoints>
     <Watches Count="1">
       <Item1>
         <Expression Value="Sender"/>
