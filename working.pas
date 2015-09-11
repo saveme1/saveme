@@ -103,7 +103,9 @@ end;
 procedure HideWorking();
 begin
   if Assigned(FormWorking) then
+  begin
     FormWorking.Close;
+  end;
 end;
 
 begin

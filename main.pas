@@ -69,9 +69,11 @@ implementation
 ///////////////////  Libs
 ///////////////// Gui
 procedure TMainForm.FormCreate(Sender: TObject);
+var
+  Res: integer;
 begin
   //Get version from executable
-  VERSION:=GetFileVersion();
+  VERSION := GetFileVersion();
 
   //Switch to the config directory as the working dir
   //so that all html relative html links work properly
@@ -92,12 +94,24 @@ begin
 
   //Show protection state and version in the status bar
   UpdateStatusBar();
+
+  //Protect computer if needed
+  if not isProtected() then
+  begin
+    Res := MessageDlg('Your computer is not protected. Click OK to protect it',
+      mtConfirmation, mbOKCancel, 0);
+    if Res = mrOk then
+      SetSafeDNS();
+  end;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
+  //we do this in FormShow to be able to safely call
+  //MainForm.Close if update was succesful
   if FormSettings.CheckBoxAutoUpdate.Checked then
     UpdateIfNeeded();
+  UpdateStatusBar();
 end;
 
 procedure TMainForm.IpHtmlPanelHelpMeHotClick(Sender: TObject);
@@ -108,11 +122,16 @@ begin
 
   if TIpHtmlPanel(Sender).HotNode is TIpHtmlNodeA then
   begin
-    ShowWorking();
-    Application.ProcessMessages;
-    NodeA := TIpHtmlNodeA(TIpHtmlPanel(Sender).HotNode);
-    NewURL := NodeA.HRef;
-    OpenURL(NewURL);
+    Screen.Cursor := crHourGlass;
+    try
+      ShowWorking();
+      Application.ProcessMessages;
+      NodeA := TIpHtmlNodeA(TIpHtmlPanel(Sender).HotNode);
+      NewURL := NodeA.HRef;
+      OpenURL(NewURL);
+    finally
+      Screen.Cursor := crDefault;
+    end;
   end;
 end;
 
@@ -186,7 +205,7 @@ end;
 procedure TMainForm.UpdateStatusBar();
 begin
   StatusBar1.Panels[0].Text := isProtectedStr();
-  StatusBar1.Panels[1].Text := VERSION + '   ';
+  StatusBar1.Panels[1].Text := VERSION + '     ';
 end;
 
 end.

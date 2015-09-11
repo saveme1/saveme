@@ -62,13 +62,12 @@ var
   BakName,OnlineVer: ansistring;
   Res: integer;
 begin
-  //Delete old backup
+  //Old backup name
   Result := False;
   BakName := Format('%s.old', [Application.ExeName]);
-  DeleteFile(PChar(BakName));
 
 
-  //Get online version
+  //Get online version and delete old backup from previous update
   try
     OnlineVer:=  GetFromURL(ONLINE_VER_URL);
   except
@@ -79,6 +78,10 @@ begin
       OnlineVer:=VERSION;
     end;
   end;
+
+  //Deleting it here gives enough time for previous
+  //running executable to close (due to RestartEXE)
+  DeleteFile(PChar(BakName));
 
   if VERSION <> OnlineVer then
   begin
@@ -95,7 +98,7 @@ begin
           //Save new executable in the original name and place
           ShowWorking();
           GetFromURL(ONLINE_EXE_URL, Application.ExeName);
-          {$IFDEF Linux} FpChmod(Application.ExeName,&751); {$ENDIF}
+          {$IFDEF Linux} FpChmod(Application.ExeName, &751 ); {$ENDIF}
           Result := True;
           HideWorking();
           MessageDlg('Update completed.', mtInformation, [mbOK], 0);
