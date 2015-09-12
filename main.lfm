@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 167
+  Left = 172
   Height = 504
-  Top = 99
+  Top = 108
   Width = 633
   ActiveControl = Panel1
   Caption = 'Save me!'
@@ -3550,7 +3550,7 @@ object MainForm: TMainForm
       AnchorSideTop.Control = Panel1
       AnchorSideBottom.Control = BitBtnSettings
       Left = 255
-      Height = 91
+      Height = 92
       Top = 0
       Width = 376
       Anchors = [akTop, akLeft, akBottom]
@@ -6361,10 +6361,10 @@ object MainForm: TMainForm
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Panel1
       AnchorSideBottom.Side = asrBottom
-      Left = 558
-      Height = 27
-      Top = 91
-      Width = 65
+      Left = 549
+      Height = 26
+      Top = 92
+      Width = 74
       Anchors = [akRight, akBottom]
       AutoSize = True
       BorderSpacing.Right = 10
@@ -6377,7 +6377,7 @@ object MainForm: TMainForm
   end
   object PageControl1: TPageControl
     Left = 0
-    Height = 359
+    Height = 353
     Top = 128
     Width = 633
     ActivePage = TabSheet1
@@ -6387,11 +6387,11 @@ object MainForm: TMainForm
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Help me!'
-      ClientHeight = 326
-      ClientWidth = 627
+      ClientHeight = 324
+      ClientWidth = 625
       object TreeView1: TTreeView
         Left = 0
-        Height = 326
+        Height = 324
         Top = 0
         Width = 129
         Align = alLeft
@@ -6417,9 +6417,9 @@ object MainForm: TMainForm
         AnchorSideLeft.Control = TreeView1
         AnchorSideLeft.Side = asrBottom
         Left = 129
-        Height = 326
+        Height = 324
         Top = 0
-        Width = 498
+        Width = 496
         Align = alRight
         Anchors = [akTop, akLeft, akRight, akBottom]
         DataProvider = IpFileDataProvider1
@@ -6508,8 +6508,8 @@ object MainForm: TMainForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 17
-    Top = 487
+    Height = 23
+    Top = 481
     Width = 633
     Panels = <    
       item
@@ -6634,6 +6634,13 @@ object MainForm: TMainForm
     StoredValues = <>
     IniFileName = '/tmp/sme.ini'
     left = 432
-    top = 189
+    top = 176
+  end
+  object TimerAfterShow: TTimer
+    Enabled = False
+    Interval = 333
+    OnTimer = TimerAfterShowTimer
+    left = 432
+    top = 224
   end
 end

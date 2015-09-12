@@ -102,6 +102,7 @@ begin
           Result := True;
           HideWorking();
           MessageDlg('Update completed.', mtInformation, [mbOK], 0);
+          Result:=True;
           RestartExe();
         except
           on E: Exception do

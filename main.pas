@@ -38,6 +38,7 @@ type
     TabSheet1: TTabSheet;
     TabSheet3: TTabSheet;
     TabSheet4: TTabSheet;
+    TimerAfterShow: TTimer;
     TreeView1: TTreeView;
     procedure ActionCopyExecute(Sender: TObject);
     procedure ActionRestoreDNSExecute(Sender: TObject);
@@ -46,6 +47,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure IpHtmlPanelHelpMeHotClick(Sender: TObject);
+    procedure TimerAfterShowTimer(Sender: TObject);
     procedure TreeView1SelectionChanged(Sender: TObject);
     procedure SetFont(const MainFont: TFont);
 
@@ -69,8 +71,6 @@ implementation
 ///////////////////  Libs
 ///////////////// Gui
 procedure TMainForm.FormCreate(Sender: TObject);
-var
-  Res: integer;
 begin
   //Get version from executable
   VERSION := GetFileVersion();
@@ -92,25 +92,13 @@ begin
   TreeView1.Selected := TreeView1.Items.GetFirstNode;
   TreeView1.Selected.MakeVisible;
 
-  //Show protection state and version in the status bar
-  UpdateStatusBar();
-
-  //Protect computer if needed
-  if not isProtected() then
-  begin
-    Res := MessageDlg('Your computer is not protected. Click OK to protect it',
-      mtConfirmation, mbOKCancel, 0);
-    if Res = mrOk then
-      SetSafeDNS();
-  end;
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
+var
+  Res: integer;
 begin
-  //we do this in FormShow to be able to safely call
-  //MainForm.Close if update was succesful
-  if FormSettings.CheckBoxAutoUpdate.Checked then
-    UpdateIfNeeded();
+  TimerAfterShow.Enabled := True;
   UpdateStatusBar();
 end;
 
@@ -133,6 +121,34 @@ begin
       Screen.Cursor := crDefault;
     end;
   end;
+end;
+
+procedure TMainForm.TimerAfterShowTimer(Sender: TObject);
+var
+  Res: integer;
+begin
+  //Timer needs to fire only once after show
+  TimerAfterShow.Enabled := False;
+  //we do this in FormShow to be able to safely call
+  //MainForm.Close if update was succesful
+  if FormSettings.CheckBoxAutoUpdate.Checked then
+    if UpdateIfNeeded() then
+      Exit;
+
+  //Protect computer if needed
+  if not isProtected() then
+  begin
+    Res := MessageDlg('Your computer is not protected. Click OK to protect it.',
+      mtConfirmation, mbOKCancel, 0);
+    if Res = mrOk then
+    begin
+      SetSafeDNS();
+      TimerAfterShow.Enabled := True; //So that UpdateStatusBar gets called later
+    end;
+  end;
+
+  //Show protection state and version in the status bar
+  UpdateStatusBar();
 end;
 
 function TMainForm.GetCurHtmlPanel(): TIpHtmlPanel;

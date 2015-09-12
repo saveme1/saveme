@@ -76,7 +76,7 @@ function GetDNSServers(var DNSServers: TStrings): boolean;
 function GetHostIP(const HostName: ansistring; var s_byte: TIPAddr;
   var Err: string): boolean;
 function isNetworkUp(): boolean;
-
+procedure DeleteNetshFile();
 
 implementation
 
@@ -372,6 +372,10 @@ begin
   end;
 end;
 
+procedure DeleteNetshFile();
+begin
+  DeleteFile(PChar(GetTempDir() + 'netsh.scr'));
+end;
 
 procedure SetDNSServers(const IPAddr: array of string);
 var
@@ -447,7 +451,6 @@ begin
 
     //Run netsh with administrative privileges
     //using the scriptfile
-    try
       Res := RunAsAdmin('netsh', Cmd, OutStr);
       if not Res then
       begin
@@ -456,10 +459,6 @@ begin
           LineEnding;
         ShowMessage(OutStr);
       end;
-    finally
-      DeleteFile(PChar(NetshFile));
-    end;
-
   end;
   {$ENDIF}
 
@@ -517,4 +516,6 @@ end;
 
 {$ENDIF}
 
+finalization
+  DeleteNetshFile();
 end.
