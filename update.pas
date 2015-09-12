@@ -47,19 +47,26 @@ end;
 
 procedure RestartExe();
 var
+  {$IFDEF Windows}
   AppName: PChar;
+  {$ENDIF}
+  {$IFDEF Linux}
   Output: string;
+  {$ENDIF}
 begin
-  Output := '';
+  {$IFDEF Windows}
   AppName := PChar(Application.ExeName);
-  //ShellExecute(MainForm.Handle, 'open', AppName, nil, nil, SW_SHOWNORMAL);
+  ShellExecute(MainForm.Handle, 'open', AppName, nil, nil, SW_SHOWNORMAL);
+  {$ENDIF}
+  {$IFDEF Linux}
+  Output := '';
   RunCmd(Application.ExeName, Output);
-  MainForm.Close;
+  {$ENDIF}
 end;
 
 function UpdateIfNeeded(): boolean;
 var
-  BakName,OnlineVer: ansistring;
+  BakName, OnlineVer: ansistring;
   Res: integer;
 begin
   //Old backup name
@@ -69,13 +76,14 @@ begin
 
   //Get online version and delete old backup from previous update
   try
-    OnlineVer:=  GetFromURL(ONLINE_VER_URL);
+    OnlineVer := GetFromURL(ONLINE_VER_URL);
   except
     on E: Exception do
     begin
-      MessageDlg('Problem accessing online update. Click OK to continue.',mtError,[mbOK],0);
+      MessageDlg('Problem accessing online update. Click OK to continue.',
+        mtError, [mbOK], 0);
       //Assume there is no update
-      OnlineVer:=VERSION;
+      OnlineVer := VERSION;
     end;
   end;
 
@@ -98,12 +106,12 @@ begin
           //Save new executable in the original name and place
           ShowWorking();
           GetFromURL(ONLINE_EXE_URL, Application.ExeName);
-          {$IFDEF Linux} FpChmod(Application.ExeName, &751 ); {$ENDIF}
+          {$IFDEF Linux}
+          FpChmod(Application.ExeName, &751);
+          {$ENDIF}
           Result := True;
           HideWorking();
           MessageDlg('Update completed.', mtInformation, [mbOK], 0);
-          Result:=True;
-          RestartExe();
         except
           on E: Exception do
           begin

@@ -3529,6 +3529,7 @@ object MainForm: TMainForm
   KeyPreview = True
   OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   LCLVersion = '1.4.2.0'
   object Panel1: TPanel

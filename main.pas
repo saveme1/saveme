@@ -45,6 +45,7 @@ type
     procedure BitBtnSettingsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure IpHtmlPanelHelpMeHotClick(Sender: TObject);
     procedure TimerAfterShowTimer(Sender: TObject);
@@ -62,6 +63,7 @@ type
 var
   MainForm: TMainForm;
   VERSION: ansistring;
+  DoRestart: boolean = False;
 
 implementation
 
@@ -92,6 +94,12 @@ begin
   TreeView1.Selected := TreeView1.Items.GetFirstNode;
   TreeView1.Selected.MakeVisible;
 
+end;
+
+procedure TMainForm.FormDestroy(Sender: TObject);
+begin
+  if DoRestart then
+    RestartExe();
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
@@ -130,25 +138,31 @@ begin
   //Timer needs to fire only once after show
   TimerAfterShow.Enabled := False;
   //we do this in FormShow to be able to safely call
-  //MainForm.Close if update was succesful
+  //MainForm.Close if update is needed
   if FormSettings.CheckBoxAutoUpdate.Checked then
     if UpdateIfNeeded() then
-      Exit;
-
-  //Protect computer if needed
-  if not isProtected() then
-  begin
-    Res := MessageDlg('Your computer is not protected. Click OK to protect it.',
-      mtConfirmation, mbOKCancel, 0);
-    if Res = mrOk then
     begin
-      SetSafeDNS();
-      TimerAfterShow.Enabled := True; //So that UpdateStatusBar gets called later
-    end;
-  end;
+      DoRestart := True;
+      Self.Close;
+    end
+    else
+    begin
+      DoRestart := False;
+      //Protect computer if needed
+      if not isProtected() then
+      begin
+        Res := MessageDlg('Your computer is not protected. Click OK to protect it.',
+          mtConfirmation, mbOKCancel, 0);
+        if Res = mrOk then
+        begin
+          SetSafeDNS();
+          TimerAfterShow.Enabled := True; //So that UpdateStatusBar gets called later
+        end;
+      end;
 
-  //Show protection state and version in the status bar
-  UpdateStatusBar();
+      //Show protection state and version in the status bar
+      UpdateStatusBar();
+    end;
 end;
 
 function TMainForm.GetCurHtmlPanel(): TIpHtmlPanel;
