@@ -94,6 +94,10 @@ begin
   TreeView1.Selected := TreeView1.Items.GetFirstNode;
   TreeView1.Selected.MakeVisible;
 
+  //Store original dns servers (needed in windows only)
+  {$IFDEF Windows}
+  StoreOrigDNSServers();
+  {$ENDIF}
 end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);
@@ -103,8 +107,6 @@ begin
 end;
 
 procedure TMainForm.FormShow(Sender: TObject);
-var
-  Res: integer;
 begin
   TimerAfterShow.Enabled := True;
   UpdateStatusBar();

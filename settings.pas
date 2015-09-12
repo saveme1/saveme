@@ -178,6 +178,7 @@ var
   {$IFDEF Windows}
   NetIfList: tNetworkInterfaceList;
   IfInfo: tNetworkInterface;
+  TmpStr: ansistring;
   {$ENDIF}
 
 begin
@@ -192,6 +193,9 @@ begin
   Info := Info + 'DNS Server: ' + DNSServer + LineEnding;
 
   {$IFDEF Windows}
+  StoreOrigDNSServers(TmpStr);
+  Info := Info + 'Orig. DNS Server(s): ' + TmpStr + LineEnding;
+
   //Show windows interfaces
   Info := Info + 'Interface for DNS Srvr: ' + NetInterfaceForDNSServer(DNSServer) +
     LineEnding;

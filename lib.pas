@@ -66,7 +66,14 @@ function WSAIoctl(aSocket: TSocket; aCommand: DWord; lpInBuffer: Pointer;
 function GetNetworkInterfaces(
   var aNetworkInterfaceList: tNetworkInterfaceList): boolean;
 function NetInterfaceForDNSServer(DNSServer: string): string;
- {$ENDIF}
+procedure DeleteNetshFile();
+function SetOrigDNSServers(): boolean;
+function StoreOrigDNSServers():boolean; overload;
+function StoreOrigDNSServers(var CommaText: ansistring):boolean; overload;
+function GetOrigDNSServers(var DNSServers: TStrings): boolean;
+function GetNetshDNSServers(var DNSServers: TStrings): boolean;
+
+{$ENDIF}
 
 
 function RunCmd(const Cmd: string; var Output: string): integer;
@@ -76,7 +83,6 @@ function GetDNSServers(var DNSServers: TStrings): boolean;
 function GetHostIP(const HostName: ansistring; var s_byte: TIPAddr;
   var Err: string): boolean;
 function isNetworkUp(): boolean;
-procedure DeleteNetshFile();
 
 implementation
 
@@ -320,6 +326,104 @@ begin
   end;
 end;
 
+procedure DeleteNetshFile();
+begin
+  DeleteFile(PChar(GetTempDir() + 'netsh.scr'));
+end;
+
+function GetNetshDNSServers(var DNSServers: TStrings): boolean;
+var
+  Expression, Netshout, IFace: ansistring;
+
+begin
+  Result := False;
+  Netshout := '';
+  IFace := NetInterfaceForDNSServer(GetDNSServer());
+  try
+    RunCmd('netsh interface ip show dns', Netshout);
+    Expression := Format('(?si).*"%s".*?DNS\s+Servers.*?:(.*?)Register', [IFace]);
+    if MatchRegex(Expression, Netshout, DNSServers) then
+    begin
+      Expression := '(\d+\.\d+\.\d+\.\d+)';
+      NetshOut := DNSServers[0];
+      DNSServers.Clear;
+      if MatchRegex(Expression, Netshout, DNSServers) then
+        Result := True;
+    end
+    else
+      Result := False;
+  finally
+
+  end;
+end;
+
+function GetOrigDNSServers(var DNSServers: TStrings): boolean;
+var
+  OrigDNSFile: ansistring;
+begin
+  Result := False;
+  OrigDNSFile := GetAppConfigDir(False) + 'original.dns';
+  if FileExists(OrigDNSFile) then
+  begin
+    //Read them from file
+    DNSServers.LoadFromFile(OrigDNSFile);
+    Result:=True;
+  end
+  else
+  begin
+    if GetNetshDNSServers(DNSServers) then
+    begin
+      DNSServers.SaveToFile(OrigDNSFile);
+      Result := True;
+    end;
+  end;
+end;
+
+function StoreOrigDNSServers():boolean;
+var
+  S: ansistring;
+begin
+  StoreOrigDNSServers(S);
+end;
+
+function StoreOrigDNSServers(var CommaText: ansistring):boolean;
+var
+  Servers: TStrings;
+begin
+  Servers := TStringList.Create;
+  try
+    Result := GetOrigDNSServers(Servers);
+    If Result then
+      CommaText:=Servers.CommaText;
+  finally
+    if Assigned(Servers) then
+      FreeAndNil(Servers);
+  end;
+end;
+
+function SetOrigDNSServers(): boolean;
+var
+  DNSServers: TStrings;
+  StrArr: array of string;
+  i: integer;
+begin
+  Result := False;
+  DNSServers := TStringList.Create;
+  try
+    if GetOrigDNSServers(DNSServers) then
+    begin
+      SetLength(StrArr,DNSServers.Count);
+      for i:= 0 to DNSServers.Count-1 do;
+        StrArr[i] := DNSServers[i];
+      SetDNSServers(StrArr);
+      Result := True;
+    end;
+  finally
+    if Assigned(DNSServers) then
+      FreeAndNil(DNSServers);
+  end;
+end;
+
 {$ENDIF}
 
 function ExtractDNSServers(const Text: string; var DNSServers: TStrings): boolean;
@@ -372,10 +476,6 @@ begin
   end;
 end;
 
-procedure DeleteNetshFile();
-begin
-  DeleteFile(PChar(GetTempDir() + 'netsh.scr'));
-end;
 
 procedure SetDNSServers(const IPAddr: array of string);
 var
@@ -383,6 +483,7 @@ var
   i: integer;
   Res: boolean;
   NetshScript: TStringList;
+  OrigServers: TStrings;
   NetshFile: ansistring;
 
   {$IFDEF Windows}
@@ -417,6 +518,7 @@ begin
   OutStr := '';
 
   {$IFDEF Windows}
+  //User added servers
   DNSServer := GetDNSServer();
   IFace := NetInterfaceForDNSServer(DNSServer);
   if IPAddr[0] = 'dhcp' then
@@ -430,35 +532,49 @@ begin
     //to add static dns servers in list
   begin
     NetshScript := TStringList.Create;
+    OrigServers := TStringList.Create;
     try
       NetshFile := GetTempDir() + 'netsh.scr';
-      //Add first server
+
+      //Get Original DNS servers
+      GetOrigDNSServers(OrigServers);
+
+      //Add first user server
       NetshScript.Add(Format('interface ip set dns name="%s" static %s',
         [IFace, IPAddr[0]]));
 
-      //Add other dns servers
+      //Add other user DNS servers
       for i := 1 to Length(IPAddr) - 1 do
       begin
         NetshScript.Add(Format('interface ip add dns name="%s" %s index=%d',
           [IFace, IPAddr[i], i + 1]));
       end;
-      Cmd := Format('-f "%s"',[NetshFile]);
+
+      //Add original DNS Servers
+      for i := 0 to OrigServers.Count - 1 do
+      begin
+        NetshScript.Add(Format('interface ip add dns name="%s" %s index=%d',
+          [IFace, OrigServers[i], 1 + i + Length(IPAddr)]));
+      end;
+      Cmd := Format('-f "%s"', [NetshFile]);
       NetshScript.SaveToFile(NetshFile);
     finally
       if Assigned(NetshScript) then
         FreeAndNil(NetshScript);
+      if Assigned(OrigServers) then
+        FreeAndNil(OrigServers);
     end;
 
     //Run netsh with administrative privileges
     //using the scriptfile
-      Res := RunAsAdmin('netsh', Cmd, OutStr);
-      if not Res then
-      begin
-        OutStr := 'Error protecting computer:' + LineEnding + OutStr +
-          LineEnding + 'You need administrative permissions to perform this action.' +
-          LineEnding;
-        ShowMessage(OutStr);
-      end;
+    Res := RunAsAdmin('netsh', Cmd, OutStr);
+    if not Res then
+    begin
+      OutStr := 'Error protecting computer:' + LineEnding + OutStr +
+        LineEnding + 'You need administrative permissions to perform this action.' +
+        LineEnding;
+      ShowMessage(OutStr);
+    end;
   end;
   {$ENDIF}
 
@@ -517,5 +633,7 @@ end;
 {$ENDIF}
 
 finalization
+  {$IFDEF Windows}
   DeleteNetshFile();
+  {$ENDIF}
 end.

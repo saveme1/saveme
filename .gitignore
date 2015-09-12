@@ -5,9 +5,13 @@ saveme
 saveme.exe
 saveme.dbg
 saveme.ver
+saveme.lps
 html.zip
 html/*/*.html
 HTMLVERSION
 relserver.cfg
 upload.sh
 rel
+link.res
+saveme.res
+ppas.bat
