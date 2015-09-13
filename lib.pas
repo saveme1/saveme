@@ -76,7 +76,7 @@ function GetNetshDNSServers(var DNSServers: TStrings): boolean;
 {$ENDIF}
 
 
-function RunCmd(const Cmd: string; var Output: string): integer;
+function RunCmd(const Cmd: string; var Output: string; const Async: boolean = False): integer;
 function GetDNSServer(): string;
 procedure SetDNSServers(const IPAddr: array of string);
 function GetDNSServers(var DNSServers: TStrings): boolean;
@@ -86,24 +86,33 @@ function isNetworkUp(): boolean;
 
 implementation
 
-function RunCmd(const Cmd: string; var Output: string): integer;
+function RunCmd(const Cmd: string; var Output: string; const Async: boolean = False): integer;
 var
   Out: TStrings;
   AProcess: TProcess;
 begin
+  Result := 0;
   AProcess := TProcess.Create(nil);
   Out := TStringList.Create;
   try
     AProcess.CommandLine := Cmd;
-    AProcess.Options := AProcess.Options + [poWaitOnExit, poUsePipes,
+    if Async then
+      AProcess.Options := AProcess.Options + [poNoConsole]
+    else
+      AProcess.Options := AProcess.Options + [poWaitOnExit, poUsePipes,
       poNoConsole, poStderrToOutPut];
+
     AProcess.Execute;
-    Out.BeginUpdate;
-    Out.Clear;
-    Out.LoadFromStream(AProcess.Output);
-    Out.EndUpdate;
-    Output := Out.Text;
-    Result := AProcess.ExitStatus;
+
+    if not Async then
+    begin
+      Out.BeginUpdate;
+      Out.Clear;
+      Out.LoadFromStream(AProcess.Output);
+      Out.EndUpdate;
+      Output := Out.Text;
+      Result := AProcess.ExitStatus;
+    end
   finally
     if Assigned(AProcess) then
       FreeAndNil(AProcess);

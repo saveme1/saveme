@@ -20,7 +20,7 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MinorVersionNr Value="6"/>
+      <MinorVersionNr Value="7"/>
       <StringTable LegalCopyright="MIT License" ProductName="Save me!" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="3">

@@ -165,6 +165,9 @@ begin
     //If not protected we simply pick the default safe DNS server
     SetSafeDNS();
   FormSettings.Hide;
+  {$IFDEF Linux}
+  MainForm.Restart();
+  {$ENDIF}
 end;
 
 procedure TFormSettings.BitBtnReloadClick(Sender: TObject);

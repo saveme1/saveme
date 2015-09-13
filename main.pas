@@ -51,6 +51,7 @@ type
     procedure TimerAfterShowTimer(Sender: TObject);
     procedure TreeView1SelectionChanged(Sender: TObject);
     procedure SetFont(const MainFont: TFont);
+    procedure Restart();
 
   private
     { private declarations }
@@ -98,6 +99,12 @@ begin
   {$IFDEF Windows}
   StoreOrigDNSServers();
   {$ENDIF}
+end;
+
+procedure TMainForm.Restart();
+begin
+  DoRestart:=True;
+  Self.Close
 end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);
@@ -159,6 +166,10 @@ begin
         begin
           SetSafeDNS();
           TimerAfterShow.Enabled := True; //So that UpdateStatusBar gets called later
+          {$IFDEF Linux}
+          //In Linux we need to restart to recognize DNS change
+          Restart();
+          {$ENDIF}
         end;
       end;
 

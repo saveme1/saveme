@@ -60,7 +60,7 @@ begin
   {$ENDIF}
   {$IFDEF Linux}
   Output := '';
-  RunCmd(Application.ExeName, Output);
+  RunCmd(Application.ExeName, Output, True);
   {$ENDIF}
 end;
 
