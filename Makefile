@@ -30,6 +30,11 @@ clean:
 	rm saveme saveme.exe saveme.ver
 
 rel: rel/saveme rel/saveme.exe rel/saveme.ver
+	if gcc -dumpmachine | grep '64.*linux' > /dev/null; then \
+		mv rel/saveme rel/saveme.linux64; \
+	elif gcc -dumpmachine | grep '386.*linux' > /dev/null; then \
+		mv rel/saveme rel/saveme.linux32; \
+	fi
 
 rel/%: %
 	cp -a "$<" "$@"
