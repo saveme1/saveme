@@ -1,19 +1,25 @@
 ADOCS:=$(shell find html -name '*.adoc')
 SRC= *.pas *.lpi *.lps *.lfm html.zip
 BLDOPTS= -B
+CROSSFPC="/usr/local/lib/fpc/2.6.4/ppcross386"
 #BLDOPTS=
 
 .PHONY: clean rel all
 
 saveme: $(SRC)
 	lazbuild $(BLDOPTS) --bm=Release saveme.lpi
-	#strip saveme saveme.exe
+	cp saveme saveme.linux64
 
 saveme.exe: $(SRC)
 	wine "$$WINEAPPS/lazarus/lazbuild.exe" $(BLDOPTS) --bm=Release saveme.lpi
 
 saveme.ver: saveme
-	./saveme -v 2>/dev/null | tr -d \\n | cat > $@
+	@if [ -z "$$DISPLAY" ]; then \
+		echo "*** ERROR: DISPLAY needs to be set for saveme -v"; \
+		echo ; \
+	else \
+	   ./saveme -v 2>/dev/null | tr -d \\n | cat > $@; \
+	fi
 
 all: saveme saveme.exe saveme.ver
 
@@ -22,8 +28,8 @@ html.zip: $(ADOCS)
 
 #folowing  target not working yet
 saveme.linux32: $(SRC)
-	cd html && make
-	lazbuild $(BLDOPTS) --cpu=i386 --bm=Release saveme.lpi
+	lazbuild $(BLDOPTS) --compiler="$(CROSSFPC)" --cpu=i386 --os=linux --bm=Release saveme.lpi
+	mv saveme saveme.linux32
 
 clean:
 	cd html && make clean
