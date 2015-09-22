@@ -158,7 +158,7 @@ begin
     begin
       DoRestart := False;
       //Protect computer if needed
-      if not isProtected() then
+      if not isProtected() and isNetworkUp() then
       begin
         Res := MessageDlg('Your computer is not protected. Click OK to protect it.',
           mtConfirmation, mbOKCancel, 0);
