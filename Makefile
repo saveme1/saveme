@@ -4,7 +4,7 @@ BLDOPTS= -B
 CROSSFPC="/usr/local/lib/fpc/2.6.4/ppcross386"
 #BLDOPTS=
 
-.PHONY: clean rel all saveme.tag
+.PHONY: clean rel all gittag
 
 saveme: $(SRC)
 	lazbuild $(BLDOPTS) --bm=Release saveme.lpi
@@ -21,8 +21,8 @@ saveme.ver: saveme
 	   ./saveme -v 2>/dev/null | tr -d \\n | cat > $@; \
 	fi
 
-saveme.tag:
-	echo \'`git describe --tags`\' > $@
+gittag:
+	echo \'`git describe --tags`\' > saveme.tag
 
 all: saveme saveme.exe saveme.ver
 
@@ -38,7 +38,7 @@ clean:
 	cd html && make clean
 	rm saveme saveme.exe saveme.ver
 
-rel: rel/saveme rel/saveme.exe rel/saveme.ver
+rel: gittag rel/saveme rel/saveme.exe rel/saveme.ver
 	if gcc -dumpmachine | grep '64.*linux' > /dev/null; then \
 		mv rel/saveme rel/saveme.linux64; \
 	elif gcc -dumpmachine | grep '386.*linux' > /dev/null; then \
