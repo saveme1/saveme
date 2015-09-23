@@ -441,7 +441,7 @@ var
 begin
   {$IFDEF Linux}
   //Regex for "cat /etc/resolv.conf"
-  Expression := 'nameserver\s+(\d+\.\d+\.\d+\.\d+)';
+  Expression := '[^#]\s*nameserver\s+(\d+\.\d+\.\d+\.\d+)';
   {$ENDIF}
   {$IFDEF Windows}
   //Regex for "nslookup www.ibm.com"

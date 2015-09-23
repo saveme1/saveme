@@ -128,7 +128,7 @@ procedure TFormSettings.FormCreate(Sender: TObject);
 begin
   IniPropStorage1.IniFileName := GetAppConfigFile(False, True);
   IniPropStorage1.IniSection := 'settings';
-  MemoInfo.Text:='--Log--';
+  MemoInfo.Text := '--Log--';
   TrayIcon.Hint := isProtectedStr();
 end;
 
@@ -186,37 +186,47 @@ var
 
 begin
   //Exit if we are not to show the log
-  MemoInfo.Visible:=CheckBoxShowLog.Checked;
+  MemoInfo.Visible := CheckBoxShowLog.Checked;
   if not MemoInfo.Showing then
     Exit;
 
-  //Working directory and DNS Server
-  DNSServer := GetDNSServer();
-  Info := 'Working dir: ' + GetCurrentDirUTF8() + LineEnding;
-  Info := Info + 'DNS Server: ' + DNSServer + LineEnding;
+  //Date/Version/Compiler info, working directory and DNS Server
+  try
+    Info := '-- Log --' + LineEnding;
+    Info := Info + {$I %DATE%} +'  ' + {$I %TIME%} +LineEnding;
+    Info := Info + 'Target'#9#9': ' + {$I %FPCTARGETOS%} + ' ' +
+          {$I %FPCTARGETCPU%} + LineEnding;
+    Info := Info + 'Compiler'#9#9': ' + {$I %FPCVERSION%} + LineEnding;
+    Info := Info + 'Working dir'#9': ' + GetCurrentDirUTF8() + LineEnding;
+
+    DNSServer := GetDNSServer();
+    Info := Info + 'DNS Server'#9': ' + DNSServer + LineEnding;
 
   {$IFDEF Windows}
-  StoreOrigDNSServers(TmpStr);
-  Info := Info + 'Orig. DNS Server(s): ' + TmpStr + LineEnding;
+    StoreOrigDNSServers(TmpStr);
+    Info := Info + 'Orig. DNS Server(s): ' + TmpStr + LineEnding;
 
-  //Show windows interfaces
-  Info := Info + 'Interface for DNS Srvr: ' + NetInterfaceForDNSServer(DNSServer) +
-    LineEnding;
+    //Show windows interfaces
+    Info := Info + 'Interface for DNS Srvr: ' + NetInterfaceForDNSServer(DNSServer) +
+      LineEnding;
 
-  // { TODO : Settings memo to show all that info? }
-  Info := Info + '--- Windows Interfaces ---' + LineEnding;
-  GetNetworkInterfaces(NetIfList);
-  for IfInfo in NetIfList do
-  begin
-    Info := Info + 'AddrNet: ' + IfInfo.AddrNet + LineEnding +
-      //'CompName: ' + IfInfo.ComputerName + LineEnding +
-      'AddrIP: ' + IfInfo.AddrIP + LineEnding + 'Up?: ' +
-      BoolToStr(IfInfo.IsInterfaceUp, True) + LineEnding + 'Loopback?: ' +
-      BoolToStr(IfInfo.IsLoopback, True) + LineEnding + LineEnding;
-  end;
+    // { TODO : Settings memo to show all that info? }
+    Info := Info + '--- Windows Interfaces ---' + LineEnding;
+    GetNetworkInterfaces(NetIfList);
+    for IfInfo in NetIfList do
+    begin
+      Info := Info + 'AddrNet: ' + IfInfo.AddrNet + LineEnding +
+        //'CompName: ' + IfInfo.ComputerName + LineEnding +
+        'AddrIP: ' + IfInfo.AddrIP + LineEnding + 'Up?: ' +
+        BoolToStr(IfInfo.IsInterfaceUp, True) + LineEnding + 'Loopback?: ' +
+        BoolToStr(IfInfo.IsLoopback, True) + LineEnding + LineEnding;
+    end;
   {$ENDIF}
 
-  MemoInfo.Text := Info;
+  finally
+    MemoInfo.Text := Info;
+  end;
+
 end;
 
 procedure TFormSettings.FormShow(Sender: TObject);

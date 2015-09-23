@@ -18,9 +18,9 @@ object FormSettings: TFormSettings
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Owner
     Left = 1
-    Height = 114
+    Height = 118
     Hint = 'Information'
-    Top = 77
+    Top = 73
     Width = 434
     Align = alClient
     Anchors = [akTop, akLeft, akRight]
@@ -47,7 +47,7 @@ object FormSettings: TFormSettings
       Left = 10
       Height = 30
       Top = 10
-      Width = 86
+      Width = 74
       Align = alLeft
       AutoSize = True
       BorderSpacing.Left = 10
@@ -94,10 +94,10 @@ object FormSettings: TFormSettings
       TabOrder = 0
     end
     object BitBtnOK: TBitBtn
-      Left = 265
+      Left = 291
       Height = 30
       Top = 10
-      Width = 65
+      Width = 50
       Align = alRight
       AutoSize = True
       BorderSpacing.Top = 10
@@ -146,10 +146,10 @@ object FormSettings: TFormSettings
     object BitBtnCancel: TBitBtn
       AnchorSideLeft.Side = asrBottom
       AnchorSideRight.Control = Panel1
-      Left = 340
+      Left = 351
       Height = 30
       Top = 10
-      Width = 86
+      Width = 75
       Align = alRight
       AutoSize = True
       BorderSpacing.Left = 10
@@ -199,7 +199,7 @@ object FormSettings: TFormSettings
   end
   object GroupBox1: TGroupBox
     Left = 1
-    Height = 76
+    Height = 72
     Top = 0
     Width = 434
     Align = alTop
@@ -217,9 +217,9 @@ object FormSettings: TFormSettings
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Side = asrCenter
       Left = 10
-      Height = 25
+      Height = 26
       Top = 0
-      Width = 93
+      Width = 88
       AutoSize = True
       BorderSpacing.Left = 10
       Caption = 'Choose font'
@@ -241,9 +241,9 @@ object FormSettings: TFormSettings
     end
     object CheckBoxShowTrayIcon: TCheckBox
       Left = 116
-      Height = 20
+      Height = 22
       Top = 0
-      Width = 114
+      Width = 116
       Caption = 'Show tray icon  '
       Checked = True
       OnChange = CheckBoxShowTrayIconChange
@@ -255,9 +255,9 @@ object FormSettings: TFormSettings
       AnchorSideTop.Control = CheckBoxShowTrayIcon
       AnchorSideTop.Side = asrBottom
       Left = 116
-      Height = 20
-      Top = 20
-      Width = 99
+      Height = 22
+      Top = 22
+      Width = 102
       Caption = 'Run on start  '
       OnChange = CheckBoxRunOnStartupOnChange
       TabOrder = 3
@@ -266,10 +266,10 @@ object FormSettings: TFormSettings
       AnchorSideLeft.Control = CheckBoxShowTrayIcon
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = GroupBox1
-      Left = 230
-      Height = 20
+      Left = 232
+      Height = 22
       Top = 0
-      Width = 81
+      Width = 84
       Caption = 'Show log  '
       OnChange = CheckBoxShowLogChange
       TabOrder = 4
@@ -278,10 +278,10 @@ object FormSettings: TFormSettings
       AnchorSideLeft.Control = CheckBoxShowTrayIcon
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = CheckBoxRunOnStartup
-      Left = 230
-      Height = 20
-      Top = 20
-      Width = 102
+      Left = 232
+      Height = 22
+      Top = 22
+      Width = 104
       Caption = 'Auto update   '
       Checked = True
       OnChange = CheckBoxShowLogChange

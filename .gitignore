@@ -6,6 +6,7 @@ saveme.exe
 saveme.dbg
 saveme.ver
 saveme.lps
+saveme.linux64
 html.zip
 html/*/*.html
 HTMLVERSION
