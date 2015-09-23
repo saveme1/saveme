@@ -176,6 +176,8 @@ begin
 end;
 
 procedure TFormSettings.UpdateMemo();
+const
+  GIT_VERSION = {$I saveme.tag} ;
 var
   Info, DNSServer: ansistring;
   {$IFDEF Windows}
@@ -194,6 +196,7 @@ begin
   try
     Info := '-- Log --' + LineEnding;
     Info := Info + {$I %DATE%} +'  ' + {$I %TIME%} +LineEnding;
+    Info := Info + 'Version'#9#9': ' + GIT_VERSION + LineEnding;
     Info := Info + 'Target'#9#9': ' + {$I %FPCTARGETOS%} + ' ' +
           {$I %FPCTARGETCPU%} + LineEnding;
     Info := Info + 'Compiler'#9#9': ' + {$I %FPCVERSION%} + LineEnding;

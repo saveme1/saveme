@@ -1,10 +1,10 @@
 ADOCS:=$(shell find html -name '*.adoc')
-SRC= *.pas *.lpi *.lps *.lfm html.zip
+SRC= *.pas *.lpi *.lps *.lfm html.zip saveme.tag
 BLDOPTS= -B
 CROSSFPC="/usr/local/lib/fpc/2.6.4/ppcross386"
 #BLDOPTS=
 
-.PHONY: clean rel all
+.PHONY: clean rel all saveme.tag
 
 saveme: $(SRC)
 	lazbuild $(BLDOPTS) --bm=Release saveme.lpi
@@ -20,6 +20,9 @@ saveme.ver: saveme
 	else \
 	   ./saveme -v 2>/dev/null | tr -d \\n | cat > $@; \
 	fi
+
+saveme.tag:
+	echo \'`git describe --tags`\' > $@
 
 all: saveme saveme.exe saveme.ver
 
