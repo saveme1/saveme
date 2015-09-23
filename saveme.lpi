@@ -21,7 +21,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="7"/>
-      <RevisionNr Value="4"/>
+      <RevisionNr Value="6"/>
       <StringTable LegalCopyright="MIT License" ProductName="Save me!" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="3">
