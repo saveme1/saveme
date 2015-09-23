@@ -176,8 +176,7 @@ begin
 end;
 
 procedure TFormSettings.UpdateMemo();
-const
-  GIT_VERSION = {$I saveme.tag} ;
+
 var
   Info, DNSServer: ansistring;
   {$IFDEF Windows}

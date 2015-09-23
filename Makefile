@@ -21,6 +21,8 @@ saveme.ver: saveme
 	   ./saveme -v 2>/dev/null | tr -d \\n | cat > $@; \
 	fi
 
+saveme.tag: gittag
+
 gittag:
 	echo \'`git describe --tags`\' > saveme.tag
 

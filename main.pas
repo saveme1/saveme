@@ -61,6 +61,9 @@ type
     { public declarations }
   end;
 
+const
+  GIT_VERSION = {$I saveme.tag} ;
+
 var
   MainForm: TMainForm;
   VERSION: ansistring;
@@ -248,7 +251,7 @@ end;
 procedure TMainForm.UpdateStatusBar();
 begin
   StatusBar1.Panels[0].Text := isProtectedStr();
-  StatusBar1.Panels[1].Text := VERSION + '     ';
+  StatusBar1.Panels[1].Text := GIT_VERSION + '     ';
 end;
 
 end.
